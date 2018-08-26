@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-12 ">
+                <table class="header-table">
+                    <tr>
+                        <td>
+                            <img src="img/red-hat-logo.png" alt="Red Hat, Inc."/>
+                        </td>
+                        <td class="align-middle">
+                            <h1>Here we go.</h1>
+                            <p>Congratulations; we've together built a working 
+                            system of application code and services running atop the 
+                            OpenShift platform.  From here you should have everything you 
+                            need to bring your ideas to life.</p>
+
+                            <p>Let's explore what's available.</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="row row-buffer">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header capability-header bg-redhat text-white">
+                        <i class="fas fa-cloud"></i> Cloud Deployment
+                    </div>
+                    <div class="card-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="media">
+                                    <img src="img/openshift.png" alt="OpenShift" />
+                                    <div class="media-body">
+                                        This system is deployed on the OpenShift Cloud Platform, a 
+                                        Kubernetes distribution which builds and runs the applications and services
+                                        we've created.
+                                        <table class="table">
+                                            <tr>
+                                                <th scope="row">Application URL</th>
+                                                <td>
+                                                    <a href="#" target="_blank">https://youropenshiftcluster.com/application</a>
+                                                    <p class="small">
+                                                        The link to this application running live on OpenShift
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">OpenShift Console URL</th>
+                                                <td>
+                                                    <a href="#" target="_blank">https://youropenshiftcluster.com/console/namespace</a>
+                                                    <p class="small">
+                                                        Link to manage the OpenShift instance where this application is deployed.
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Applications Created</th>
+                                                <td>
+                                                    <p class="small">Here you may directly manage the applications and services created.  These links will take you to an operations view of the containers running on OpenShift.</p>
+                                                    <div class="btn-group-vertical" role="group">
+                                                        <button class="btn btn-sm btn-success">Runtime Application - Eclipse Vert.x <img src="img/vertx.jpg" height="20" width="20"/></button>
+                                                        <button class="btn btn-sm btn-success">Database <i class="fas fa-database"></i></button> 
+                                                        <button class="btn btn-sm btn-success">Message Broker <i class="fas fa-envelope-open"></i></button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-buffer">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header capability-header bg-redhat text-white">
+                        <i class="fas fa-code"></i> Codebase
+                    </div>
+                    <div class="card-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="media">
+                                    <img src="img/vertx.jpg" alt="Eclipse Vert.x" />
+                                    <div class="media-body">
+                                        <h3>Java - Eclipse Vert.x</h3>
+                                        <p>Eclipse Vert.x is a tool-kit for building reactive applications on the JVM.</p>
+                                        <p>Your codebase has been customized for you to hook into the services selected during generation.  All capabilities are functional end-to-end for you to explore.</p>
+                                        <table class="table">
+                                            <tr>
+                                                <th scope="row">Version</th>
+                                                <td>Vert.x RHOAR 1.0.0</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row text-wowrap"><i class="fab fa-git"></i> Git URL</th>
+                                                <td>
+                                                   <p class="text-monospace">git://someone@github.com/whatever/somewhere
+                                                   <button class="btn btn-success" data-toggle="tooltip" title="Copy Git URL"><i class="fas fa-clipboard"></i></button></p>
+                                                   <p class="small">Pushes to the master branch of this repository will trigger a build and deployment of the updated codebase.</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row text-nowrap"><i class="fab fa-github"></i> GitHub URL</th>
+                                                <td class="text-monospace">
+                                                    <a href="https://github.com/redhat-developer" target="_blank">https://github.com/redhat-developer<i class="fas fa-external-link-square-alt"></i></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" nowrap><i class="fab fa-github"></i> GitHub Webhooks</th>
+                                                <td class="text-monospace">
+                                                    <a href="https://github.com/" target="_blank">https://github.com/redhat-developer/somerepo/settings/hooks<i class="fas fa-external-link-square-alt"></i></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Base Image</th>
+                                                <td>
+                                                    <p class="text-monospace">rht/java-s2i</p>
+                                                    <p class="small">The base image used when containerizing this codebase to run on OpenShift</p>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-buffer">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header capability-header bg-redhat text-white">
+                        <i class="fas fa-briefcase-medical"></i> Health Checks
+                    </div>
+                    <div class="card-body">
+                        <p>
+                            Health checks are HTTP endpoints that the codebase exposes 
+                            for the purpose of monitoring.  OpenShift will periodically hit these 
+                            to determine that the container is functioning properly.  If not, it may kill
+                            and/or restart the pod to maintain the targeted number of instances configured to be running.
+                        </p>
+                        <table class="table">
+                            <tr>
+                                <th>Liveness</th>
+                                <td>
+                                    <span class="text-monospace">GET /api/health/liveness</span> on port <span class="text-monospace">8080</span> (HTTP)
+                                </td>
+                                <td class="align-top">
+                                    <button class="btn btn-sm btn-success align-top">Run <i class="fas fa-play"></i></button>
+                                    <textarea class="text-monospace small bg-dark text-white" rows="4" cols="30">{"checks":[{"id":"server-online","status":"UP"}],"outcome":"UP"}</textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Readiness</th>
+                                <td>
+                                    <span class="text-monospace">GET /api/health/readiness</span> on port <span class="text-monospace">8080</span> (HTTP)
+                                </td>
+                                <td class="align-top">
+                                    <button class="btn btn-sm btn-success align-top">Run <i class="fas fa-play"></i></button>
+                                    <textarea class="text-monospace small bg-dark text-white" rows="4" cols="30">OK</textarea>
+                                </td>
+                            </tr>
+                        </table>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-buffer">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header capability-header bg-redhat text-white">
+                        <i class="fas fa-plug"></i> API Endpoints
+                    </div>
+                    <div class="card-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <div class="media">
+                                            <div class="btn-group-vertical">
+                                            <button class="text-white bg-success badge">GET</button>
+                                            <button class=" bg-warning badge">POST</button>
+                                            </div>
+                                            <div class="media-body order-first">
+                                                /api/hello
+                                            </div>
+                                        </div>
+                                        <div class="media">
+                                            <div class="btn-group-vertical">
+                                            <button class="text-white bg-success badge">GET</button>
+                                            <button class=" bg-warning badge">POST</button>
+                                            </div>
+                                            <div class="media-body order-first">
+                                                /api/goodbye
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-buffer">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header capability-header bg-redhat text-white">
+                            <i class="fas fa-database"></i> Relational Databases
+                    </div>
+                    <div class="card-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <div class="media">
+                                            <div class="btn-group-vertical">
+                                            <button class="text-white bg-success badge">GET</button>
+                                            <button class="bg-warning badge">POST</button>
+                                            <button class="text-white bg-info badge">PUT</button>
+                                            <button class="text-white bg-danger badge">DELETE</button>
+                                            </div>
+                                            <div class="media-body order-first">
+                                                /data/people
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-buffer">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header capability-header bg-redhat text-white">
+                        <i class="fas fa-envelope-open"></i> Messaging
+                    </div>
+                    <div class="card-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <div class="media">
+                                            <div class="btn-group-vertical">
+                                            <button class="text-white bg-success badge">GET</button>
+                                            <button class="text-white bg-warning badge">POST</button>
+                                            <button class="text-white bg-info badge">PUT</button>
+                                            <button class="text-white bg-danger badge">DELETE</button>
+                                            </div>
+                                            <div class="media-body order-first">
+                                                /data/people
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+
+</body>
+</html>
