@@ -118,7 +118,29 @@
                                         <td>
                                             <p class="text-monospace">git://someone@github.com/whatever/somewhere
                                             <button class="btn btn-success" data-toggle="tooltip" title="Copy Git URL"><i class="fas fa-clipboard"></i></button></p>
-                                            <p class="small">Pushes to the master branch of this repository will trigger a build and deployment of the updated codebase.</p>
+                                            <p class="small">Pushes to the master branch of this repository will trigger a build and deployment of the updated codebase on OpenShift.</p>
+                                            <p class="small">
+                                                You may use the <span class="text-monospace">git</span> command-line 
+                                                client (or other preferred tooling) to clone this repository locally.
+                                                <textarea class="text-monospace bg-dark text-white" disabled rows="1" cols="70">&nbsp;&nbsp;shell$> git clone git://someone@github.com/whatever/somewhere</textarea>
+                                            </p>
+                                            <p class="small">
+                                                Instructions to build and run this codebase locally may be found in the source's
+                                                <span class="text-monospace">README.asciidoc</span>. 
+                                            </p>
+                                            <html>
+                                            <head>
+                                                <meta charset="utf-8" />
+                                                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                                                <title>Page Title</title>
+                                                <meta name="viewport" content="width=device-width, initial-scale=1">
+                                                <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+                                                <script src="main.js"></script>
+                                            </head>
+                                            <body>
+                                                
+                                            </body>
+                                            </html></p>
                                         </td>
                                     </tr>
                                     <tr>
@@ -179,18 +201,18 @@
                                     <span class="text-monospace">GET /api/health/liveness</span>
                                 </td>
                                 <td class="align-top">
-                                    <div class="btn-group-vertical align-top">
+                                    <div class="btn-group-vertical btn-group-sm align-top" role="group">
                                         <button 
                                             id="hcLivenessExecuteButton"
-                                            class="btn btn-sm btn-success align-top"
+                                            class="btn btn-success align-top"
                                             >Execute <i class="fas fa-play"></i></button>
                                         <button 
                                             id="hcLivenessClearButton"
-                                            class="btn btn-sm btn-danger align-top"
+                                            class="btn btn-danger align-top"
                                             >Clear <i class="fas fa-stop"></i></button>
                                         <a href="#" 
                                             target="_blank" 
-                                            class="btn btn-sm btn-info"
+                                            class="btn btn-info"
                                             data-toggle="tooltip"
                                             title="View Source on GitHub"
                                             ><i class="fab fa-github"></i> Open</a>
@@ -214,18 +236,18 @@
                                     <span class="text-monospace">GET /api/health/readiness</span>
                                 </td>
                                 <td class="align-top">
-                                    <div class="btn-group-vertical align-top">
+                                    <div class="btn-group-sm btn-group-vertical align-top" role="group">
                                         <button 
                                             id="hcReadinessExecuteButton"
-                                            class="btn btn-sm btn-success align-top"
+                                            class="btn btn-success align-top"
                                             >Execute <i class="fas fa-play"></i></button>
                                         <button 
                                             id="hcReadinessClearButton"
-                                            class="btn btn-sm btn-danger align-top"
+                                            class="btn btn-danger align-top"
                                             >Clear <i class="fas fa-stop"></i></button>
                                         <a href="#" 
                                             target="_blank" 
-                                            class="btn btn-sm btn-info"
+                                            class="btn btn-info"
                                             data-toggle="tooltip"
                                             title="View Source on GitHub"
                                             ><i class="fab fa-github"></i> Open</a>
@@ -346,39 +368,183 @@
                         <i class="fas fa-envelope-open"></i> Messaging
                     </div>
                     <div class="card-body">
-                        <div class="container">
+                        <div class="container-fluid">
                             <div class="row">
                                 <div class="media">
                                     <img class="mr-4 mb-3" src="img/amq.png" alt="Red Hat AMQ" />
                                     <div class="media-body p-0">
                                         <p>
                                             AMQ provides fast, lightweight, and secure messaging for Internet-scale 
-                                            applications. AMQ components use industry-standard message protocols and 
-                                            support a wide range of programming languages and operating environments.
+                                            applications.  <a class="small" 
+                                            href="https://developers.redhat.com/products/amq/overview/" 
+                                            target="_blank">Learn more at developers.redhat.com 
+                                            <i class="fas fa-external-link-square-alt"></i></a>.
                                         </p>
-                                        <p class="small"><a href="https://developers.redhat.com/products/amq/overview/" target="_blank">Learn more at developers.redhat.com <i class="fas fa-external-link-square-alt"></i></a>.</p>
+                                        <p>
+                                            This application contains the following messaging destinations.  For your 
+                                            convenince, we have provided mechanisms to both publish and listen to them, 
+                                            so you're all hooked up.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="media">
-                                    <div class="media-body">
-                                        <div class="media">
-                                            <div class="btn-group-vertical">
-                                            <button class="text-white bg-success badge">GET</button>
-                                            <button class="text-white bg-warning badge">POST</button>
-                                            <button class="text-white bg-info badge">PUT</button>
-                                            <button class="text-white bg-danger badge">DELETE</button>
-                                            </div>
-                                            <div class="media-body order-first">
-                                                /data/people
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="col-12">
+                                    <table class="table table-fix-hack">
+                                        <tr>
+                                            <th width="20%">Broker</th>
+                                            <td width="80%">Placeholder</td>
+                                        </tr>
+                                        <tr>
+                                            <th width="20%">Topics</th>
+                                            <td width="80%">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-12 p-0 mb-3">
+                                                            <i>Topics</i> implement the publish/subscribe model of messaging.  Many
+                                                            listeners may be subscribed to a topic at once, and all may receive
+                                                            the message.  This is a pattern well-suited to the broadcast of information.
+                                                            If a listener is unsubscribed at the time a message is sent to the topic, it
+                                                            will not receive that particular message.
+                                                            <p class="small"><a href="#" target="_blank">Learn 
+                                                                more <i class="fas fa-external-link-square-alt"></i></a> about topics.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="p-0 col-md-3 col-12 text-monospace">/newsAlerts</div>
+                                                        <div class="p-0 col-md-9 col-12">
+                                                            <div class="container">
+                                                                <div class="row">
+                                                                    <div class="p-0 col-12">
+                                                                        <div class="input-group">
+                                                                            <input type="text" 
+                                                                                class="form-control form-control-sm"
+                                                                                id="messageTopic1Input"/>
+                                                                            <div class="input-group-append">
+                                                                                <button
+                                                                                    id="messageTopic1ExecuteButton"
+                                                                                    class="btn btn-sm btn-success align-top"
+                                                                                    >Publish <i class="fas fa-play"></i></button>
+                                                                                <a href="#" 
+                                                                                    target="_blank" 
+                                                                                    class="btn btn-sm btn-info"
+                                                                                    data-toggle="tooltip"
+                                                                                    title="View publisher code on GitHub"
+                                                                                    ><i class="fab fa-github"></i> Open</a>
+                                                                            </div>
+                                                                        </div>
+                                                                        <p class="small">
+                                                                            The source for this publisher may be found in your codebase 
+                                                                            at <span class="text-monospace">src/main/java/io/openshift/booster/messaging/publisher/NewsAlertPublisher.java</span>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-12 p-0">
+                                                                        <div class="input-group">
+                                                                            <textarea id="messageTopic1Listener" 
+                                                                                class="text-monospace small bg-dark text-white full-width"
+                                                                                rows="5"
+                                                                                disabled
+                                                                                ></textarea>
+                                                                            <div class="input-group-append">
+                                                                                <a href="#" 
+                                                                                    target="_blank" 
+                                                                                    class="btn btn-sm btn-info"
+                                                                                    data-toggle="tooltip"
+                                                                                    title="View listener code on GitHub"
+                                                                                    ><i class="fab fa-github"></i> Open</a>
+                                                                                </div>
+                                                                            </div>
+                                                                            <p class="small">
+                                                                                The source for this listener may be found in your codebase 
+                                                                                at <span class="text-monospace">src/main/java/io/openshift/booster/messaging/listener/NewsAlertListener.java</span>
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th width="20%">Queues</th>
+                                            <td width="80%">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-12 p-0 mb-3">
+                                                            <i>Queues</i> define a point-to-point messaging model.  There may be many listeners
+                                                            upon a queue, but a message will only be processed by one of them.  Messages
+                                                            remain on the queue until processed.
+                                                            <p class="small"><a href="#" target="_blank">Learn 
+                                                                more <i class="fas fa-external-link-square-alt"></i></a> about queues.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="p-0 col-md-3 col-12 text-monospace">/workOrder</div>
+                                                        <div class="p-0 col-md-9 col-12">
+                                                            <div class="container">
+                                                                <div class="row">
+                                                                    <div class="p-0 col-12">
+                                                                        <div class="input-group">
+                                                                            <input type="text" 
+                                                                                class="form-control form-control-sm"
+                                                                                id="messageQueue1Input"/>
+                                                                            <div class="input-group-append">
+                                                                                <button
+                                                                                    id="messageQueue1ExecuteButton"
+                                                                                    class="btn btn-sm btn-success align-top"
+                                                                                    >Enqueue <i class="fas fa-play"></i></button>
+                                                                                <a href="#" 
+                                                                                    target="_blank" 
+                                                                                    class="btn btn-sm btn-info"
+                                                                                    data-toggle="tooltip"
+                                                                                    title="View publisher code on GitHub"
+                                                                                    ><i class="fab fa-github"></i> Open</a>
+                                                                            </div>
+                                                                        </div>
+                                                                        <p class="small">
+                                                                            The source for this publisher may be found in your codebase 
+                                                                            at <span class="text-monospace">src/main/java/io/openshift/booster/messaging/publisher/WorkOrderPublisher.java</span>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-12 p-0">
+                                                                        <div class="input-group">
+                                                                            <textarea id="messageQueue1Listener" 
+                                                                                class="text-monospace small bg-dark text-white full-width"
+                                                                                rows="5"
+                                                                                disabled
+                                                                                ></textarea>
+                                                                            <div class="input-group-append">
+                                                                                <a href="#" 
+                                                                                    target="_blank" 
+                                                                                    class="btn btn-sm btn-info"
+                                                                                    data-toggle="tooltip"
+                                                                                    title="View listener code on GitHub"
+                                                                                    ><i class="fab fa-github"></i> Open</a>
+                                                                                </div>
+                                                                            </div>
+                                                                            <p class="small">
+                                                                                The source for this listener may be found in your codebase 
+                                                                                at <span class="text-monospace">src/main/java/io/openshift/booster/messaging/listener/WorkOrderListener.java</span>
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </div>
                             </div>
                         </div>
-                        
                     </div>
                 </div>
             </div>

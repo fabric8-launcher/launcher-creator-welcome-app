@@ -41,9 +41,26 @@ function formatResponseForConsole(serverResponse){
   return displayTime + ": " + serverResponse + "\n";
 }
 
+function sendMessageToTopic1() {
+  sendMessage("#messageTopic1Listener",'#messageTopic1Input');
+}
+
+function sendMessageToQueue1() {
+  sendMessage("#messageQueue1Listener",'#messageQueue1Input');
+}
+
+function sendMessage(listener, inputControl) {
+  var input = $(inputControl).val();
+  prependObjectContents(listener, formatResponseForConsole(input));
+  $(inputControl).val("");
+}
+
 function initButtons(){
   $('#hcLivenessExecuteButton').click(prependHcLivenessResponseToConsole);
   $('#hcLivenessClearButton').click(clearHcLivenessConsole);
   $('#hcReadinessExecuteButton').click(prependHcReadinessResponseToConsole);
   $('#hcReadinessClearButton').click(clearHcReadinessConsole);
+  $('#messageTopic1ExecuteButton').click(sendMessageToTopic1);
+  $('#messageQueue1ExecuteButton').click(sendMessageToQueue1);
 }
+
