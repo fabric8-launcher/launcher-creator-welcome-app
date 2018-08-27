@@ -73,7 +73,6 @@
                                     <tr>
                                         <th scope="row">Capabilities Created</th>
                                         <td>
-                                            <p class="small">Let's explore what this system contains.</p>
                                             <div class="btn-group-vertical" role="group">
                                                 <a href="#codebase" class="btn btn-sm btn-info"><i class="fas fa-code"></i> Runtime Application - Eclipse Vert.x <img src="img/vertx.jpg" height="20" width="20"/></a>
                                                 <a href="#healthchecks" class="btn btn-sm btn-info"><i class="fas fa-briefcase-medical"></i> Health Checks</a>
@@ -124,7 +123,18 @@
                                             <p class="small">
                                                 You may use the <span class="text-monospace">git</span> command-line 
                                                 client (or other preferred tooling) to clone this repository locally.
-                                                <textarea class="text-monospace bg-dark text-white" disabled rows="1" cols="70">&nbsp;&nbsp;shell$> git clone git://someone@github.com/whatever/somewhere</textarea>
+                                                <div class="input-group input-group-sm small">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text text-monospace small font-weight-bold">shell$></span>
+                                                    </div>
+                                                    <input type="text" 
+                                                        class="form-control text-monospace bg-dark text-white" 
+                                                        disabled
+                                                        value="git clone git://someone@github.com/whatever/somewhere">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-success" data-toggle="tooltip" title="Copy shell command"><i class="fas fa-clipboard"></i></button>
+                                                    </div>
+                                                </div>
                                             </p>
                                             <p class="small">
                                                 Instructions to build and run this codebase locally may be found in the source's
