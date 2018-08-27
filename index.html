@@ -71,13 +71,15 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Applications Created</th>
+                                        <th scope="row">Capabilities Created</th>
                                         <td>
-                                            <p class="small">Here you may directly manage the applications and services created.  These links will take you to an operations view of the containers running on OpenShift.</p>
+                                            <p class="small">Let's take a deeper look at what's been created for you.</p>
                                             <div class="btn-group-vertical" role="group">
-                                                <button class="btn btn-sm btn-success">Runtime Application - Eclipse Vert.x <img src="img/vertx.jpg" height="20" width="20"/></button>
-                                                <button class="btn btn-sm btn-success">Database <i class="fas fa-database"></i></button> 
-                                                <button class="btn btn-sm btn-success">Message Broker <i class="fas fa-envelope-open"></i></button>
+                                                <a href="#codebase" class="btn btn-sm btn-info"><i class="fas fa-code"></i> Runtime Application - Eclipse Vert.x <img src="img/vertx.jpg" height="20" width="20"/></a>
+                                                <a href="#healthchecks" class="btn btn-sm btn-info"><i class="fas fa-briefcase-medical"></i> Health Checks</a>
+                                                <a href="#endpoints" class="btn btn-sm btn-info"><i class="fas fa-plug"></i> API Endpoints</a>
+                                                <a href="#database" class="btn btn-sm btn-info"><i class="fas fa-database"> </i> Database - PostgreSQL </i></a> 
+                                                <a href="#messaging" class="btn btn-sm btn-info"><i class="fas fa-envelope-open"> </i> Message Broker - Red Hat AMQ </i></a>
                                             </div>
                                         </td>
                                     </tr>
@@ -91,6 +93,7 @@
 
         <div class="row row-buffer">
             <div class="col-12">
+                <a name="codebase"></a>
                 <div class="card">
                     <div class="card-header capability-header bg-redhat text-white">
                         <i class="fas fa-code"></i> Codebase
@@ -118,7 +121,6 @@
                                         <td>
                                             <p class="text-monospace">git://someone@github.com/whatever/somewhere
                                             <button class="btn btn-success" data-toggle="tooltip" title="Copy Git URL"><i class="fas fa-clipboard"></i></button></p>
-                                            <p class="small">Pushes to the master branch of this repository will trigger a build and deployment of the updated codebase on OpenShift.</p>
                                             <p class="small">
                                                 You may use the <span class="text-monospace">git</span> command-line 
                                                 client (or other preferred tooling) to clone this repository locally.
@@ -151,8 +153,9 @@
                                     </tr>
                                     <tr>
                                         <th scope="row" nowrap><i class="fab fa-github"></i> GitHub Webhooks</th>
-                                        <td class="text-monospace">
-                                            <a href="https://github.com/" target="_blank">https://github.com/redhat-developer/somerepo/settings/hooks <i class="fas fa-external-link-square-alt"></i></a>
+                                        <td>
+                                            <a class="text-monospace" href="https://github.com/" target="_blank">https://github.com/redhat-developer/somerepo/settings/hooks <i class="fas fa-external-link-square-alt"></i></a>
+                                            <p class="small">Pushes to the master branch of this repository will trigger a build and deployment of the updated codebase on OpenShift.</p>
                                         </td>
                                     </tr>
                                     <tr>
@@ -176,6 +179,7 @@
 
         <div class="row row-buffer">
             <div class="col-12">
+                <a name="healthchecks"></a>
                 <div class="card">
                     <div class="card-header capability-header bg-redhat text-white">
                         <i class="fas fa-briefcase-medical"></i> Health Checks
@@ -283,6 +287,7 @@
 
         <div class="row row-buffer">
             <div class="col-12">
+                <a name="endpoints"></a>
                 <div class="card">
                     <div class="card-header capability-header bg-redhat text-white">
                         <i class="fas fa-plug"></i> API Endpoints
@@ -321,9 +326,10 @@
 
         <div class="row row-buffer">
             <div class="col-12">
+                <a name="database"></a>
                 <div class="card">
                     <div class="card-header capability-header bg-redhat text-white">
-                            <i class="fas fa-database"></i> Relational Databases
+                        <i class="fas fa-database"></i> Relational Database
                     </div>
                     <div class="card-body">
                         <div class="container">
@@ -363,6 +369,7 @@
 
         <div class="row row-buffer">
             <div class="col-12">
+                <a name="messaging"></a>
                 <div class="card">
                     <div class="card-header capability-header bg-redhat text-white">
                         <i class="fas fa-envelope-open"></i> Messaging
@@ -393,12 +400,40 @@
                                     <table class="table table-fix-hack">
                                         <tr>
                                             <th width="20%">Broker</th>
-                                            <td width="80%">Placeholder</td>
+                                            <td width="80%">
+                                                <div class="container p-0">
+                                                    <div class="row mb-2">
+                                                        <div class="col-3 p-0 font-weight-bold">
+                                                            Console URL
+                                                        </div>
+                                                        <div class="col-9 p-0">
+                                                            <a href="#" target="_blank">http://console-amq.192.168.42.114.nip.io <i class="fas fa-external-link-square-alt"></i></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-3 p-0 font-weight-bold">
+                                                            User / Pass
+                                                        </div>
+                                                        <div class="col-9 p-0">
+                                                            <span class="text-monospace">admin</span> / <span class="text-monospace">admin</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-3 p-0 font-weight-bold">
+                                                            Image
+                                                        </div>
+                                                        <div class="col-9 p-0">
+                                                            <span class="text-monospace">amq-broker-7-tech-preview/amq-broker-71-openshift</span><br />
+                                                            <p class="small"><a href="#" target="_blank">Learn more <i class="fas fa-external-link-square-alt"></i></a></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <th width="20%">Topics</th>
                                             <td width="80%">
-                                                <div class="container">
+                                                <div class="container p-0">
                                                     <div class="row">
                                                         <div class="col-12 p-0 mb-3">
                                                             <i>Topics</i> implement the publish/subscribe model of messaging.  Many
@@ -416,6 +451,7 @@
                                                             <div class="container">
                                                                 <div class="row">
                                                                     <div class="p-0 col-12">
+                                                                        <span class="font-weight-bold">Publisher</span>
                                                                         <div class="input-group">
                                                                             <input type="text" 
                                                                                 class="form-control form-control-sm"
@@ -441,6 +477,7 @@
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-12 p-0">
+                                                                        <span class="font-weight-bold">Subscriber</span>
                                                                         <div class="input-group">
                                                                             <textarea id="messageTopic1Listener" 
                                                                                 class="text-monospace small bg-dark text-white full-width"
@@ -472,7 +509,7 @@
                                         <tr>
                                             <th width="20%">Queues</th>
                                             <td width="80%">
-                                                <div class="container">
+                                                <div class="container p-0">
                                                     <div class="row">
                                                         <div class="col-12 p-0 mb-3">
                                                             <i>Queues</i> define a point-to-point messaging model.  There may be many listeners
@@ -488,6 +525,7 @@
                                                             <div class="container">
                                                                 <div class="row">
                                                                     <div class="p-0 col-12">
+                                                                        <span class="font-weight-bold">Producer</span>
                                                                         <div class="input-group">
                                                                             <input type="text" 
                                                                                 class="form-control form-control-sm"
@@ -506,13 +544,14 @@
                                                                             </div>
                                                                         </div>
                                                                         <p class="small">
-                                                                            The source for this publisher may be found in your codebase 
-                                                                            at <span class="text-monospace">src/main/java/io/openshift/booster/messaging/publisher/WorkOrderPublisher.java</span>
+                                                                            The source for this producer may be found in your codebase 
+                                                                            at <span class="text-monospace">src/main/java/io/openshift/booster/messaging/publisher/WorkOrderProducer.java</span>
                                                                         </p>
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-12 p-0">
+                                                                        <span class="font-weight-bold">Consumer</span>
                                                                         <div class="input-group">
                                                                             <textarea id="messageQueue1Listener" 
                                                                                 class="text-monospace small bg-dark text-white full-width"

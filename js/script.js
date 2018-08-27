@@ -55,12 +55,24 @@ function sendMessage(listener, inputControl) {
   $(inputControl).val("");
 }
 
+function registerEnterOnFieldForFunction(fieldName, func){
+  $(fieldName).keypress(function(event){
+    var keycode = (event.keyCode ? event.keyCode : event.which);
+    // Enter
+    if(keycode == '13'){
+      func();
+    }
+  });
+}
+
 function initButtons(){
   $('#hcLivenessExecuteButton').click(prependHcLivenessResponseToConsole);
   $('#hcLivenessClearButton').click(clearHcLivenessConsole);
   $('#hcReadinessExecuteButton').click(prependHcReadinessResponseToConsole);
   $('#hcReadinessClearButton').click(clearHcReadinessConsole);
   $('#messageTopic1ExecuteButton').click(sendMessageToTopic1);
+  registerEnterOnFieldForFunction("#messageTopic1Input", sendMessageToTopic1);
   $('#messageQueue1ExecuteButton').click(sendMessageToQueue1);
+  registerEnterOnFieldForFunction("#messageQueue1Input", sendMessageToQueue1);
 }
 
