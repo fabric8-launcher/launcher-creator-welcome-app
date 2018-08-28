@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>Red Hat | Application Start Page</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="css/styles.css">
@@ -13,7 +14,7 @@
 
         <div class="row">
             <div class="col-12 ">
-                <table class="header-table">
+                <table class="table">
                     <tr>
                         <td>
                             <img src="img/red-hat-logo.png" alt="Red Hat, Inc."/>
@@ -74,11 +75,11 @@
                                         <th scope="row">Capabilities Created</th>
                                         <td>
                                             <div class="btn-group-vertical" role="group">
-                                                <a href="#codebase" class="btn btn-sm btn-info"><i class="fas fa-code"></i> Runtime Application - Eclipse Vert.x <img src="img/vertx.jpg" height="20" width="20"/></a>
+                                                <a href="#codebase" class="btn btn-sm btn-info"><i class="fas fa-code"></i> Runtime Application - Eclipse Vert.x</a>
                                                 <a href="#healthchecks" class="btn btn-sm btn-info"><i class="fas fa-briefcase-medical"></i> Health Checks</a>
                                                 <a href="#endpoints" class="btn btn-sm btn-info"><i class="fas fa-plug"></i> API Endpoints</a>
-                                                <a href="#database" class="btn btn-sm btn-info"><i class="fas fa-database"> </i> Database - PostgreSQL <img src="img/postgresql.png" height="20" width="20"/></a> 
-                                                <a href="#messaging" class="btn btn-sm btn-info"><i class="fas fa-envelope-open"> </i> Message Broker - Red Hat AMQ <img src="img/amq.png" height="20" /></a>
+                                                <a href="#database" class="btn btn-sm btn-info"><i class="fas fa-database"> </i> Database - PostgreSQL</a> 
+                                                <a href="#messaging" class="btn btn-sm btn-info"><i class="fas fa-envelope-open"> </i> Message Broker - Red Hat AMQ</a>
                                             </div>
                                         </td>
                                     </tr>
@@ -138,7 +139,14 @@
                                             </p>
                                             <p class="small">
                                                 Instructions to build and run this codebase locally may be found in the source's
-                                                <span class="text-monospace">README.asciidoc</span>. 
+                                                <a href="#" 
+                                                    target="_blank"
+                                                    data-toggle="tooltip"
+                                                    data-placement="bottom"
+                                                    title="Open in GitHub"><span 
+                                                        class="text-monospace">README.asciidoc <i 
+                                                        class="fas fa-external-link-square-alt"
+                                                        ></i></span></a>. 
                                             </p>
                                             <html>
                                             <head>
@@ -239,8 +247,32 @@
                                         ></textarea>
                                     <p class="small">
                                         The source for this endpoint may be found in your codebase 
-                                        at <span class="text-monospace">src/main/java/io/openshift/booster/service/HealthCheckEndpoints.java</span>
-                                        
+                                        at <a href="#"
+                                        class="text-monospace" 
+                                        target="_blank"
+                                        data-toggle="tooltip"
+                                        data-placement="bottom"
+                                        title="Open in GitHub"><span 
+                                            class="text-monospace">HealthCheckEndpoints.java <i 
+                                            class="fas fa-external-link-square-alt"
+                                            ></i></a>
+                                    </p>
+                                    <p class="small">You may test this directly by making an 
+                                        <span class="text-monospace">HTTP GET</span> request using this 
+                                        application's URL as root.  For instance, try with the 
+                                        <span class="text-monospace">cURL</span> tool: 
+                                        <div class="input-group input-group-sm small">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text text-monospace small font-weight-bold">shell$></span>
+                                            </div>
+                                            <input type="text" 
+                                                class="form-control text-monospace bg-dark text-white" 
+                                                disabled
+                                                value="curl http://whateveropenshiftdomain.com/app/api/health/liveness">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-success" data-toggle="tooltip" title="Copy shell command"><i class="fas fa-clipboard"></i></button>
+                                            </div>
+                                        </div>
                                     </p>
                                 </td>
                             </tr>
@@ -274,22 +306,36 @@
                                         ></textarea>
                                     <p class="small">
                                         The source for this endpoint may be found in your codebase 
-                                        at <span class="text-monospace">src/main/java/io/openshift/booster/service/HealthCheckEndpoints.java</span>
-                                        
+                                        at <a href="#"
+                                            class="text-monospace" 
+                                            target="_blank"
+                                            data-toggle="tooltip"
+                                            data-placement="bottom"
+                                            title="Open in GitHub"><span 
+                                                class="text-monospace">HealthCheckEndpoints.java <i 
+                                                class="fas fa-external-link-square-alt"
+                                                ></i></a>
+                                    </p>
+                                    <p class="small">You may test this directly by making an 
+                                        <span class="text-monospace">HTTP GET</span> request using this 
+                                        application's URL as root.  For instance, try with the 
+                                        <span class="text-monospace">cURL</span> tool: 
+                                        <div class="input-group input-group-sm small">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text text-monospace small font-weight-bold">shell$></span>
+                                            </div>
+                                            <input type="text" 
+                                                class="form-control text-monospace bg-dark text-white" 
+                                                disabled
+                                                value="curl http://whateveropenshiftdomain.com/app/api/health/readiness">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-success" data-toggle="tooltip" title="Copy shell command"><i class="fas fa-clipboard"></i></button>
+                                            </div>
+                                        </div>
                                     </p>
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="small" colspan="3">
-                                    You may test these directly by making an 
-                                    <span class="text-monospace">HTTP GET</span> request using this 
-                                    application's URL as root.  For instance, try with the 
-                                    <span class="text-monospace">cURL</span> tool: 
-                                    <textarea class="text-monospace bg-dark text-white" disabled rows="1" cols="100">&nbsp;&nbsp;shell$> curl http://whateveropenshiftdomain.com/app/api/health/liveness</textarea>
-                                </td>
-                            </tr>
                         </table>
-                        
                     </div>
                 </div>
             </div>
@@ -471,41 +517,42 @@
                                                                                     id="messageTopic1ExecuteButton"
                                                                                     class="btn btn-sm btn-success align-top"
                                                                                     >Publish <i class="fas fa-play"></i></button>
-                                                                                <a href="#" 
-                                                                                    target="_blank" 
-                                                                                    class="btn btn-sm btn-info"
-                                                                                    data-toggle="tooltip"
-                                                                                    title="View publisher code on GitHub"
-                                                                                    ><i class="fab fa-github"></i> Open</a>
                                                                             </div>
                                                                         </div>
                                                                         <p class="small">
                                                                             The source for this publisher may be found in your codebase 
-                                                                            at <span class="text-monospace">src/main/java/io/openshift/booster/messaging/publisher/NewsAlertPublisher.java</span>
+                                                                            at <a href="#"
+                                                                                class="text-monospace" 
+                                                                                target="_blank"
+                                                                                data-toggle="tooltip"
+                                                                                data-placement="bottom"
+                                                                                title="Open in GitHub"><span 
+                                                                                    class="text-monospace">NewsAlertPublisher.java <i 
+                                                                                    class="fas fa-external-link-square-alt"
+                                                                                    ></i></a>
                                                                         </p>
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-12 p-0">
                                                                         <span class="font-weight-bold">Subscriber</span>
-                                                                        <div class="input-group">
+                                                                        <div>
                                                                             <textarea id="messageTopic1Listener" 
                                                                                 class="text-monospace small bg-dark text-white full-width"
                                                                                 rows="5"
                                                                                 disabled
                                                                                 ></textarea>
-                                                                            <div class="input-group-append">
-                                                                                <a href="#" 
-                                                                                    target="_blank" 
-                                                                                    class="btn btn-sm btn-info"
-                                                                                    data-toggle="tooltip"
-                                                                                    title="View listener code on GitHub"
-                                                                                    ><i class="fab fa-github"></i> Open</a>
-                                                                                </div>
-                                                                            </div>
                                                                             <p class="small">
                                                                                 The source for this listener may be found in your codebase 
-                                                                                at <span class="text-monospace">src/main/java/io/openshift/booster/messaging/listener/NewsAlertListener.java</span>
+                                                                                at <a href="#"
+                                                                                    class="text-monospace" 
+                                                                                    target="_blank"
+                                                                                    data-toggle="tooltip"
+                                                                                    data-placement="bottom"
+                                                                                    title="Open in GitHub"><span 
+                                                                                        class="text-monospace">NewsAlertListener.java <i 
+                                                                                        class="fas fa-external-link-square-alt"
+                                                                                        ></i></a>
                                                                             </p>
                                                                         </div>
                                                                     </div>
@@ -545,41 +592,42 @@
                                                                                     id="messageQueue1ExecuteButton"
                                                                                     class="btn btn-sm btn-success align-top"
                                                                                     >Enqueue <i class="fas fa-play"></i></button>
-                                                                                <a href="#" 
-                                                                                    target="_blank" 
-                                                                                    class="btn btn-sm btn-info"
-                                                                                    data-toggle="tooltip"
-                                                                                    title="View publisher code on GitHub"
-                                                                                    ><i class="fab fa-github"></i> Open</a>
                                                                             </div>
                                                                         </div>
                                                                         <p class="small">
                                                                             The source for this producer may be found in your codebase 
-                                                                            at <span class="text-monospace">src/main/java/io/openshift/booster/messaging/publisher/WorkOrderProducer.java</span>
+                                                                            at <a href="#"
+                                                                                class="text-monospace" 
+                                                                                target="_blank"
+                                                                                data-toggle="tooltip"
+                                                                                data-placement="bottom"
+                                                                                title="Open in GitHub"><span 
+                                                                                    class="text-monospace">WorkOrderProducer.java <i 
+                                                                                    class="fas fa-external-link-square-alt"
+                                                                                    ></i></a>
                                                                         </p>
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-12 p-0">
                                                                         <span class="font-weight-bold">Consumer</span>
-                                                                        <div class="input-group">
+                                                                        <div>
                                                                             <textarea id="messageQueue1Listener" 
                                                                                 class="text-monospace small bg-dark text-white full-width"
                                                                                 rows="5"
                                                                                 disabled
                                                                                 ></textarea>
-                                                                            <div class="input-group-append">
-                                                                                <a href="#" 
-                                                                                    target="_blank" 
-                                                                                    class="btn btn-sm btn-info"
-                                                                                    data-toggle="tooltip"
-                                                                                    title="View listener code on GitHub"
-                                                                                    ><i class="fab fa-github"></i> Open</a>
-                                                                                </div>
-                                                                            </div>
                                                                             <p class="small">
                                                                                 The source for this listener may be found in your codebase 
-                                                                                at <span class="text-monospace">src/main/java/io/openshift/booster/messaging/listener/WorkOrderListener.java</span>
+                                                                                at <a href="#"
+                                                                                    class="text-monospace" 
+                                                                                    target="_blank"
+                                                                                    data-toggle="tooltip"
+                                                                                    data-placement="bottom"
+                                                                                    title="Open in GitHub"><span 
+                                                                                        class="text-monospace">WorkOrderListener.java <i 
+                                                                                        class="fas fa-external-link-square-alt"
+                                                                                        ></i></a>
                                                                             </p>
                                                                         </div>
                                                                     </div>
