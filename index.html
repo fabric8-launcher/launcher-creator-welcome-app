@@ -56,7 +56,7 @@
                                     <tr>
                                         <th scope="row">Application URL</th>
                                         <td>
-                                            <a href="#" target="_blank">https://youropenshiftcluster.com/application <i class="fas fa-external-link-square-alt"></i></a>
+                                            <a class="text-monospace" href="#" target="_blank">https://youropenshiftcluster.com/application <i class="fas fa-external-link-square-alt"></i></a>
                                             <p class="small">
                                                 The link to this application running live on OpenShift
                                             </p>
@@ -65,7 +65,7 @@
                                     <tr>
                                         <th scope="row">OpenShift Console URL</th>
                                         <td>
-                                            <a href="#" target="_blank">https://youropenshiftcluster.com/console/namespace <i class="fas fa-external-link-square-alt"></i></a>
+                                            <a class="text-monospace" href="#" target="_blank">https://youropenshiftcluster.com/console/namespace <i class="fas fa-external-link-square-alt"></i></a>
                                             <p class="small">
                                                 Link to manage the OpenShift instance where this application is deployed.
                                             </p>
@@ -148,19 +148,6 @@
                                                         class="fas fa-external-link-square-alt"
                                                         ></i></span></a>.
                                             </p>
-                                            <html>
-                                            <head>
-                                                <meta charset="utf-8" />
-                                                <meta http-equiv="X-UA-Compatible" content="IE=edge">
-                                                <title>Page Title</title>
-                                                <meta name="viewport" content="width=device-width, initial-scale=1">
-                                                <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-                                                <script src="main.js"></script>
-                                            </head>
-                                            <body>
-
-                                            </body>
-                                            </html></p>
                                         </td>
                                     </tr>
                                     <tr>
@@ -365,7 +352,8 @@
                                                 Swagger URL
                                             </div>
                                             <div class="col-9 p-0">
-                                                <a href="#"
+                                                <a class="text-monospace"
+                                                    href="#"
                                                     target="_blank"
                                                     data-toggle="tooltip"
                                                     title="Interactive Swagger documentation">http://somedomain.com/swagger-ui.html <i class="fas fa-external-link-square-alt"></i></a>
@@ -376,7 +364,8 @@
                                                 JSON Spec
                                             </div>
                                             <div class="col-9 p-0">
-                                                <a href="#"
+                                                <a class="text-monospace"
+                                                    href="#"
                                                     target="_blank"
                                                     data-toggle="tooltip"
                                                     title="JSON Specification for consumption by integration services such as Fuse">http://somedomain.com/api-docs <i class="fas fa-external-link-square-alt"></i></a>
@@ -393,20 +382,27 @@
                                                         <div class="col-sm-6 col-12 p-0 pr-3">
                                                             <div class="mb-2">
                                                                 <button
-                                                                        class="btn btn-sm btn-info">GET</button>
+                                                                    id="endpoint1GetButton"
+                                                                    class="btn btn-sm btn-info"
+                                                                    data-toggle="tooltip"
+                                                                    title="Execute GET request">GET</button>
                                                             </div>
                                                             <div class="input-group input-group-sm mb-2">
                                                                 <div class="input-group-prepend">
                                                                     <button
-                                                                        class="btn btn-sm btn-success">POST</button>
+                                                                        id="endpoint1PostButton"
+                                                                        data-toggle="tooltip"
+                                                                        class="btn btn-sm btn-success"
+                                                                        title="Execute POST request">POST</button>
                                                                 </div>
                                                                 <input type="text"
+                                                                    id="endpoint1PostInput"
                                                                     class="small form-control"
-                                                                    placeholder="New value">
+                                                                    placeholder="Fruit to add">
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-6 col-12 p-0">
-                                                            <textarea id="endpoint2Console"
+                                                            <textarea id="endpoint1Console"
                                                                 class="text-monospace small bg-dark text-white full-width"
                                                                 rows="5"
                                                                 disabled
@@ -440,9 +436,13 @@
                                                             <div class="input-group input-group-sm mb-2">
                                                                 <div class="input-group-prepend">
                                                                     <button
+                                                                        id="endpoint2DeleteButton"
+                                                                        data-toggle="tooltip"
+                                                                        title="Delete the selected ID"
                                                                         class="btn btn-sm btn-danger">DELETE</button>
                                                                 </div>
                                                                 <input type="text"
+                                                                    id="endpoint2DeleteInput"
                                                                     class="small form-control"
                                                                     placeholder="ID">
                                                             </div>
@@ -744,7 +744,11 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script src="js/script.js"></script>
+    <script src="js/core.js"></script>
+    <script src="js/health-check.js"></script>
+    <script src="js/http-endpoints.js"></script>
+    <script src="js/messaging.js"></script>
+
 
 </body>
 </html>
