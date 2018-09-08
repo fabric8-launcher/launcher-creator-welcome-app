@@ -342,127 +342,6 @@
                             </a>
                         </p>
 
-                        <table class="table table-fix-hack">
-                            <tr>
-                                <th width="20%">FruitController</td>
-                                <td width="80%">
-                                    <div class="container p-0">
-                                        <div class="row mb-2">
-                                            <div class="col-3 p-0 font-weight-bold">
-                                                Swagger URL
-                                            </div>
-                                            <div class="col-9 p-0">
-                                                <a class="text-monospace"
-                                                    href="#"
-                                                    target="_blank"
-                                                    data-toggle="tooltip"
-                                                    title="Interactive Swagger documentation">http://somedomain.com/swagger-ui.html <i class="fas fa-external-link-square-alt"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-2">
-                                            <div class="col-3 p-0 font-weight-bold">
-                                                JSON Spec
-                                            </div>
-                                            <div class="col-9 p-0">
-                                                <a class="text-monospace"
-                                                    href="#"
-                                                    target="_blank"
-                                                    data-toggle="tooltip"
-                                                    title="JSON Specification for consumption by integration services such as Fuse">http://somedomain.com/api-docs <i class="fas fa-external-link-square-alt"></i></a>
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-2">
-                                            <div class="col-3 p-0 text-monospace">
-                                                /api/fruits
-                                            </div>
-                                            <div class="col-9 p-0">
-                                                <div class="container p=0">
-                                                    <div class="row p-0">
-                                                        <div class="col-sm-6 col-12 p-0 pr-3">
-                                                            <div class="mb-2">
-                                                                <button
-                                                                    id="endpoint1GetButton"
-                                                                    class="btn btn-sm btn-info"
-                                                                    data-toggle="tooltip"
-                                                                    title="Execute GET request">GET</button>
-                                                            </div>
-                                                            <div class="input-group input-group-sm mb-2">
-                                                                <div class="input-group-prepend">
-                                                                    <button
-                                                                        id="endpoint1PostButton"
-                                                                        data-toggle="tooltip"
-                                                                        class="btn btn-sm btn-success"
-                                                                        title="Execute POST request">POST</button>
-                                                                </div>
-                                                                <input type="text"
-                                                                    id="endpoint1PostInput"
-                                                                    class="small form-control"
-                                                                    placeholder="Fruit to add">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-6 col-12 p-0">
-                                                            <textarea id="endpoint1Console"
-                                                                class="text-monospace small bg-dark text-white full-width"
-                                                                rows="5"
-                                                                disabled
-                                                                ></textarea>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-2">
-                                            <div class="col-3 p-0 text-monospace">
-                                                /api/fruits/{id}
-                                            </div>
-                                            <div class="col-9 p-0">
-                                                <div class="container p=0">
-                                                    <div class="row p-0">
-                                                        <div class="col-sm-6 col-12 p-0 pr-3">
-                                                            <div class="input-group input-group-sm mb-2">
-                                                                <div class="input-group-prepend">
-                                                                    <button
-                                                                        class="btn btn-sm btn-warning">PUT</button>
-                                                                </div>
-                                                                <input type="text"
-                                                                    class="small form-control"
-                                                                    placeholder="ID">
-                                                                <input type="text"
-                                                                    class="small form-control"
-                                                                    placeholder="New value">
-                                                            </div>
-                                                            <div class="input-group input-group-sm mb-2">
-                                                                <div class="input-group-prepend">
-                                                                    <button
-                                                                        id="endpoint2DeleteButton"
-                                                                        data-toggle="tooltip"
-                                                                        title="Delete the selected ID"
-                                                                        class="btn btn-sm btn-danger">DELETE</button>
-                                                                </div>
-                                                                <input type="text"
-                                                                    id="endpoint2DeleteInput"
-                                                                    class="small form-control"
-                                                                    placeholder="ID">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-6 col-12 p-0">
-                                                            <textarea id="endpoint2Console"
-                                                                class="text-monospace small bg-dark text-white full-width"
-                                                                rows="5"
-                                                                disabled
-                                                                ></textarea>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
                     </div>
                 </div>
             </div>
@@ -482,34 +361,202 @@
                                     <img class="mr-4 mb-3" src="img/postgresql.png" alt="PostgreSQL" />
                                     <div class="media-body p-0">
                                         <h3>PostgreSQL</h3>
-                                        <p>PostgreSQL, often simply Postgres, is an object-relational database management system with an emphasis on extensibility and standards compliance.</p>
+                                        <p>
+                                            PostgreSQL, often simply Postgres, is an object-relational
+                                            database management system with an emphasis on extensibility and
+                                            standards compliance.
+                                        </p>
+
+                                        <div class="container">
+                                            <div class="row mb-2">
+                                                <div class="col-3 font-weight-bold">
+                                                    Username
+                                                </div>
+                                                <div class="col-9 text-monospace">
+                                                    admin
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col-3 font-weight-bold">
+                                                    Password
+                                                </div>
+                                                <div class="col-9 text-monospace">
+                                                    password
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-3 font-weight-bold">
+                                                    Deployment
+                                                </div>
+                                                <div class="col-9 text-monospace">
+                                                    <a class="text-monospace"
+                                                        href="#"
+                                                        target="_blank"
+                                                        data-toggle="tooltip"
+                                                        title="View DB deployment on OpenShift">http://youropenshift.com/console/deployment/db <i class="fas fa-external-link-square-alt"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <p>
+                                            For security purposes, this database instance is not currently
+                                            exposed to the world outside OpenShift.  To do that, you may define a
+                                            route <a
+                                                href="#"
+                                                target="_blank">here <i class="fas fa-external-link-square-alt"></i></a>.
+                                            <span class="text-danger small">ALR Note: factor in discussion of Secrets or ConfigMap here to note how the user/pass info is managed?  How about a link to documentation on how to change the user/pass and be sure the configs are updated to use the new auth data?</span>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-12">
-                                    ALR TODO
+                                <div class="col-12 p-0">
+                                    <table class="table">
+                                        <tr>
+                                            <td colspan="2">
+                                                <p>
+                                                    As a starting point for your development, we have created a
+                                                    <span class="text-monospace">Fruits</span> table and populated it with some
+                                                    data.  We've additionally exposed CRUD operations via the following endpoints
+                                                    to give you a system that works end to end.
+                                                </p>
+
+                                                <div class="container">
+                                                    <div class="row mb-2">
+                                                        <div class="col-3 p-0 font-weight-bold">
+                                                            Swagger URL
+                                                        </div>
+                                                        <div class="col-9 p-0">
+                                                            <a class="text-monospace"
+                                                                href="#"
+                                                                target="_blank"
+                                                                data-toggle="tooltip"
+                                                                title="Interactive Swagger documentation">http://somedomain.com/swagger-ui.html <i class="fas fa-external-link-square-alt"></i></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-3 p-0 font-weight-bold">
+                                                            JSON Spec
+                                                        </div>
+                                                        <div class="col-9 p-0">
+                                                            <a class="text-monospace"
+                                                                href="#"
+                                                                target="_blank"
+                                                                data-toggle="tooltip"
+                                                                title="JSON Specification for consumption by integration services such as Fuse">http://somedomain.com/api-docs <i class="fas fa-external-link-square-alt"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th width="20%"><a
+                                                href="#"
+                                                target="_blank"
+                                                data-toggle="tooltip"
+                                                title="View source on GitHub"
+                                                >FruitController <i
+                                                class="fas fa-external-link-square-alt"></i><a/></td>
+                                            <td width="80%">
+
+                                                <div class="container p-0">
+                                                    <div class="row mb-2 p-0">
+                                                        <div class="col-3 p-0 text-monospace">
+                                                            /api/fruits
+                                                        </div>
+                                                        <div class="col-9 p-0">
+                                                            <div class="container p=0">
+                                                                <div class="row p-0">
+                                                                    <div class="col-sm-6 col-12 p-0 pr-3">
+                                                                        <div class="mb-2">
+                                                                            <button
+                                                                                id="dbEndpoint1GetButton"
+                                                                                class="btn btn-sm btn-info"
+                                                                                data-toggle="tooltip"
+                                                                                title="Execute GET request">GET</button>
+                                                                        </div>
+                                                                        <div class="input-group input-group-sm mb-2">
+                                                                            <div class="input-group-prepend">
+                                                                                <button
+                                                                                    id="dbEndpoint1PostButton"
+                                                                                    data-toggle="tooltip"
+                                                                                    class="btn btn-sm btn-success"
+                                                                                    title="Execute POST request">POST</button>
+                                                                            </div>
+                                                                            <input type="text"
+                                                                                id="dbEndpoint1PostInput"
+                                                                                class="small form-control"
+                                                                                placeholder="Fruit to add">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-6 col-12 p-0">
+                                                                        <textarea id="dbEndpoint1Console"
+                                                                            class="text-monospace small bg-dark text-white full-width"
+                                                                            rows="5"
+                                                                            disabled
+                                                                            ></textarea>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mb-2">
+                                                        <div class="col-3 p-0 text-monospace">
+                                                            /api/fruits/{id}
+                                                        </div>
+                                                        <div class="col-9 p-0">
+                                                            <div class="container p=0">
+                                                                <div class="row p-0">
+                                                                    <div class="col-sm-6 col-12 p-0 pr-3">
+                                                                        <div class="input-group input-group-sm mb-2">
+                                                                            <div class="input-group-prepend">
+                                                                                <button
+                                                                                    id="dbEndpoint2PutButton"
+                                                                                    class="btn btn-sm btn-warning">PUT</button>
+                                                                            </div>
+                                                                            <input type="text"
+                                                                                id="dbEndpoint2PutInput1"
+                                                                                class="small form-control"
+                                                                                placeholder="ID">
+                                                                            <input type="text"
+                                                                                id="dbEndpoint2PutInput2"
+                                                                                class="small form-control"
+                                                                                placeholder="New value">
+                                                                        </div>
+                                                                        <div class="input-group input-group-sm mb-2">
+                                                                            <div class="input-group-prepend">
+                                                                                <button
+                                                                                    id="dbEndpoint2DeleteButton"
+                                                                                    data-toggle="tooltip"
+                                                                                    title="Delete the selected ID"
+                                                                                    class="btn btn-sm btn-danger">DELETE</button>
+                                                                            </div>
+                                                                            <input type="text"
+                                                                                id="dbEndpoint2DeleteInput"
+                                                                                class="small form-control"
+                                                                                placeholder="ID">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-6 col-12 p-0">
+                                                                        <textarea id="dbEndpoint2Console"
+                                                                            class="text-monospace small bg-dark text-white full-width"
+                                                                            rows="5"
+                                                                            disabled
+                                                                            ></textarea>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </div>
-                                <!--
-                                <div class="media">
-                                    <div class="media-body">
-                                        <div class="media">
-                                            <div class="btn-group-vertical">
-                                            <button class="text-white bg-success badge">GET</button>
-                                            <button class="bg-warning badge">POST</button>
-                                            <button class="text-white bg-info badge">PUT</button>
-                                            <button class="text-white bg-danger badge">DELETE</button>
-                                            </div>
-                                            <div class="media-body order-first">
-                                                /data/people
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            -->
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -545,7 +592,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-12">
-                                    <table class="table table-fix-hack">
+                                    <table class="table">
                                         <tr>
                                             <th width="20%">Broker</th>
                                             <td width="80%">
@@ -746,7 +793,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="js/core.js"></script>
     <script src="js/health-check.js"></script>
-    <script src="js/http-endpoints.js"></script>
+    <script src="js/relational-database.js"></script>
     <script src="js/messaging.js"></script>
 
 

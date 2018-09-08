@@ -45,9 +45,3 @@ body {
 .full-width {
     width:100%;
 }
-
-/* Used to ensure the table doesn't extend beyond the Bootstrap flexbox boundary */
-.table-fix-hack {
-    width: 100%;
-    table-layout: fixed;
-}
