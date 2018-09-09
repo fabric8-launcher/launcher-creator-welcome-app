@@ -342,6 +342,128 @@
                             </a>
                         </p>
 
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 p-0">
+                                    <table class="table">
+                                        <tr>
+                                            <td colspan="2" class="p-0">
+                                                <p class="mt-2">
+                                                    To illustrate how to open an HTTP endpoint in your selected runtime,
+                                                    Vert.x, we have created a simple service as a jumping-off point
+                                                    for your own development.  This is functional out of the box and you
+                                                    may alter it to suit your needs.
+                                                </p>
+
+                                                <div class="container">
+                                                    <div class="row mb-2">
+                                                        <div class="col-3 p-0 font-weight-bold">
+                                                            Swagger URL
+                                                        </div>
+                                                        <div class="col-9 p-0">
+                                                            <a class="text-monospace"
+                                                                href="#"
+                                                                target="_blank"
+                                                                data-toggle="tooltip"
+                                                                title="Interactive Swagger documentation">http://somedomain.com/swagger-ui.html <i class="fas fa-external-link-square-alt"></i></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-3 p-0 font-weight-bold">
+                                                            JSON Spec
+                                                        </div>
+                                                        <div class="col-9 p-0">
+                                                            <a class="text-monospace"
+                                                                href="#"
+                                                                target="_blank"
+                                                                data-toggle="tooltip"
+                                                                title="JSON Specification for consumption by integration services such as Fuse">http://somedomain.com/api-docs <i class="fas fa-external-link-square-alt"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th width="20%" class="p-0">
+                                                <p class="mt-2"><a
+                                                    href="#"
+                                                    target="_blank"
+                                                    data-toggle="tooltip"
+                                                    title="View source on GitHub"
+                                                    >GreetingService <i
+                                                    class="fas fa-external-link-square-alt"></i><a/>
+                                                </p>
+                                            </td>
+                                            <td width="80%">
+                                                <div class="container p-0">
+                                                    <div class="row mb-2 p-0">
+                                                        <div class="col-12 col-lg-3 p-0 text-monospace">
+                                                            /api/greeting
+                                                        </div>
+                                                        <div class="col-12 col-lg-9 p-0">
+                                                            <div class="container p=0">
+                                                                <div class="row p-0">
+                                                                    <div class="col-sm-6 col-12 p-0 pr-3">
+                                                                        <div class="input-group input-group-sm mb-2">
+                                                                            <div class="input-group-prepend">
+                                                                                <button
+                                                                                    id="httpEndpoint1GetButton"
+                                                                                    data-toggle="tooltip"
+                                                                                    class="btn btn-sm btn-info"
+                                                                                    title="Execute GET request">GET</button>
+                                                                            </div>
+                                                                            <input type="text"
+                                                                                class="small form-control"
+                                                                                disabled
+                                                                                value="Hello, ">
+                                                                            <input type="text"
+                                                                                id="httpEndpoint1GetInput"
+                                                                                class="small form-control"
+                                                                                placeholder="World">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-6 col-12 p-0">
+                                                                        <textarea id="httpEndpoint1Console"
+                                                                            class="text-monospace small bg-dark text-white full-width"
+                                                                            rows="5"
+                                                                            disabled
+                                                                            ></textarea>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-2 p-0">
+                                                    <div class="col-12 col-lg-3 p-0">
+
+                                                    </div>
+                                                    <div class="col-12 col-lg-9 p-0">
+                                                        <p class="small">You may test this directly by making an
+                                                            <span class="text-monospace">HTTP GET</span> request using this
+                                                            application's URL as root.  For instance, try with the
+                                                            <span class="text-monospace">cURL</span> tool:
+                                                            <div class="input-group input-group-sm small">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text text-monospace small font-weight-bold">shell$></span>
+                                                                </div>
+                                                                <input type="text"
+                                                                    class="form-control text-monospace bg-dark text-white"
+                                                                    disabled
+                                                                    value="curl http://whateveropenshiftdomain.com/app/api/greeting">
+                                                                <div class="input-group-append">
+                                                                    <button class="btn btn-success" data-toggle="tooltip" title="Copy shell command"><i class="fas fa-clipboard"></i></button>
+                                                                </div>
+                                                            </div>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -357,68 +479,70 @@
                     <div class="card-body">
                         <div class="container">
                             <div class="row">
-                                <div class="media">
-                                    <img class="mr-4 mb-3" src="img/postgresql.png" alt="PostgreSQL" />
-                                    <div class="media-body p-0">
-                                        <h3>PostgreSQL</h3>
-                                        <p>
-                                            PostgreSQL, often simply Postgres, is an object-relational
-                                            database management system with an emphasis on extensibility and
-                                            standards compliance.
-                                        </p>
+                                <div class="col-12 p-0">
+                                    <div class="media">
+                                        <img class="mr-4 mb-3" src="img/postgresql.png" alt="PostgreSQL" />
+                                        <div class="media-body p-0">
+                                            <h3>PostgreSQL</h3>
+                                            <p>
+                                                PostgreSQL, often simply Postgres, is an object-relational
+                                                database management system with an emphasis on extensibility and
+                                                standards compliance.
+                                            </p>
 
-                                        <div class="container">
-                                            <div class="row mb-2">
-                                                <div class="col-3 font-weight-bold">
-                                                    Username
+                                            <div class="container">
+                                                <div class="row mb-2">
+                                                    <div class="col-3 font-weight-bold">
+                                                        Username
+                                                    </div>
+                                                    <div class="col-9 text-monospace">
+                                                        admin
+                                                    </div>
                                                 </div>
-                                                <div class="col-9 text-monospace">
-                                                    admin
+                                                <div class="row mb-2">
+                                                    <div class="col-3 font-weight-bold">
+                                                        Password
+                                                    </div>
+                                                    <div class="col-9 text-monospace">
+                                                        password
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-2">
+                                                    <div class="col-3 font-weight-bold">
+                                                        Deployment
+                                                    </div>
+                                                    <div class="col-9 text-monospace">
+                                                        <a class="text-monospace"
+                                                            href="#"
+                                                            target="_blank"
+                                                            data-toggle="tooltip"
+                                                            title="View DB deployment on OpenShift">http://youropenshift.com/console/deployment/db <i class="fas fa-external-link-square-alt"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-2">
+                                                    <div class="col-3 font-weight-bold">
+                                                        Image
+                                                    </div>
+                                                    <div class="col-9">
+                                                        <span class="text-monospace">openshift/postgresql-92-centos7</span><br />
+                                                        <p class="small"><a href="#"
+                                                            target="_blank"
+                                                            data-toggle="tooltip"
+                                                            title="Link to information about this image in the catalog"
+                                                            >Learn more <i class="fas fa-external-link-square-alt"></i></a></p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="row mb-2">
-                                                <div class="col-3 font-weight-bold">
-                                                    Password
-                                                </div>
-                                                <div class="col-9 text-monospace">
-                                                    password
-                                                </div>
-                                            </div>
-                                            <div class="row mb-2">
-                                                <div class="col-3 font-weight-bold">
-                                                    Deployment
-                                                </div>
-                                                <div class="col-9 text-monospace">
-                                                    <a class="text-monospace"
-                                                        href="#"
-                                                        target="_blank"
-                                                        data-toggle="tooltip"
-                                                        title="View DB deployment on OpenShift">http://youropenshift.com/console/deployment/db <i class="fas fa-external-link-square-alt"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-2">
-                                                <div class="col-3 font-weight-bold">
-                                                    Image
-                                                </div>
-                                                <div class="col-9">
-                                                    <span class="text-monospace">openshift/postgresql-92-centos7</span><br />
-                                                    <p class="small"><a href="#"
-                                                        target="_blank"
-                                                        data-toggle="tooltip"
-                                                        title="Link to information about this image in the catalog"
-                                                        >Learn more <i class="fas fa-external-link-square-alt"></i></a></p>
-                                                </div>
-                                            </div>
+
+                                            <p>
+                                                For security purposes, this database instance is not currently
+                                                exposed to the world outside OpenShift.  To do that, you may define a
+                                                route <a
+                                                    href="#"
+                                                    target="_blank">here <i class="fas fa-external-link-square-alt"></i></a>.
+                                                <span class="text-danger small">ALR Note: factor in discussion of Secrets or ConfigMap here to note how the user/pass info is managed?  How about a link to documentation on how to change the user/pass and be sure the configs are updated to use the new auth data?</span>
+                                            </p>
                                         </div>
-
-                                        <p>
-                                            For security purposes, this database instance is not currently
-                                            exposed to the world outside OpenShift.  To do that, you may define a
-                                            route <a
-                                                href="#"
-                                                target="_blank">here <i class="fas fa-external-link-square-alt"></i></a>.
-                                            <span class="text-danger small">ALR Note: factor in discussion of Secrets or ConfigMap here to note how the user/pass info is managed?  How about a link to documentation on how to change the user/pass and be sure the configs are updated to use the new auth data?</span>
-                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -475,7 +599,7 @@
                                                 <div class="container p-0">
                                                     <div class="row mb-2 p-0">
                                                         <div class="col-3 p-0 text-monospace">
-                                                            /api/fruits
+                                                            /api/db/fruits
                                                         </div>
                                                         <div class="col-9 p-0">
                                                             <div class="container p=0">
@@ -516,7 +640,7 @@
 
                                                     <div class="row mb-2">
                                                         <div class="col-3 p-0 text-monospace">
-                                                            /api/fruits/{id}
+                                                            /api/db/fruits/{id}
                                                         </div>
                                                         <div class="col-9 p-0">
                                                             <div class="container p=0">
@@ -818,6 +942,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="js/core.js"></script>
     <script src="js/health-check.js"></script>
+    <script src="js/http-endpoints.js"></script>
     <script src="js/relational-database.js"></script>
     <script src="js/messaging.js"></script>
 
