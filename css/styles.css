@@ -1,15 +1,42 @@
 body {
   background-color: #dddddd;
+  font-size: 14px !important;
 }
 
 .bg-redhat {
-  background-color: #a30000;
+  background-color: #a30000 !important;
 }
 
-.card {
-  border-style: solid;
-  border-width: 1px;
-  border-color: black;
+.text-white {
+  color: #fff !important;
+}
+
+.healthcheck-textarea {
+  resize: none;
+}
+
+.padding-0 {
+  padding: 0;
+}
+
+.pt-0 {
+  padding-top: 0;
+}
+
+.pb-0 {
+  padding-bottom: 0;
+}
+
+.margin-0 {
+  margin: 0;
+}
+
+.mt-0 {
+  margin-top: 0;
+}
+
+.mb-0 {
+  margin-bottm: 0;
 }
 
 .media {
