@@ -1,945 +1,831 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Red Hat | Application Start Page</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="css/styles.css">
-</head>
 
-<body>
+  <head>
+    <meta charset="UTF-8">
+    <title>Red Hat | Application Start Page</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+      crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+  </head>
+
+  <body>
 
     <div class="container">
 
-        <div class="row">
-            <div class="col-12 ">
-                <table class="table">
+      <div class="row">
+        <div class="col-12 ">
+          <table class="table">
+            <tr>
+              <td>
+                <img src="img/red-hat-logo.png" alt="Red Hat, Inc." />
+              </td>
+              <td class="align-middle">
+                <h1>Here we go.</h1>
+                <p>Congratulations; we've together built a working
+                  system of application code and services running on the
+                  OpenShift platform. Everything is hooked together for
+                  you to bring your ideas to life.</p>
+
+                <p>Let's explore what's available.</p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="row row-buffer">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header capability-header bg-redhat text-white">
+              <i class="fas fa-cloud"></i> Cloud Deployment
+            </div>
+            <div class="card-body">
+              <div class="container">
+                <div class="row">
+                  <div class="media">
+                    <img class="mr-4 mb-3" src="img/openshift.png" alt="OpenShift" />
+                    <div class="media-body p-0">
+                      This system is deployed on the OpenShift Cloud Platform, a
+                      Kubernetes distribution which builds and runs the applications and services
+                      we've created.
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <table class="table">
                     <tr>
-                        <td>
-                            <img src="img/red-hat-logo.png" alt="Red Hat, Inc."/>
-                        </td>
-                        <td class="align-middle">
-                            <h1>Here we go.</h1>
-                            <p>Congratulations; we've together built a working
-                            system of application code and services running on the
-                            OpenShift platform.  Everything is hooked together for
-                            you to bring your ideas to life.</p>
-
-                            <p>Let's explore what's available.</p>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-
-        <div class="row row-buffer">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header capability-header bg-redhat text-white">
-                        <i class="fas fa-cloud"></i> Cloud Deployment
-                    </div>
-                    <div class="card-body">
-                        <div class="container">
-                            <div class="row">
-                                <div class="media">
-                                    <img class="mr-4 mb-3" src="img/openshift.png" alt="OpenShift" />
-                                    <div class="media-body p-0">
-                                        This system is deployed on the OpenShift Cloud Platform, a
-                                        Kubernetes distribution which builds and runs the applications and services
-                                        we've created.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <table class="table">
-                                    <tr>
-                                        <th scope="row">Application URL</th>
-                                        <td>
-                                            <a class="text-monospace" href="#" target="_blank">https://youropenshiftcluster.com/application <i class="fas fa-external-link-square-alt"></i></a>
-                                            <p class="small">
-                                                The link to this application running live on OpenShift
-                                            </p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">OpenShift Console URL</th>
-                                        <td>
-                                            <a class="text-monospace" href="#" target="_blank">https://youropenshiftcluster.com/console/namespace <i class="fas fa-external-link-square-alt"></i></a>
-                                            <p class="small">
-                                                Link to manage the OpenShift instance where this application is deployed.
-                                            </p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Capabilities Created</th>
-                                        <td>
-                                            <div class="btn-group-vertical" role="group">
-                                                <a href="#codebase" class="btn btn-sm btn-info"><i class="fas fa-code"></i> Runtime Application - Eclipse Vert.x</a>
-                                                <a href="#healthchecks" class="btn btn-sm btn-info"><i class="fas fa-briefcase-medical"></i> Health Checks</a>
-                                                <a href="#endpoints" class="btn btn-sm btn-info"><i class="fas fa-plug"></i> HTTP API Endpoints</a>
-                                                <a href="#database" class="btn btn-sm btn-info"><i class="fas fa-database"> </i> Database - PostgreSQL</a>
-                                                <a href="#messaging" class="btn btn-sm btn-info"><i class="fas fa-envelope-open"> </i> Message Broker - Red Hat AMQ</a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row row-buffer">
-            <div class="col-12">
-                <a name="codebase"></a>
-                <div class="card">
-                    <div class="card-header capability-header bg-redhat text-white">
-                        <i class="fas fa-code"></i> Codebase
-                    </div>
-                    <div class="card-body">
-                        <div class="container">
-                            <div class="row">
-                                <div class="media">
-                                    <img class="mr-4 mb-3" src="img/vertx.jpg" alt="Eclipse Vert.x" />
-                                    <div class="media-body p-0">
-                                        <h3>Java - Eclipse Vert.x</h3>
-                                        <p>Eclipse Vert.x is a tool-kit for building reactive applications on the JVM.</p>
-                                        <p>Your codebase has been customized to hook into the services selected during generation.  All capabilities are functional end-to-end for you to explore.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <table class="table">
-                                    <tr>
-                                        <th scope="row">Version</th>
-                                        <td>Vert.x RHOAR 1.0.0</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row text-wowrap"><i class="fab fa-git"></i> Git URL</th>
-                                        <td>
-                                            <p class="text-monospace">git://someone@github.com/whatever/somewhere
-                                            <button class="btn btn-success" data-toggle="tooltip" title="Copy Git URL"><i class="fas fa-clipboard"></i></button></p>
-                                            <p class="small">
-                                                You may use the <span class="text-monospace">git</span> command-line
-                                                client (or other preferred tooling) to clone this repository locally.
-                                                <div class="input-group input-group-sm small">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text text-monospace small font-weight-bold">shell$></span>
-                                                    </div>
-                                                    <input type="text"
-                                                        class="form-control text-monospace bg-dark text-white"
-                                                        disabled
-                                                        value="git clone git://someone@github.com/whatever/somewhere">
-                                                    <div class="input-group-append">
-                                                        <button class="btn btn-success" data-toggle="tooltip" title="Copy shell command"><i class="fas fa-clipboard"></i></button>
-                                                    </div>
-                                                </div>
-                                            </p>
-                                            <p class="small">
-                                                Instructions to build and run this codebase locally may be found in the source's
-                                                <a href="#"
-                                                    target="_blank"
-                                                    data-toggle="tooltip"
-                                                    data-placement="bottom"
-                                                    title="Open in GitHub"><span
-                                                        class="text-monospace">README.asciidoc <i
-                                                        class="fas fa-external-link-square-alt"
-                                                        ></i></span></a>.
-                                            </p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row text-nowrap"><i class="fab fa-github"></i> GitHub URL</th>
-                                        <td class="text-monospace">
-                                            <a href="https://github.com/redhat-developer" target="_blank">https://github.com/redhat-developer <i class="fas fa-external-link-square-alt"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row" nowrap><i class="fab fa-github"></i> GitHub Webhooks</th>
-                                        <td>
-                                            <a class="text-monospace" href="https://github.com/" target="_blank">https://github.com/redhat-developer/somerepo/settings/hooks <i class="fas fa-external-link-square-alt"></i></a>
-                                            <p class="small">Pushes to the master branch of this repository will trigger a build and deployment of the updated codebase on OpenShift.</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Base Image</th>
-                                        <td>
-                                            <p class="text-monospace">rht/java-s2i</p>
-                                            <p class="small">This is the base image used when
-                                                containerizing the codebase to run on OpenShift. <a href="#"
-                                                target="_blank"
-                                                data-toggle="tooltip"
-                                                title="Link to information about this image in the catalog">Learn more <i class="fas fa-external-link-square-alt"></i>.</a></p>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row row-buffer">
-            <div class="col-12">
-                <a name="healthchecks"></a>
-                <div class="card">
-                    <div class="card-header capability-header bg-redhat text-white">
-                        <i class="fas fa-briefcase-medical"></i> Health Checks
-                    </div>
-                    <div class="card-body">
-                        <p>
-                            Health checks are HTTP endpoints that the codebase exposes
-                            for the purpose of monitoring.  OpenShift will periodically hit these
-                            to determine that the container is functioning properly.  If not, it may kill
-                            and/or restart the pod to maintain the targeted number of instances configured to be running.
-                        </p>
-                        <p>
-                            Your application has been set up with the following Health Checks.
-                        </p>
-
+                      <th scope="row">Application URL</th>
+                      <td>
+                        <a class="text-monospace" href="#" target="_blank">https://youropenshiftcluster.com/application
+                          <i class="fas fa-external-link-square-alt"></i></a>
                         <p class="small">
-                            <a href="#" target="_blank" data-toggle="tooltip" title="Visit Health Checks on OpenShift Documentation">Learn more <i class="fas fa-external-link-square-alt"></i></a>.
+                          The link to this application running live on OpenShift
                         </p>
-                        <table class="table">
-                            <tr>
-                                <th>Liveness</th>
-                                <td>
-                                    <span class="text-monospace">GET /api/health/liveness</span>
-                                </td>
-                                <td class="align-top">
-                                    <div class="btn-group-vertical btn-group-sm align-top" role="group">
-                                        <button
-                                            id="hcLivenessExecuteButton"
-                                            class="btn btn-success align-top"
-                                            >Execute <i class="fas fa-play"></i></button>
-                                        <button
-                                            id="hcLivenessClearButton"
-                                            class="btn btn-danger align-top"
-                                            >Clear <i class="fas fa-stop"></i></button>
-                                    </div>
-                                    <textarea id="hcLivenessServerResponseConsole"
-                                        class="text-monospace small bg-dark text-white"
-                                        cols="35"
-                                        rows="5"
-                                        disabled
-                                        ></textarea>
-                                    <p class="small">
-                                        The source for this endpoint may be found in your codebase
-                                        at <a href="#"
-                                        class="text-monospace"
-                                        target="_blank"
-                                        data-toggle="tooltip"
-                                        data-placement="bottom"
-                                        title="Open in GitHub"><span
-                                            class="text-monospace">HealthCheckEndpoints.java <i
-                                            class="fas fa-external-link-square-alt"
-                                            ></i></a>
-                                    </p>
-                                    <p class="small">You may test this directly by making an
-                                        <span class="text-monospace">HTTP GET</span> request using this
-                                        application's URL as root.  For instance, try with the
-                                        <span class="text-monospace">cURL</span> tool:
-                                        <div class="input-group input-group-sm small">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text text-monospace small font-weight-bold">shell$></span>
-                                            </div>
-                                            <input type="text"
-                                                class="form-control text-monospace bg-dark text-white"
-                                                disabled
-                                                value="curl http://whateveropenshiftdomain.com/app/api/health/liveness">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-success" data-toggle="tooltip" title="Copy shell command"><i class="fas fa-clipboard"></i></button>
-                                            </div>
-                                        </div>
-                                    </p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Readiness</th>
-                                <td>
-                                    <span class="text-monospace">GET /api/health/readiness</span>
-                                </td>
-                                <td class="align-top">
-                                    <div class="btn-group-sm btn-group-vertical align-top" role="group">
-                                        <button
-                                            id="hcReadinessExecuteButton"
-                                            class="btn btn-success align-top"
-                                            >Execute <i class="fas fa-play"></i></button>
-                                        <button
-                                            id="hcReadinessClearButton"
-                                            class="btn btn-danger align-top"
-                                            >Clear <i class="fas fa-stop"></i></button>
-                                    </div>
-                                    <textarea id="hcReadinessServerResponseConsole"
-                                        class="text-monospace small bg-dark text-white"
-                                        cols="35"
-                                        rows="5"
-                                        disabled
-                                        ></textarea>
-                                    <p class="small">
-                                        The source for this endpoint may be found in your codebase
-                                        at <a href="#"
-                                            class="text-monospace"
-                                            target="_blank"
-                                            data-toggle="tooltip"
-                                            data-placement="bottom"
-                                            title="Open in GitHub"><span
-                                                class="text-monospace">HealthCheckEndpoints.java <i
-                                                class="fas fa-external-link-square-alt"
-                                                ></i></a>
-                                    </p>
-                                    <p class="small">You may test this directly by making an
-                                        <span class="text-monospace">HTTP GET</span> request using this
-                                        application's URL as root.  For instance, try with the
-                                        <span class="text-monospace">cURL</span> tool:
-                                        <div class="input-group input-group-sm small">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text text-monospace small font-weight-bold">shell$></span>
-                                            </div>
-                                            <input type="text"
-                                                class="form-control text-monospace bg-dark text-white"
-                                                disabled
-                                                value="curl http://whateveropenshiftdomain.com/app/api/health/readiness">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-success" data-toggle="tooltip" title="Copy shell command"><i class="fas fa-clipboard"></i></button>
-                                            </div>
-                                        </div>
-                                    </p>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">OpenShift Console URL</th>
+                      <td>
+                        <a class="text-monospace" href="#" target="_blank">https://youropenshiftcluster.com/console/namespace
+                          <i class="fas fa-external-link-square-alt"></i></a>
+                        <p class="small">
+                          Link to manage the OpenShift instance where this application is
+                          deployed.
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Capabilities Created</th>
+                      <td>
+                        <div class="btn-group-vertical" role="group">
+                          <a href="#codebase" class="btn btn-sm btn-info"><i class="fas fa-code"></i>
+                            Runtime Application - Eclipse Vert.x</a>
+                          <a href="#healthchecks" class="btn btn-sm btn-info"><i class="fas fa-briefcase-medical"></i>
+                            Health Checks</a>
+                          <a href="#endpoints" class="btn btn-sm btn-info"><i class="fas fa-plug"></i>
+                            HTTP API Endpoints</a>
+                          <a href="#database" class="btn btn-sm btn-info"><i class="fas fa-database">
+                            </i> Database - PostgreSQL</a>
+                          <a href="#messaging" class="btn btn-sm btn-info"><i class="fas fa-envelope-open">
+                            </i> Message Broker - Red Hat AMQ</a>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
 
-        <div class="row row-buffer">
-            <div class="col-12">
-                <a name="endpoints"></a>
-                <div class="card">
-                    <div class="card-header capability-header bg-redhat text-white">
-                        <i class="fas fa-plug"></i> HTTP API Endpoints
+      <div class="row row-buffer">
+        <div class="col-12">
+          <a name="codebase"></a>
+          <div class="card">
+            <div class="card-header capability-header bg-redhat text-white">
+              <i class="fas fa-code"></i> Codebase
+            </div>
+            <div class="card-body">
+              <div class="container">
+                <div class="row">
+                  <div class="media">
+                    <img class="mr-4 mb-3" src="img/vertx.jpg" alt="Eclipse Vert.x" />
+                    <div class="media-body p-0">
+                      <h3>Java - Eclipse Vert.x</h3>
+                      <p>Eclipse Vert.x is a tool-kit for building reactive applications on the JVM.</p>
+                      <p>Your codebase has been customized to hook into the services selected during
+                        generation. All capabilities are functional end-to-end for you to explore.</p>
                     </div>
-                    <div class="card-body">
-                        <p>
-                            HTTP API endpoints expose your application to outside callers.
-                            Through these, programs may communicate over the network in a language-independent
-                            fashion.  We have created an initial set of endpoints to illustrate how you may
-                            accomplish this in your selected runtime, Vert.x.  By composing together HTTP endpoints
-                            and making use of hypermedia and links, you may follow these patterns to construct a
-                            RESTful architecture.
+                  </div>
+                </div>
+                <div class="row">
+                  <table class="table">
+                    <tr>
+                      <th scope="row">Version</th>
+                      <td>Vert.x RHOAR 1.0.0</td>
+                    </tr>
+                    <tr>
+                      <th scope="row text-wowrap"><i class="fab fa-git"></i> Git URL</th>
+                      <td>
+                        <p class="text-monospace">git://someone@github.com/whatever/somewhere
+                          <button class="btn btn-success" data-toggle="tooltip" title="Copy Git URL"><i class="fas fa-clipboard"></i></button></p>
+                        <p class="small">
+                          You may use the <span class="text-monospace">git</span> command-line
+                          client (or other preferred tooling) to clone this repository locally.
+                          <div class="input-group input-group-sm small">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text text-monospace small font-weight-bold">shell$></span>
+                            </div>
+                            <input type="text" class="form-control text-monospace bg-dark text-white" disabled value="git clone git://someone@github.com/whatever/somewhere">
+                            <div class="input-group-append">
+                              <button class="btn btn-success" data-toggle="tooltip" title="Copy shell command"><i class="fas fa-clipboard"></i></button>
+                            </div>
+                          </div>
                         </p>
+                        <p class="small">
+                          Instructions to build and run this codebase locally may be found in the
+                          source's
+                          <a href="#" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Open in GitHub"><span
+                              class="text-monospace">README.asciidoc
+                              <i class="fas fa-external-link-square-alt"></i></span></a>.
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row text-nowrap"><i class="fab fa-github"></i> GitHub URL</th>
+                      <td class="text-monospace">
+                        <a href="https://github.com/redhat-developer" target="_blank">https://github.com/redhat-developer
+                          <i class="fas fa-external-link-square-alt"></i></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row" nowrap><i class="fab fa-github"></i> GitHub Webhooks</th>
+                      <td>
+                        <a class="text-monospace" href="https://github.com/" target="_blank">https://github.com/redhat-developer/somerepo/settings/hooks
+                          <i class="fas fa-external-link-square-alt"></i></a>
+                        <p class="small">Pushes to the master branch of this repository will
+                          trigger a build and deployment of the updated codebase on OpenShift.</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Base Image</th>
+                      <td>
+                        <p class="text-monospace">rht/java-s2i</p>
+                        <p class="small">This is the base image used when
+                          containerizing the codebase to run on OpenShift. <a href="#" target="_blank" data-toggle="tooltip"
+                            title="Link to information about this image in the catalog">Learn
+                            more <i class="fas fa-external-link-square-alt"></i>.</a></p>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
+      <div class="row row-buffer">
+        <div class="col-12">
+          <a name="healthchecks"></a>
+          <div class="card">
+            <div class="card-header capability-header bg-redhat text-white">
+              <i class="fas fa-briefcase-medical"></i> Health Checks
+            </div>
+            <div class="card-body">
+              <p>
+                Health checks are HTTP endpoints that the codebase exposes
+                for the purpose of monitoring. OpenShift will periodically hit these
+                to determine that the container is functioning properly. If not, it may kill
+                and/or restart the pod to maintain the targeted number of instances configured to be
+                running.
+              </p>
+              <p>
+                Your application has been set up with the following Health Checks.
+              </p>
+
+              <p class="small">
+                <a href="#" target="_blank" data-toggle="tooltip" title="Visit Health Checks on OpenShift Documentation">Learn
+                  more <i class="fas fa-external-link-square-alt"></i></a>.
+              </p>
+              <table class="table">
+                <tr>
+                  <th>Liveness</th>
+                  <td>
+                    <span class="text-monospace">GET /api/health/liveness</span>
+                  </td>
+                  <td class="align-top">
+                    <div class="btn-group-vertical btn-group-sm align-top" role="group">
+                      <button id="hcLivenessExecuteButton" class="btn btn-success align-top">Execute
+                        <i class="fas fa-play"></i></button>
+                      <button id="hcLivenessClearButton" class="btn btn-danger align-top">Clear <i class="fas fa-stop"></i></button>
+                    </div>
+                    <textarea id="hcLivenessServerResponseConsole" class="text-monospace small bg-dark text-white" cols="35"
+                      rows="5" disabled></textarea>
+                    <p class="small">
+                      The source for this endpoint may be found in your codebase
+                      at <a href="#" class="text-monospace" target="_blank" data-toggle="tooltip" data-placement="bottom"
+                        title="Open in GitHub"><span class="text-monospace">HealthCheckEndpoints.java
+                          <i class="fas fa-external-link-square-alt"></i></a>
+                    </p>
+                    <p class="small">You may test this directly by making an
+                      <span class="text-monospace">HTTP GET</span> request using this
+                      application's URL as root. For instance, try with the
+                      <span class="text-monospace">cURL</span> tool:
+                      <div class="input-group input-group-sm small">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text text-monospace small font-weight-bold">shell$></span>
+                        </div>
+                        <input type="text" class="form-control text-monospace bg-dark text-white" disabled value="curl http://whateveropenshiftdomain.com/app/api/health/liveness">
+                        <div class="input-group-append">
+                          <button class="btn btn-success" data-toggle="tooltip" title="Copy shell command"><i class="fas fa-clipboard"></i></button>
+                        </div>
+                      </div>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Readiness</th>
+                  <td>
+                    <span class="text-monospace">GET /api/health/readiness</span>
+                  </td>
+                  <td class="align-top">
+                    <div class="btn-group-sm btn-group-vertical align-top" role="group">
+                      <button id="hcReadinessExecuteButton" class="btn btn-success align-top">Execute
+                        <i class="fas fa-play"></i></button>
+                      <button id="hcReadinessClearButton" class="btn btn-danger align-top">Clear <i class="fas fa-stop"></i></button>
+                    </div>
+                    <textarea id="hcReadinessServerResponseConsole" class="text-monospace small bg-dark text-white" cols="35"
+                      rows="5" disabled></textarea>
+                    <p class="small">
+                      The source for this endpoint may be found in your codebase
+                      at <a href="#" class="text-monospace" target="_blank" data-toggle="tooltip" data-placement="bottom"
+                        title="Open in GitHub"><span class="text-monospace">HealthCheckEndpoints.java
+                          <i class="fas fa-external-link-square-alt"></i></a>
+                    </p>
+                    <p class="small">You may test this directly by making an
+                      <span class="text-monospace">HTTP GET</span> request using this
+                      application's URL as root. For instance, try with the
+                      <span class="text-monospace">cURL</span> tool:
+                      <div class="input-group input-group-sm small">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text text-monospace small font-weight-bold">shell$></span>
+                        </div>
+                        <input type="text" class="form-control text-monospace bg-dark text-white" disabled value="curl http://whateveropenshiftdomain.com/app/api/health/readiness">
+                        <div class="input-group-append">
+                          <button class="btn btn-success" data-toggle="tooltip" title="Copy shell command"><i class="fas fa-clipboard"></i></button>
+                        </div>
+                      </div>
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row row-buffer">
+        <div class="col-12">
+          <a name="endpoints"></a>
+          <div class="card">
+            <div class="card-header capability-header bg-redhat text-white">
+              <i class="fas fa-plug"></i> HTTP API Endpoints
+            </div>
+            <div class="card-body">
+              <p>
+                HTTP API endpoints expose your application to outside callers.
+                Through these, programs may communicate over the network in a language-independent
+                fashion. We have created an initial set of endpoints to illustrate how you may
+                accomplish this in your selected runtime, Vert.x. By composing together HTTP endpoints
+                and making use of hypermedia and links, you may follow these patterns to construct a
+                RESTful architecture.
+              </p>
+
+              <p>
+                <a class="small" href="https://developers.redhat.com/products/amq/overview/" target="_blank">Learn
+                  more at developers.redhat.com
+                  <i class="fas fa-external-link-square-alt"></i>
+                </a>
+              </p>
+
+              <div class="container">
+                <div class="row">
+                  <div class="col-12 p-0">
+                    <table class="table">
+                      <tr>
+                        <td colspan="2" class="p-0">
+                          <p class="mt-2">
+                            To illustrate how to open an HTTP endpoint in your selected
+                            runtime,
+                            Vert.x, we have created a simple service as a jumping-off point
+                            for your own development. This is functional out of the box and you
+                            may alter it to suit your needs.
+                          </p>
+
+                          <div class="container">
+                            <div class="row mb-2">
+                              <div class="col-3 p-0 font-weight-bold">
+                                Swagger URL
+                              </div>
+                              <div class="col-9 p-0">
+                                <a class="text-monospace" href="#" target="_blank" data-toggle="tooltip" title="Interactive Swagger documentation">http://somedomain.com/swagger-ui.html
+                                  <i class="fas fa-external-link-square-alt"></i></a>
+                              </div>
+                            </div>
+                            <div class="row mb-2">
+                              <div class="col-3 p-0 font-weight-bold">
+                                JSON Spec
+                              </div>
+                              <div class="col-9 p-0">
+                                <a class="text-monospace" href="#" target="_blank" data-toggle="tooltip" title="JSON Specification for consumption by integration services such as Fuse">http://somedomain.com/api-docs
+                                  <i class="fas fa-external-link-square-alt"></i></a>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th width="20%" class="p-0">
+                          <p class="mt-2"><a href="#" target="_blank" data-toggle="tooltip" title="View source on GitHub">GreetingService
+                              <i class="fas fa-external-link-square-alt"></i><a />
+                          </p>
+                          </td>
+                        <td width="80%">
+                          <div class="container p-0">
+                            <div class="row mb-2 p-0">
+                              <div class="col-12 col-lg-3 p-0 text-monospace">
+                                /api/greeting
+                              </div>
+                              <div class="col-12 col-lg-9 p-0">
+                                <div class="container p=0">
+                                  <div class="row p-0">
+                                    <div class="col-sm-6 col-12 p-0 pr-3">
+                                      <div class="input-group input-group-sm mb-2">
+                                        <div class="input-group-prepend">
+                                          <button id="httpEndpoint1GetButton" data-toggle="tooltip" class="btn btn-sm btn-info"
+                                            title="Execute GET request">GET</button>
+                                        </div>
+                                        <input type="text" class="small form-control" disabled value="Hello, ">
+                                        <input type="text" id="httpEndpoint1GetInput" class="small form-control"
+                                          placeholder="World">
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-6 col-12 p-0">
+                                      <textarea id="httpEndpoint1Console" class="text-monospace small bg-dark text-white full-width"
+                                        rows="5" disabled></textarea>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row mb-2 p-0">
+                            <div class="col-12 col-lg-3 p-0">
+
+                            </div>
+                            <div class="col-12 col-lg-9 p-0">
+                              <p class="small">You may test this directly by making an
+                                <span class="text-monospace">HTTP GET</span> request using
+                                this
+                                application's URL as root. For instance, try with the
+                                <span class="text-monospace">cURL</span> tool:
+                                <div class="input-group input-group-sm small">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text text-monospace small font-weight-bold">shell$></span>
+                                  </div>
+                                  <input type="text" class="form-control text-monospace bg-dark text-white" disabled
+                                    value="curl http://whateveropenshiftdomain.com/app/api/greeting">
+                                  <div class="input-group-append">
+                                    <button class="btn btn-success" data-toggle="tooltip" title="Copy shell command"><i
+                                        class="fas fa-clipboard"></i></button>
+                                  </div>
+                                </div>
+                              </p>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row row-buffer">
+        <div class="col-12">
+          <a name="database"></a>
+          <div class="card">
+            <div class="card-header capability-header bg-redhat text-white">
+              <i class="fas fa-database"></i> Relational Database
+            </div>
+            <div class="card-body">
+              <div class="container">
+                <div class="row">
+                  <div class="col-12 p-0">
+                    <div class="media">
+                      <img class="mr-4 mb-3" src="img/postgresql.png" alt="PostgreSQL" />
+                      <div class="media-body p-0">
+                        <h3>PostgreSQL</h3>
                         <p>
-                            <a class="small"
-                                href="https://developers.redhat.com/products/amq/overview/"
-                                target="_blank">Learn more at developers.redhat.com
-                                <i
-                                class="fas fa-external-link-square-alt"></i>
-                            </a>
+                          PostgreSQL, often simply Postgres, is an object-relational
+                          database management system with an emphasis on extensibility and
+                          standards compliance.
                         </p>
 
                         <div class="container">
-                            <div class="row">
-                                <div class="col-12 p-0">
-                                    <table class="table">
-                                        <tr>
-                                            <td colspan="2" class="p-0">
-                                                <p class="mt-2">
-                                                    To illustrate how to open an HTTP endpoint in your selected runtime,
-                                                    Vert.x, we have created a simple service as a jumping-off point
-                                                    for your own development.  This is functional out of the box and you
-                                                    may alter it to suit your needs.
-                                                </p>
-
-                                                <div class="container">
-                                                    <div class="row mb-2">
-                                                        <div class="col-3 p-0 font-weight-bold">
-                                                            Swagger URL
-                                                        </div>
-                                                        <div class="col-9 p-0">
-                                                            <a class="text-monospace"
-                                                                href="#"
-                                                                target="_blank"
-                                                                data-toggle="tooltip"
-                                                                title="Interactive Swagger documentation">http://somedomain.com/swagger-ui.html <i class="fas fa-external-link-square-alt"></i></a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row mb-2">
-                                                        <div class="col-3 p-0 font-weight-bold">
-                                                            JSON Spec
-                                                        </div>
-                                                        <div class="col-9 p-0">
-                                                            <a class="text-monospace"
-                                                                href="#"
-                                                                target="_blank"
-                                                                data-toggle="tooltip"
-                                                                title="JSON Specification for consumption by integration services such as Fuse">http://somedomain.com/api-docs <i class="fas fa-external-link-square-alt"></i></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th width="20%" class="p-0">
-                                                <p class="mt-2"><a
-                                                    href="#"
-                                                    target="_blank"
-                                                    data-toggle="tooltip"
-                                                    title="View source on GitHub"
-                                                    >GreetingService <i
-                                                    class="fas fa-external-link-square-alt"></i><a/>
-                                                </p>
-                                            </td>
-                                            <td width="80%">
-                                                <div class="container p-0">
-                                                    <div class="row mb-2 p-0">
-                                                        <div class="col-12 col-lg-3 p-0 text-monospace">
-                                                            /api/greeting
-                                                        </div>
-                                                        <div class="col-12 col-lg-9 p-0">
-                                                            <div class="container p=0">
-                                                                <div class="row p-0">
-                                                                    <div class="col-sm-6 col-12 p-0 pr-3">
-                                                                        <div class="input-group input-group-sm mb-2">
-                                                                            <div class="input-group-prepend">
-                                                                                <button
-                                                                                    id="httpEndpoint1GetButton"
-                                                                                    data-toggle="tooltip"
-                                                                                    class="btn btn-sm btn-info"
-                                                                                    title="Execute GET request">GET</button>
-                                                                            </div>
-                                                                            <input type="text"
-                                                                                class="small form-control"
-                                                                                disabled
-                                                                                value="Hello, ">
-                                                                            <input type="text"
-                                                                                id="httpEndpoint1GetInput"
-                                                                                class="small form-control"
-                                                                                placeholder="World">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-6 col-12 p-0">
-                                                                        <textarea id="httpEndpoint1Console"
-                                                                            class="text-monospace small bg-dark text-white full-width"
-                                                                            rows="5"
-                                                                            disabled
-                                                                            ></textarea>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row mb-2 p-0">
-                                                    <div class="col-12 col-lg-3 p-0">
-
-                                                    </div>
-                                                    <div class="col-12 col-lg-9 p-0">
-                                                        <p class="small">You may test this directly by making an
-                                                            <span class="text-monospace">HTTP GET</span> request using this
-                                                            application's URL as root.  For instance, try with the
-                                                            <span class="text-monospace">cURL</span> tool:
-                                                            <div class="input-group input-group-sm small">
-                                                                <div class="input-group-prepend">
-                                                                    <span class="input-group-text text-monospace small font-weight-bold">shell$></span>
-                                                                </div>
-                                                                <input type="text"
-                                                                    class="form-control text-monospace bg-dark text-white"
-                                                                    disabled
-                                                                    value="curl http://whateveropenshiftdomain.com/app/api/greeting">
-                                                                <div class="input-group-append">
-                                                                    <button class="btn btn-success" data-toggle="tooltip" title="Copy shell command"><i class="fas fa-clipboard"></i></button>
-                                                                </div>
-                                                            </div>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
+                          <div class="row mb-2">
+                            <div class="col-3 font-weight-bold">
+                              Username
                             </div>
+                            <div class="col-9 text-monospace">
+                              admin
+                            </div>
+                          </div>
+                          <div class="row mb-2">
+                            <div class="col-3 font-weight-bold">
+                              Password
+                            </div>
+                            <div class="col-9 text-monospace">
+                              password
+                            </div>
+                          </div>
+                          <div class="row mb-2">
+                            <div class="col-3 font-weight-bold">
+                              Deployment
+                            </div>
+                            <div class="col-9 text-monospace">
+                              <a class="text-monospace" href="#" target="_blank" data-toggle="tooltip" title="View DB deployment on OpenShift">http://youropenshift.com/console/deployment/db
+                                <i class="fas fa-external-link-square-alt"></i></a>
+                            </div>
+                          </div>
+                          <div class="row mb-2">
+                            <div class="col-3 font-weight-bold">
+                              Image
+                            </div>
+                            <div class="col-9">
+                              <span class="text-monospace">openshift/postgresql-92-centos7</span><br />
+                              <p class="small"><a href="#" target="_blank" data-toggle="tooltip" title="Link to information about this image in the catalog">Learn
+                                  more <i class="fas fa-external-link-square-alt"></i></a></p>
+                            </div>
+                          </div>
                         </div>
+
+                        <p>
+                          For security purposes, this database instance is not currently
+                          exposed to the world outside OpenShift. To do that, you may define a
+                          route <a href="#" target="_blank">here <i class="fas fa-external-link-square-alt"></i></a>.
+                          <span class="text-danger small">ALR Note: factor in discussion of
+                            Secrets or ConfigMap here to note how the user/pass info is
+                            managed? How about a link to documentation on how to change the
+                            user/pass and be sure the configs are updated to use the new auth
+                            data?</span>
+                        </p>
+                      </div>
                     </div>
+                  </div>
                 </div>
-            </div>
-        </div>
+                <div class="row">
+                  <div class="col-12 p-0">
+                    <table class="table">
+                      <tr>
+                        <td colspan="2">
+                          <p>
+                            As a starting point for your development, we have created a
+                            <span class="text-monospace">Fruits</span> table and populated it
+                            with some
+                            data. We've additionally exposed CRUD operations via the following
+                            endpoints
+                            to give you a system that works end to end.
+                          </p>
 
-        <div class="row row-buffer">
-            <div class="col-12">
-                <a name="database"></a>
-                <div class="card">
-                    <div class="card-header capability-header bg-redhat text-white">
-                        <i class="fas fa-database"></i> Relational Database
-                    </div>
-                    <div class="card-body">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-12 p-0">
-                                    <div class="media">
-                                        <img class="mr-4 mb-3" src="img/postgresql.png" alt="PostgreSQL" />
-                                        <div class="media-body p-0">
-                                            <h3>PostgreSQL</h3>
-                                            <p>
-                                                PostgreSQL, often simply Postgres, is an object-relational
-                                                database management system with an emphasis on extensibility and
-                                                standards compliance.
-                                            </p>
+                          <div class="container">
+                            <div class="row mb-2">
+                              <div class="col-3 p-0 font-weight-bold">
+                                Swagger URL
+                              </div>
+                              <div class="col-9 p-0">
+                                <a class="text-monospace" href="#" target="_blank" data-toggle="tooltip" title="Interactive Swagger documentation">http://somedomain.com/swagger-ui.html
+                                  <i class="fas fa-external-link-square-alt"></i></a>
+                              </div>
+                            </div>
+                            <div class="row mb-2">
+                              <div class="col-3 p-0 font-weight-bold">
+                                JSON Spec
+                              </div>
+                              <div class="col-9 p-0">
+                                <a class="text-monospace" href="#" target="_blank" data-toggle="tooltip" title="JSON Specification for consumption by integration services such as Fuse">http://somedomain.com/api-docs
+                                  <i class="fas fa-external-link-square-alt"></i></a>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th width="20%"><a href="#" target="_blank" data-toggle="tooltip" title="View source on GitHub">FruitController
+                            <i class="fas fa-external-link-square-alt"></i><a /></td>
+                        <td width="80%">
 
-                                            <div class="container">
-                                                <div class="row mb-2">
-                                                    <div class="col-3 font-weight-bold">
-                                                        Username
-                                                    </div>
-                                                    <div class="col-9 text-monospace">
-                                                        admin
-                                                    </div>
-                                                </div>
-                                                <div class="row mb-2">
-                                                    <div class="col-3 font-weight-bold">
-                                                        Password
-                                                    </div>
-                                                    <div class="col-9 text-monospace">
-                                                        password
-                                                    </div>
-                                                </div>
-                                                <div class="row mb-2">
-                                                    <div class="col-3 font-weight-bold">
-                                                        Deployment
-                                                    </div>
-                                                    <div class="col-9 text-monospace">
-                                                        <a class="text-monospace"
-                                                            href="#"
-                                                            target="_blank"
-                                                            data-toggle="tooltip"
-                                                            title="View DB deployment on OpenShift">http://youropenshift.com/console/deployment/db <i class="fas fa-external-link-square-alt"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="row mb-2">
-                                                    <div class="col-3 font-weight-bold">
-                                                        Image
-                                                    </div>
-                                                    <div class="col-9">
-                                                        <span class="text-monospace">openshift/postgresql-92-centos7</span><br />
-                                                        <p class="small"><a href="#"
-                                                            target="_blank"
-                                                            data-toggle="tooltip"
-                                                            title="Link to information about this image in the catalog"
-                                                            >Learn more <i class="fas fa-external-link-square-alt"></i></a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <p>
-                                                For security purposes, this database instance is not currently
-                                                exposed to the world outside OpenShift.  To do that, you may define a
-                                                route <a
-                                                    href="#"
-                                                    target="_blank">here <i class="fas fa-external-link-square-alt"></i></a>.
-                                                <span class="text-danger small">ALR Note: factor in discussion of Secrets or ConfigMap here to note how the user/pass info is managed?  How about a link to documentation on how to change the user/pass and be sure the configs are updated to use the new auth data?</span>
-                                            </p>
+                          <div class="container p-0">
+                            <div class="row mb-2 p-0">
+                              <div class="col-3 p-0 text-monospace">
+                                /api/db/fruits
+                              </div>
+                              <div class="col-9 p-0">
+                                <div class="container p=0">
+                                  <div class="row p-0">
+                                    <div class="col-sm-6 col-12 p-0 pr-3">
+                                      <div class="mb-2">
+                                        <button id="dbEndpoint1GetButton" class="btn btn-sm btn-info" data-toggle="tooltip"
+                                          title="Execute GET request">GET</button>
+                                      </div>
+                                      <div class="input-group input-group-sm mb-2">
+                                        <div class="input-group-prepend">
+                                          <button id="dbEndpoint1PostButton" data-toggle="tooltip" class="btn btn-sm btn-success"
+                                            title="Execute POST request">POST</button>
                                         </div>
+                                        <input type="text" id="dbEndpoint1PostInput" class="small form-control"
+                                          placeholder="Fruit to add">
+                                      </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12 p-0">
-                                    <table class="table">
-                                        <tr>
-                                            <td colspan="2">
-                                                <p>
-                                                    As a starting point for your development, we have created a
-                                                    <span class="text-monospace">Fruits</span> table and populated it with some
-                                                    data.  We've additionally exposed CRUD operations via the following endpoints
-                                                    to give you a system that works end to end.
-                                                </p>
-
-                                                <div class="container">
-                                                    <div class="row mb-2">
-                                                        <div class="col-3 p-0 font-weight-bold">
-                                                            Swagger URL
-                                                        </div>
-                                                        <div class="col-9 p-0">
-                                                            <a class="text-monospace"
-                                                                href="#"
-                                                                target="_blank"
-                                                                data-toggle="tooltip"
-                                                                title="Interactive Swagger documentation">http://somedomain.com/swagger-ui.html <i class="fas fa-external-link-square-alt"></i></a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row mb-2">
-                                                        <div class="col-3 p-0 font-weight-bold">
-                                                            JSON Spec
-                                                        </div>
-                                                        <div class="col-9 p-0">
-                                                            <a class="text-monospace"
-                                                                href="#"
-                                                                target="_blank"
-                                                                data-toggle="tooltip"
-                                                                title="JSON Specification for consumption by integration services such as Fuse">http://somedomain.com/api-docs <i class="fas fa-external-link-square-alt"></i></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th width="20%"><a
-                                                href="#"
-                                                target="_blank"
-                                                data-toggle="tooltip"
-                                                title="View source on GitHub"
-                                                >FruitController <i
-                                                class="fas fa-external-link-square-alt"></i><a/></td>
-                                            <td width="80%">
-
-                                                <div class="container p-0">
-                                                    <div class="row mb-2 p-0">
-                                                        <div class="col-3 p-0 text-monospace">
-                                                            /api/db/fruits
-                                                        </div>
-                                                        <div class="col-9 p-0">
-                                                            <div class="container p=0">
-                                                                <div class="row p-0">
-                                                                    <div class="col-sm-6 col-12 p-0 pr-3">
-                                                                        <div class="mb-2">
-                                                                            <button
-                                                                                id="dbEndpoint1GetButton"
-                                                                                class="btn btn-sm btn-info"
-                                                                                data-toggle="tooltip"
-                                                                                title="Execute GET request">GET</button>
-                                                                        </div>
-                                                                        <div class="input-group input-group-sm mb-2">
-                                                                            <div class="input-group-prepend">
-                                                                                <button
-                                                                                    id="dbEndpoint1PostButton"
-                                                                                    data-toggle="tooltip"
-                                                                                    class="btn btn-sm btn-success"
-                                                                                    title="Execute POST request">POST</button>
-                                                                            </div>
-                                                                            <input type="text"
-                                                                                id="dbEndpoint1PostInput"
-                                                                                class="small form-control"
-                                                                                placeholder="Fruit to add">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-6 col-12 p-0">
-                                                                        <textarea id="dbEndpoint1Console"
-                                                                            class="text-monospace small bg-dark text-white full-width"
-                                                                            rows="5"
-                                                                            disabled
-                                                                            ></textarea>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row mb-2">
-                                                        <div class="col-3 p-0 text-monospace">
-                                                            /api/db/fruits/{id}
-                                                        </div>
-                                                        <div class="col-9 p-0">
-                                                            <div class="container p=0">
-                                                                <div class="row p-0">
-                                                                    <div class="col-sm-6 col-12 p-0 pr-3">
-                                                                        <div class="input-group input-group-sm mb-2">
-                                                                            <div class="input-group-prepend">
-                                                                                <button
-                                                                                    id="dbEndpoint2PutButton"
-                                                                                    class="btn btn-sm btn-warning">PUT</button>
-                                                                            </div>
-                                                                            <input type="text"
-                                                                                id="dbEndpoint2PutInput1"
-                                                                                class="small form-control"
-                                                                                placeholder="ID">
-                                                                            <input type="text"
-                                                                                id="dbEndpoint2PutInput2"
-                                                                                class="small form-control"
-                                                                                placeholder="New value">
-                                                                        </div>
-                                                                        <div class="input-group input-group-sm mb-2">
-                                                                            <div class="input-group-prepend">
-                                                                                <button
-                                                                                    id="dbEndpoint2DeleteButton"
-                                                                                    data-toggle="tooltip"
-                                                                                    title="Delete the selected ID"
-                                                                                    class="btn btn-sm btn-danger">DELETE</button>
-                                                                            </div>
-                                                                            <input type="text"
-                                                                                id="dbEndpoint2DeleteInput"
-                                                                                class="small form-control"
-                                                                                placeholder="ID">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-sm-6 col-12 p-0">
-                                                                        <textarea id="dbEndpoint2Console"
-                                                                            class="text-monospace small bg-dark text-white full-width"
-                                                                            rows="5"
-                                                                            disabled
-                                                                            ></textarea>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row row-buffer">
-            <div class="col-12">
-                <a name="messaging"></a>
-                <div class="card">
-                    <div class="card-header capability-header bg-redhat text-white">
-                        <i class="fas fa-envelope-open"></i> Messaging
-                    </div>
-                    <div class="card-body">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="media">
-                                    <img class="mr-4 mb-3" src="img/amq.png" alt="Red Hat AMQ" />
-                                    <div class="media-body p-0">
-                                        <p>
-                                            AMQ provides fast, lightweight, and secure messaging for Internet-scale
-                                            applications.  <a class="small"
-                                            href="https://developers.redhat.com/products/amq/overview/"
-                                            target="_blank">Learn more at developers.redhat.com
-                                            <i class="fas fa-external-link-square-alt"></i></a>.
-                                        </p>
-                                        <p>
-                                            This application contains the following messaging destinations.  For your
-                                            convenince, we have provided mechanisms to both publish and listen to them,
-                                            so you're all hooked up.
-                                        </p>
+                                    <div class="col-sm-6 col-12 p-0">
+                                      <textarea id="dbEndpoint1Console" class="text-monospace small bg-dark text-white full-width"
+                                        rows="5" disabled></textarea>
                                     </div>
+                                  </div>
                                 </div>
+                              </div>
+                            </div>
+
+                            <div class="row mb-2">
+                              <div class="col-3 p-0 text-monospace">
+                                /api/db/fruits/{id}
+                              </div>
+                              <div class="col-9 p-0">
+                                <div class="container p=0">
+                                  <div class="row p-0">
+                                    <div class="col-sm-6 col-12 p-0 pr-3">
+                                      <div class="input-group input-group-sm mb-2">
+                                        <div class="input-group-prepend">
+                                          <button id="dbEndpoint2PutButton" class="btn btn-sm btn-warning">PUT</button>
+                                        </div>
+                                        <input type="text" id="dbEndpoint2PutInput1" class="small form-control"
+                                          placeholder="ID">
+                                        <input type="text" id="dbEndpoint2PutInput2" class="small form-control"
+                                          placeholder="New value">
+                                      </div>
+                                      <div class="input-group input-group-sm mb-2">
+                                        <div class="input-group-prepend">
+                                          <button id="dbEndpoint2DeleteButton" data-toggle="tooltip" title="Delete the selected ID"
+                                            class="btn btn-sm btn-danger">DELETE</button>
+                                        </div>
+                                        <input type="text" id="dbEndpoint2DeleteInput" class="small form-control"
+                                          placeholder="ID">
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-6 col-12 p-0">
+                                      <textarea id="dbEndpoint2Console" class="text-monospace small bg-dark text-white full-width"
+                                        rows="5" disabled></textarea>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row row-buffer">
+        <div class="col-12">
+          <a name="messaging"></a>
+          <div class="card">
+            <div class="card-header capability-header bg-redhat text-white">
+              <i class="fas fa-envelope-open"></i> Messaging
+            </div>
+            <div class="card-body">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="media">
+                    <img class="mr-4 mb-3" src="img/amq.png" alt="Red Hat AMQ" />
+                    <div class="media-body p-0">
+                      <p>
+                        AMQ provides fast, lightweight, and secure messaging for Internet-scale
+                        applications. <a class="small" href="https://developers.redhat.com/products/amq/overview/" target="_blank">Learn
+                          more at developers.redhat.com
+                          <i class="fas fa-external-link-square-alt"></i></a>.
+                      </p>
+                      <p>
+                        This application contains the following messaging destinations. For your
+                        convenince, we have provided mechanisms to both publish and listen to them,
+                        so you're all hooked up.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <table class="table">
+                      <tr>
+                        <th width="20%">Broker</th>
+                        <td width="80%">
+                          <div class="container p-0">
+                            <div class="row mb-2">
+                              <div class="col-3 p-0 font-weight-bold">
+                                Console URL
+                              </div>
+                              <div class="col-9 p-0">
+                                <a href="#" target="_blank">http://console-amq.192.168.42.114.nip.io
+                                  <i class="fas fa-external-link-square-alt"></i></a>
+                              </div>
+                            </div>
+                            <div class="row mb-2">
+                              <div class="col-3 p-0 font-weight-bold">
+                                Username
+                              </div>
+                              <div class="col-9 p-0">
+                                <span class="text-monospace">admin</span>
+                              </div>
+                            </div>
+                            <div class="row mb-2">
+                              <div class="col-3 p-0 font-weight-bold">
+                                Password
+                              </div>
+                              <div class="col-9 p-0">
+                                <span class="text-monospace">admin</span>
+                              </div>
+                            </div>
+                            <div class="row mb-2">
+                              <div class="col-3 p-0 font-weight-bold">
+                                Image
+                              </div>
+                              <div class="col-9 p-0">
+                                <span class="text-monospace">amq-broker-7-tech-preview/amq-broker-71-openshift</span><br />
+                                <p class="small"><a href="#" target="_blank" data-toggle="tooltip" title="Link to information about this image in the catalog">Learn
+                                    more <i class="fas fa-external-link-square-alt"></i></a></p>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th width="20%">Topics</th>
+                        <td width="80%">
+                          <div class="container p-0">
+                            <div class="row">
+                              <div class="col-12 p-0 mb-3">
+                                <i>Topics</i> implement the publish/subscribe model of
+                                messaging. Many
+                                listeners may be subscribed to a topic at once, and all may
+                                receive
+                                the message. This is a pattern well-suited to the broadcast
+                                of information.
+                                If a listener is unsubscribed at the time a message is sent
+                                to the topic, it
+                                will not receive that particular message.
+                                <p class="small"><a href="#" target="_blank">Learn
+                                    more <i class="fas fa-external-link-square-alt"></i></a>
+                                  about topics.</p>
+                              </div>
                             </div>
                             <div class="row">
-                                <div class="col-12">
-                                    <table class="table">
-                                        <tr>
-                                            <th width="20%">Broker</th>
-                                            <td width="80%">
-                                                <div class="container p-0">
-                                                    <div class="row mb-2">
-                                                        <div class="col-3 p-0 font-weight-bold">
-                                                            Console URL
-                                                        </div>
-                                                        <div class="col-9 p-0">
-                                                            <a href="#" target="_blank">http://console-amq.192.168.42.114.nip.io <i class="fas fa-external-link-square-alt"></i></a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row mb-2">
-                                                        <div class="col-3 p-0 font-weight-bold">
-                                                            Username
-                                                        </div>
-                                                        <div class="col-9 p-0">
-                                                            <span class="text-monospace">admin</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row mb-2">
-                                                        <div class="col-3 p-0 font-weight-bold">
-                                                            Password
-                                                        </div>
-                                                        <div class="col-9 p-0">
-                                                            <span class="text-monospace">admin</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row mb-2">
-                                                        <div class="col-3 p-0 font-weight-bold">
-                                                            Image
-                                                        </div>
-                                                        <div class="col-9 p-0">
-                                                            <span class="text-monospace">amq-broker-7-tech-preview/amq-broker-71-openshift</span><br />
-                                                            <p class="small"><a href="#"
-                                                                target="_blank"
-                                                                data-toggle="tooltip"
-                                                                title="Link to information about this image in the catalog"
-                                                                >Learn more <i class="fas fa-external-link-square-alt"></i></a></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th width="20%">Topics</th>
-                                            <td width="80%">
-                                                <div class="container p-0">
-                                                    <div class="row">
-                                                        <div class="col-12 p-0 mb-3">
-                                                            <i>Topics</i> implement the publish/subscribe model of messaging.  Many
-                                                            listeners may be subscribed to a topic at once, and all may receive
-                                                            the message.  This is a pattern well-suited to the broadcast of information.
-                                                            If a listener is unsubscribed at the time a message is sent to the topic, it
-                                                            will not receive that particular message.
-                                                            <p class="small"><a href="#" target="_blank">Learn
-                                                                more <i class="fas fa-external-link-square-alt"></i></a> about topics.</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="p-0 col-md-3 col-12 text-monospace">/newsAlerts</div>
-                                                        <div class="p-0 col-md-9 col-12">
-                                                            <div class="container">
-                                                                <div class="row">
-                                                                    <div class="p-0 col-12">
-                                                                        <span class="font-weight-bold">Publisher</span>
-                                                                        <div class="input-group">
-                                                                            <input type="text"
-                                                                                class="form-control form-control-sm"
-                                                                                id="messageTopic1Input"/>
-                                                                            <div class="input-group-append">
-                                                                                <button
-                                                                                    id="messageTopic1ExecuteButton"
-                                                                                    class="btn btn-sm btn-success align-top"
-                                                                                    >Publish <i class="fas fa-play"></i></button>
-                                                                            </div>
-                                                                        </div>
-                                                                        <p class="small">
-                                                                            The source for this publisher may be found in your codebase
-                                                                            at <a href="#"
-                                                                                class="text-monospace"
-                                                                                target="_blank"
-                                                                                data-toggle="tooltip"
-                                                                                data-placement="bottom"
-                                                                                title="Open in GitHub"><span
-                                                                                    class="text-monospace">NewsAlertPublisher.java <i
-                                                                                    class="fas fa-external-link-square-alt"
-                                                                                    ></i></a>
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="row">
-                                                                    <div class="col-12 p-0">
-                                                                        <span class="font-weight-bold">Subscriber</span>
-                                                                        <div>
-                                                                            <textarea id="messageTopic1Listener"
-                                                                                class="text-monospace small bg-dark text-white full-width"
-                                                                                rows="5"
-                                                                                disabled
-                                                                                ></textarea>
-                                                                            <p class="small">
-                                                                                The source for this listener may be found in your codebase
-                                                                                at <a href="#"
-                                                                                    class="text-monospace"
-                                                                                    target="_blank"
-                                                                                    data-toggle="tooltip"
-                                                                                    data-placement="bottom"
-                                                                                    title="Open in GitHub"><span
-                                                                                        class="text-monospace">NewsAlertListener.java <i
-                                                                                        class="fas fa-external-link-square-alt"
-                                                                                        ></i></a>
-                                                                            </p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th width="20%">Queues</th>
-                                            <td width="80%">
-                                                <div class="container p-0">
-                                                    <div class="row">
-                                                        <div class="col-12 p-0 mb-3">
-                                                            <i>Queues</i> define a point-to-point messaging model.  There may be many listeners
-                                                            upon a queue, but a message will only be processed by one of them.  Messages
-                                                            remain on the queue until processed.
-                                                            <p class="small"><a href="#" target="_blank">Learn
-                                                                more <i class="fas fa-external-link-square-alt"></i></a> about queues.</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="p-0 col-md-3 col-12 text-monospace">/workOrder</div>
-                                                        <div class="p-0 col-md-9 col-12">
-                                                            <div class="container">
-                                                                <div class="row">
-                                                                    <div class="p-0 col-12">
-                                                                        <span class="font-weight-bold">Producer</span>
-                                                                        <div class="input-group">
-                                                                            <input type="text"
-                                                                                class="form-control form-control-sm"
-                                                                                id="messageQueue1Input"/>
-                                                                            <div class="input-group-append">
-                                                                                <button
-                                                                                    id="messageQueue1ExecuteButton"
-                                                                                    class="btn btn-sm btn-success align-top"
-                                                                                    >Enqueue <i class="fas fa-play"></i></button>
-                                                                            </div>
-                                                                        </div>
-                                                                        <p class="small">
-                                                                            The source for this producer may be found in your codebase
-                                                                            at <a href="#"
-                                                                                class="text-monospace"
-                                                                                target="_blank"
-                                                                                data-toggle="tooltip"
-                                                                                data-placement="bottom"
-                                                                                title="Open in GitHub"><span
-                                                                                    class="text-monospace">WorkOrderProducer.java <i
-                                                                                    class="fas fa-external-link-square-alt"
-                                                                                    ></i></a>
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="row">
-                                                                    <div class="col-12 p-0">
-                                                                        <span class="font-weight-bold">Consumer</span>
-                                                                        <div>
-                                                                            <textarea id="messageQueue1Listener"
-                                                                                class="text-monospace small bg-dark text-white full-width"
-                                                                                rows="5"
-                                                                                disabled
-                                                                                ></textarea>
-                                                                            <p class="small">
-                                                                                The source for this listener may be found in your codebase
-                                                                                at <a href="#"
-                                                                                    class="text-monospace"
-                                                                                    target="_blank"
-                                                                                    data-toggle="tooltip"
-                                                                                    data-placement="bottom"
-                                                                                    title="Open in GitHub"><span
-                                                                                        class="text-monospace">WorkOrderListener.java <i
-                                                                                        class="fas fa-external-link-square-alt"
-                                                                                        ></i></a>
-                                                                            </p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table>
+                              <div class="p-0 col-md-3 col-12 text-monospace">/newsAlerts</div>
+                              <div class="p-0 col-md-9 col-12">
+                                <div class="container">
+                                  <div class="row">
+                                    <div class="p-0 col-12">
+                                      <span class="font-weight-bold">Publisher</span>
+                                      <div class="input-group">
+                                        <input type="text" class="form-control form-control-sm" id="messageTopic1Input" />
+                                        <div class="input-group-append">
+                                          <button id="messageTopic1ExecuteButton" class="btn btn-sm btn-success align-top">Publish
+                                            <i class="fas fa-play"></i></button>
+                                        </div>
+                                      </div>
+                                      <p class="small">
+                                        The source for this publisher may be found
+                                        in your codebase
+                                        at <a href="#" class="text-monospace" target="_blank" data-toggle="tooltip"
+                                          data-placement="bottom" title="Open in GitHub"><span class="text-monospace">NewsAlertPublisher.java
+                                            <i class="fas fa-external-link-square-alt"></i></a>
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-12 p-0">
+                                      <span class="font-weight-bold">Subscriber</span>
+                                      <div>
+                                        <textarea id="messageTopic1Listener" class="text-monospace small bg-dark text-white full-width"
+                                          rows="5" disabled></textarea>
+                                        <p class="small">
+                                          The source for this listener may be
+                                          found in your codebase
+                                          at <a href="#" class="text-monospace" target="_blank" data-toggle="tooltip"
+                                            data-placement="bottom" title="Open in GitHub"><span class="text-monospace">NewsAlertListener.java
+                                              <i class="fas fa-external-link-square-alt"></i></a>
+                                        </p>
+                                      </div>
+                                    </div>
+                                  </div>
                                 </div>
+                              </div>
                             </div>
-                        </div>
-                    </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th width="20%">Queues</th>
+                        <td width="80%">
+                          <div class="container p-0">
+                            <div class="row">
+                              <div class="col-12 p-0 mb-3">
+                                <i>Queues</i> define a point-to-point messaging model.
+                                There may be many listeners
+                                upon a queue, but a message will only be processed by one
+                                of them. Messages
+                                remain on the queue until processed.
+                                <p class="small"><a href="#" target="_blank">Learn
+                                    more <i class="fas fa-external-link-square-alt"></i></a>
+                                  about queues.</p>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="p-0 col-md-3 col-12 text-monospace">/workOrder</div>
+                              <div class="p-0 col-md-9 col-12">
+                                <div class="container">
+                                  <div class="row">
+                                    <div class="p-0 col-12">
+                                      <span class="font-weight-bold">Producer</span>
+                                      <div class="input-group">
+                                        <input type="text" class="form-control form-control-sm" id="messageQueue1Input" />
+                                        <div class="input-group-append">
+                                          <button id="messageQueue1ExecuteButton" class="btn btn-sm btn-success align-top">Enqueue
+                                            <i class="fas fa-play"></i></button>
+                                        </div>
+                                      </div>
+                                      <p class="small">
+                                        The source for this producer may be found
+                                        in your codebase
+                                        at <a href="#" class="text-monospace" target="_blank" data-toggle="tooltip"
+                                          data-placement="bottom" title="Open in GitHub"><span class="text-monospace">WorkOrderProducer.java
+                                            <i class="fas fa-external-link-square-alt"></i></a>
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-12 p-0">
+                                      <span class="font-weight-bold">Consumer</span>
+                                      <div>
+                                        <textarea id="messageQueue1Listener" class="text-monospace small bg-dark text-white full-width"
+                                          rows="5" disabled></textarea>
+                                        <p class="small">
+                                          The source for this listener may be
+                                          found in your codebase
+                                          at <a href="#" class="text-monospace" target="_blank" data-toggle="tooltip"
+                                            data-placement="bottom" title="Open in GitHub"><span class="text-monospace">WorkOrderListener.java
+                                              <i class="fas fa-external-link-square-alt"></i></a>
+                                        </p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
 
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"></script>
     <script src="js/core.js"></script>
     <script src="js/health-check.js"></script>
     <script src="js/http-endpoints.js"></script>
@@ -947,5 +833,6 @@
     <script src="js/messaging.js"></script>
 
 
-</body>
+  </body>
+
 </html>
