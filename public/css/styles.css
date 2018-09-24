@@ -11,11 +11,15 @@ body {
   color: #fff !important;
 }
 
-.healthcheck-textarea {
+.console {
   resize: none;
+  background-color: black;
+  font-family: monospace;
+  color: white;
+  width: 100%;
 }
 
-.padding-0 {
+.p-0 {
   padding: 0;
 }
 
@@ -36,7 +40,7 @@ body {
 }
 
 .mb-0 {
-  margin-bottm: 0;
+  margin-bottom: 0;
 }
 
 .media {
@@ -47,28 +51,22 @@ body {
   padding: 10px;
 }
 
-.header-table {
-  height: 100%;
-  border-spacing: 20px;
-  border-collapse: separate;
-}
-
-.capability-header {
-  font-size: 20pt;
-}
-
 .language-icon {
   font-size: 50pt;
-}
-
-.row-buffer {
-  margin-top: 20px;
 }
 
 .btn-group-vertical>button {
   margin-bottom: 5px;
 }
 
-.full-width {
-  width: 100%;
+.text-monospace {
+  font-family: monospace;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.break-word {
+  word-wrap: break-word;
 }
