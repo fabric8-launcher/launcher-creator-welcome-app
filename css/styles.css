@@ -1,0 +1,72 @@
+body {
+  background-color: #dddddd;
+  font-size: 14px !important;
+}
+
+.bg-redhat {
+  background-color: #a30000 !important;
+}
+
+.text-white {
+  color: #fff !important;
+}
+
+.console {
+  resize: none;
+  background-color: black;
+  font-family: monospace;
+  color: white;
+  width: 100%;
+}
+
+.p-0 {
+  padding: 0;
+}
+
+.pt-0 {
+  padding-top: 0;
+}
+
+.pb-0 {
+  padding-bottom: 0;
+}
+
+.margin-0 {
+  margin: 0;
+}
+
+.mt-0 {
+  margin-top: 0;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.media {
+  padding: 10px;
+}
+
+.media-body {
+  padding: 10px;
+}
+
+.language-icon {
+  font-size: 50pt;
+}
+
+.btn-group-vertical>button {
+  margin-bottom: 5px;
+}
+
+.text-monospace {
+  font-family: monospace;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.break-word {
+  word-wrap: break-word;
+}
