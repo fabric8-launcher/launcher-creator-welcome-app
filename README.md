@@ -8,10 +8,10 @@ This app is used aside of app created by the Launcher Creator. It gives a set of
 ### Components documentation (style-guide)
 https://fabric8-launcher.github.io/launcher-creator-welcome-app/
 
-### Use api (env: REACT_APP_CREATOR_API_URL)
+### Start
 ```bash
 $ yarn install
-$ yarn start:api
+$ yarn start
 ```
 
 ## Test
