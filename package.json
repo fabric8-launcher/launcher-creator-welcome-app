@@ -1,7 +1,6 @@
 {
   "name": "launcher-creator-welcome-app",
   "version": "0.0.1",
-  "homepage": "https://fabric8-launcher.github.io/launcher-creator-welcome-app",
   "private": true,
   "scripts": {
     "copy-fonts": "ncp node_modules/patternfly/dist/fonts src/assets/patternfly/fonts",
