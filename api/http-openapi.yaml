@@ -8,6 +8,9 @@ info:
     As an application or service matures, this approach may not scale as desired to properly support clean API design or use cases involving database interactions. Any operations involving shared, mutable state will have to be integrated with an appropriate backing datastore; all requests here will be scoped only to the container servicing the request, and there is no guarantee that subsequent requests will be served by the same container.
 
     This is recommended as an introduction to the mechanics of opening a service to be called upon by remote processes.
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
   version: 1.0.0
 paths:
   /api/greeting:
