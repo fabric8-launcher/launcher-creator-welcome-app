@@ -2,8 +2,9 @@
 openapi: 3.0.2
 info:
   title: Health Check
-  description: This documents the necessary APIs to make the Health Check interact
-    with the generated launcher backend
+  description: Demonstrate how the Kubernetes health check works in order to determine
+    if a container is still alive (= liveness) and ready to serve (= readiness) the
+    traffic for the application’s HTTP endpoints.
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
