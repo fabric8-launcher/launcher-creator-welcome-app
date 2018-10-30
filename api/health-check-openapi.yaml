@@ -1,9 +1,9 @@
 ---
 openapi: 3.0.2
 info:
-  title: Welcome Page Capabilities
-  description: This documents the necessary APIs to make the Welcome page in Launcher
-    interact with the generated backend
+  title: Health Check
+  description: This documents the necessary APIs to make the Health Check interact
+    with the generated launcher backend
   version: 1.0.0
 paths:
   /api/health:
