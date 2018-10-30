@@ -4,6 +4,9 @@ info:
   title: Health Check
   description: This documents the necessary APIs to make the Health Check interact
     with the generated launcher backend
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
   version: 1.0.0
 paths:
   /api/health:
