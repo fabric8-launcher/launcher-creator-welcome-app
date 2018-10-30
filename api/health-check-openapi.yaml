@@ -10,7 +10,7 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0
   version: 1.0.0
 paths:
-  /api/health:
+  /health:
     summary: Health Check
     description: Health checks are HTTP endpoints that the codebase exposes for the
       purpose of monitoring. OpenShift will periodically hit these to determine that
