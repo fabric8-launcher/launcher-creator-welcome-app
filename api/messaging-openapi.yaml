@@ -10,6 +10,9 @@ info:
     While this experience does not showcase a fully matured RESTful model (level 3), it uses HTTP verbs and status.
 
     Based on https://github.com/fabric8-launcher/launcher-documentation/wiki/Mission:-Relational-Database-Backend
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
   version: 1.0.0
 paths:
   /api/fruits:
