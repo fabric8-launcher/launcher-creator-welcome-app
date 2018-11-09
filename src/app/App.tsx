@@ -1,154 +1,109 @@
 import * as React from 'react';
-import CloudDeployment from './components/clouddeployment/CloudDeploymentComponent';
-import Codebase from './components/codebase/CodebaseComponent';
-import HealthChecks from './components/healthcheck/HealthChecksComponent';
-import HttpApiEndpoints from './components/httpapiendpoint/HttpApiEndpointsComponent';
-import Messaging from './components/messaging/MessagingComponent';
-import RelationalDatabase from './components/relationaldatabase/RelationalDatabasesComponent';
-import APPLICATION_PROFILE from './data/ApplicationProfile';
+import {
+  Alert,
+  Brand,
+  Button,
+  ButtonVariant,
+  Nav,
+  NavItem,
+  NavList,
+  Page,
+  PageHeader,
+  PageSection,
+  PageSectionVariants,
+  PageSidebar,
+  Text,
+  TextContent,
+  Toolbar,
+  ToolbarGroup,
+  ToolbarItem
+} from '@patternfly/react-core';
+import {CogIcon} from '@patternfly/react-icons';
 
-type ApplicationProfile = Readonly<typeof APPLICATION_PROFILE>;
+import logo from '../assets/logo/RHD-logo.svg';
+import './App.css';
+import LandingPage from './landing/LandingPage';
 
-class App extends React.Component<object , ApplicationProfile> {
+export default class App extends React.Component<{}> {
 
-  private readonly applicationProfile: ApplicationProfile = APPLICATION_PROFILE;
-  private readonly cloudDeployment = this.applicationProfile.capabilities.cloudDeployment;
-  private readonly codebase = this.applicationProfile.capabilities.codebase;
-  private readonly healthChecks = this.applicationProfile.capabilities.healthChecks;
-  private readonly httpApiEndpoints = this.applicationProfile.capabilities.httpApiEndpoints;
-  private readonly messagingBrokers = this.applicationProfile.capabilities.messagingBrokers;
-  private readonly relationalDatabases = this.applicationProfile.capabilities.relationalDatabases;
+  constructor(props) {
+    super(props);
+  }
 
   public render() {
+
+    const PageNav = (
+      <Nav onSelect={this.onNavSelect} onToggle={this.onNavToggle} aria-label="Nav">
+        <NavList>
+          <NavItem to="#nav-capability-cloudDeployment" itemId={0}>
+            Overview
+          </NavItem>
+          <NavItem to="#nav-capability-codebase" itemId={1}>
+            Runtime info
+          </NavItem>
+          <NavItem to="#nav-capability-healthChecks" itemId={2}>
+            Health checks
+          </NavItem>
+          <NavItem to="#nav-capability-httpApiEndpoints" itemId={3}>
+            HTTP API Endpoints
+          </NavItem>
+          <NavItem to="#nav-capability-relationalDatabases" itemId={4}>
+            Relational Databases
+          </NavItem>
+          <NavItem to="#nav-capability-messaging" itemId={4}>
+            Relational Databases
+          </NavItem>
+        </NavList>
+      </Nav>
+    );
+    const PageToolbar = (
+      <Toolbar>
+        <ToolbarGroup>
+          <ToolbarItem>
+            <Button id="nav-toggle" aria-label="Overflow actions" variant={ButtonVariant.plain}>
+              <CogIcon/>
+            </Button>
+          </ToolbarItem>
+        </ToolbarGroup>
+      </Toolbar>
+    );
+
+    const Header = (
+      <PageHeader
+        logo={<Brand src={logo} alt="Red Hat"/>}
+        toolbar={PageToolbar}
+      />
+    );
+
+    const Sidebar = <PageSidebar nav={PageNav} isNavOpen={true} />;
+
     return (
-    <React.Fragment>
-
-      <div className="container">
-        <div className="row">
-          <div className="col-sm-12">
-            <h1>Here we go.</h1>
-            <p>Congratulations; we've together built a working
-              system of application code and services running on the
-              OpenShift platform. Everything is hooked together for
-              you to bring your ideas to life.</p>
-
-            <p>Let's explore what's available.</p>
-
-            <div className="btn-group-vertical" role="group" aria-label="capabilities">
-              
-              { this.cloudDeployment ? ( 
-                <a href="#cloudDeployment" className="btn btn-lg btn-info">
-                  <i className="fa fa-code" /> Cloud Deployment
-                </a>
-                ) : ( 
-                  <div className="text-danger">Cloud Deployment is a required capability.</div>
-                )
-              }
-              { this.codebase ? ( 
-                <a href="#codebase" className="btn btn-lg btn-info">
-                  <i className="fa fa-code" /> Runtime Application - Eclipse Vert.x
-                </a>
-                ) : ( 
-                  <div className="text-danger">Codebase is a required capability.</div>
-                )
-              }
-              { this.healthChecks ? ( 
-                <a href="#healthChecks" className="btn btn-lg btn-info">
-                  <i className="fa fa-medkit"/> Health Checks
-                </a>
-                ) : ( 
-                  <div className="text-danger">Health Checks is a required capability.</div>
-                )
-              }
-              { this.httpApiEndpoints ? ( 
-                <a href="#httpApiEndpoints" className="btn btn-lg btn-info">
-                  <i className="fa fa-plug" /> HTTP API Endpoints
-                </a>
-                ) : ( 
-                  <div className="text-danger">HTTP Endpoints is a required capability.</div>
-                )
-              }
-              { this.relationalDatabases ? ( 
-                <a href="#relationalDatabases" className="btn btn-lg btn-info">
-                  <i className="fa fa-database" /> Relational Databases
-                </a>
-                ) : ( 
-                  <div className="text-danger">Relational Databases is a required capability.</div>
-                )
-              }
-              { this.messagingBrokers ? ( 
-                <a href="#messaging" className="btn btn-lg btn-info">
-                  <i className="fa fa-envelope-open" /> Messaging
-                </a>
-                ) : ( 
-                  <div className="text-danger">Messaging is a required capability.</div>
-                )
-              }
-              
-            </div>
-
-            <hr />
-
-          </div>
-        </div>
-      </div>
-
-      { this.cloudDeployment ? ( 
-        <CloudDeployment 
-          cloudDeployment={this.cloudDeployment}
-          />
-        ) : ( 
-          <div className="text-danger">Cloud Deployment is a required capability.</div>
-        )
-      }
-      
-      { this.codebase ? ( 
-        <Codebase 
-          codebase={this.codebase}
-          />
-        ) : ( 
-          <div className="text-danger">Codebase is a required capability.</div>
-        )
-      }
-
-      { this.healthChecks ? ( 
-        <HealthChecks 
-          healthChecks={this.healthChecks}
-          />
-        ) : ( 
-          <div className="text-danger">Health Checks is a required capability.</div>
-        )
-      }
-
-      { this.httpApiEndpoints ? ( 
-        <HttpApiEndpoints 
-          endpoints={this.httpApiEndpoints}
-          />
-        ) : ( 
-          <div className="text-danger">Health Checks is a required capability.</div>
-        )
-      }
-
-      { this.relationalDatabases ? ( 
-        <RelationalDatabase
-          relationalDatabases={this.relationalDatabases}
-          />
-        ) : ( 
-          <div className="text-danger">Relational Databases is a required capability.</div>
-        )
-      }
-
-      { this.messagingBrokers ? ( 
-        <Messaging
-          messagingBrokers={this.messagingBrokers}
-          />
-        ) : ( 
-          <div className="text-danger">Messaging is a required capability.</div>
-        )
-      }
-    </React.Fragment>
+      <React.Fragment>
+        <Page header={Header} sidebar={Sidebar}>
+          <PageSection variant={PageSectionVariants.light}>
+            <TextContent>
+              <Text component="h1">Here we go.</Text>
+              <Text component="p">
+                Congratulations; we've together built a working system of application code and services running on the OpenShift platform.
+                Everything is hooked together for you to bring your ideas to life.
+              </Text>
+              <Alert variant="warning">
+                This application is mocking interactions with the actual services to demonstrate future features.
+                Be patient, the real magic will happen soon..
+              </Alert>
+            </TextContent>
+          </PageSection>
+          <PageSection>
+            <LandingPage/>
+          </PageSection>
+        </Page>
+      </React.Fragment>
     );
   }
-}
 
-export default App;
+  private onNavSelect = result => {
+  };
+
+  private onNavToggle = () => {
+  };
+}

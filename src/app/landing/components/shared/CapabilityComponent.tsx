@@ -4,22 +4,18 @@ import ICapability, { ICapabilityElement } from './Capability';
 const Capability: React.SFC<ICapability> = (props) => {
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-sm-12">
-          <a id={props.capability.id} />
-          <div className="panel panel-default">
-            <div className="panel-heading">
-              <div className="panel-title">
-                <i className={props.capability.iconClasses} /> {props.capability.name}
-              </div>
-            </div>
-            <div className="panel-body">
-              
-                {props.children}
-              
-            </div>
+    <div>
+      <a id={'nav-capability-' + props.capability.id}/>
+      <div className="panel panel-default">
+        <div className="panel-heading">
+          <div className="panel-title">
+            <i className={props.capability.iconClasses}/> {props.capability.name}
           </div>
+        </div>
+        <div className="panel-body">
+
+          {props.children}
+
         </div>
       </div>
     </div>

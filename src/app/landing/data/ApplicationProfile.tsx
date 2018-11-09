@@ -1,4 +1,4 @@
-import { HealthCheckType } from '../components/healthcheck/IHealthCheck';
+  import { HealthCheckType } from '../components/healthcheck/IHealthCheck';
 import { HttpMethodType } from '../components/shared/Utilities';
 
 /**
