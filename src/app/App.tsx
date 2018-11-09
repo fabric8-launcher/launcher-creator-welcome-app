@@ -51,7 +51,7 @@ export default class App extends React.Component<{}> {
             Relational Databases
           </NavItem>
           <NavItem to="#nav-capability-messaging" itemId={4}>
-            Relational Databases
+            Messaging
           </NavItem>
         </NavList>
       </Nav>
