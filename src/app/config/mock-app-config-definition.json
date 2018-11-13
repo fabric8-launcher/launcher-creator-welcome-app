@@ -1,0 +1,12 @@
+{
+  "applicationName": "the-app",
+  "applicationUrl": "my-service/api/",
+  "capabilities": [
+    {
+      "module": "database",
+      "props": {
+        "databaseType": "postgresql"
+      }
+    }
+  ]
+}
