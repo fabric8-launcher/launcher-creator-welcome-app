@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Card, CardBody, CardHeader} from '@patternfly/react-core';
-
+import './Capability.css';
 
 interface CapabilityProps {
   module: string;
@@ -18,7 +18,7 @@ export default class Capability extends React.Component<CapabilityProps> {
 
   public render() {
     return (
-      <Card id={`${this.props.module}-capability`}>
+      <Card id={`${this.props.module}-capability`} className="capability-card">
         {this.props.children}
       </Card>
     );

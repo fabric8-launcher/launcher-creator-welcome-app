@@ -1,13 +1,13 @@
 import * as React from 'react';
 import * as CopyToClipboard from 'react-copy-to-clipboard';
 import * as ReactTooltip from 'react-tooltip'
-import './ShellCommandComponent.css'
+import './ShellCommand.css'
 
-interface IShellCommandProps {
+interface ShellCommandProps {
   readonly command: string;
 }
 
-class ShellCommand extends React.Component<IShellCommandProps, any> {
+class ShellCommand extends React.Component<ShellCommandProps, any> {
 
   constructor(props: any) {
     super(props);
@@ -32,14 +32,14 @@ class ShellCommand extends React.Component<IShellCommandProps, any> {
             shell$>
           </div>
           <input type="text"
-            className="form-control shell-command"
-            readOnly={true}
-            placeholder={this.props.command} />
+                 className="form-control shell-command"
+                 readOnly={true}
+                 placeholder={this.props.command} />
           <div className="input-group-btn">
             <CopyToClipboard
               text={this.props.command}
               onCopy={this.onCopy}>
-              <button 
+              <button
                 className={'btn ' + (this.state.copied===0 ? 'btn-success' : 'btn-danger')}
                 type="button"
                 data-effect="solid"
@@ -52,7 +52,7 @@ class ShellCommand extends React.Component<IShellCommandProps, any> {
 
             <ReactTooltip
               id="copyButton"
-              />
+            />
           </div>
         </div>
       </React.Fragment>

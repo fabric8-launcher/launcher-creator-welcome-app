@@ -1,13 +1,16 @@
 import * as React from 'react';
 import Capability from '../Capability';
 import capabilitiesConfig from 'app/config/capabilitiesConfig';
-import { LocalForm, Control } from 'react-redux-form';
-import ShellCommand from 'app/landing/components/shared/ShellCommandComponent';
-import { HttpApi } from 'shared/utils/HttpApi';
+import {HttpApi} from 'shared/utils/HttpApi';
 import appConfig, {isMockMode} from '../../config/appConfig';
 import appHttpApi from '../../appHttpApi';
 import RestCapabilityApi from './RestCapabilityApi';
-import { formatCurrentTime } from 'app/landing/components/shared/Utilities';
+import ShellCommand from '../../../shared/components/ShellCommand';
+import * as moment from 'moment';
+
+import './RestCapability.css';
+import {Button, TextInput} from '@patternfly/react-core';
+import {Console} from '../../../shared/components/Console';
 
 class HttpRestCapabilityApi implements RestCapabilityApi {
   private httpApi: HttpApi = appHttpApi;
@@ -28,6 +31,9 @@ interface RestCapabilityProps {
 
 interface RestCapabilityState {
   consoleContent: string;
+  params: {
+    [name: string]: string;
+  }
 }
 
 export default class RestCapability extends React.Component<RestCapabilityProps, RestCapabilityState> {
@@ -37,17 +43,15 @@ export default class RestCapability extends React.Component<RestCapabilityProps,
     super(props);
 
     this.state = {
-      consoleContent: ''
+      consoleContent: '',
+      params: {
+        name: '',
+      },
     };
   }
 
-  public execGet = (values) => {
-    this.httpService.get(values.name).then(value => {
-      this.logToConsole(value);
-    });
-  }
-
   public render() {
+
     return (
       <Capability module="rest">
         <Capability.Title>{capabilitiesConfig.rest.name}</Capability.Title>
@@ -58,40 +62,59 @@ export default class RestCapability extends React.Component<RestCapabilityProps,
                 {(appConfig.definition != null ? appConfig.definition.applicationUrl : '')}
               </samp>
             </div>
-            <LocalForm onSubmit={this.execGet}>
               <div className="col-sm-9">
                 <div className="input-group input-group-lg">
                   <div className="input-group-btn">
-                    <Control.button
-                      model=".getButton"
-                      className="btn btn-info"
-                      type="submit"
-                      data-toggle="tooltip"
+                    <Button
+                      className={'http'}
+                      onClick={this.execGet}
                       title="Execute GET Request"
-                    >GET</Control.button>
+                    >GET</Button>
                   </div>
                   <span className="input-group-addon" id={'httpEndpointGetInput-addon'}>
                     Hello,
                   </span>
-                  <Control.text model=".name" className="form-control" placeholder="World"/>
+                  <TextInput id="http-api-name-input"
+                             value={this.state.params.name}
+                             onChange={this.handleInputChange}
+                             name="name" placeholder="World" className="http-param"/>
                 </div>
-                <Control.textarea model=".console" className="console" rows={5} disabled={true} value={this.state.consoleContent} />
+                <Console id="rest-content" content={this.state.consoleContent} />
                 <ShellCommand
                   command={'curl ' + (appConfig.definition != null ? appConfig.definition.applicationUrl : '')}>
                   You may test this directly by making an <samp>HTTP GET</samp> request using this
                   application's URL as root. For instance, try with the <samp>cURL</samp> tool:
               </ShellCommand>
               </div>
-            </LocalForm>
           </div>
         </Capability.Body>
       </Capability>
     );
   }
 
+  private execGet = (values) => {
+    this.httpService.get(this.state.params.name).then(value => {
+      this.logToConsole(value);
+    });
+  }
+
+
+  private handleInputChange = (checked, event) => {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+
+    this.setState({
+      params: {
+        ...this.state.params,
+        [name]: value,
+      }
+    });
+  }
+
   private logToConsole(response: string) {
     this.setState({
-      consoleContent: `${formatCurrentTime()}: ${response}\r\n ${this.state.consoleContent}`
+      consoleContent: `${moment().format('LTS')}: ${response}\n${this.state.consoleContent}`
     });
   }
 

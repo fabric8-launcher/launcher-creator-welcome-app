@@ -1,7 +1,7 @@
 
 const capabilitiesConfig = {
   rest: {
-    name: 'Rest'
+    name: 'Http Api'
   },
   database: {
     name: 'Relational Persistence'

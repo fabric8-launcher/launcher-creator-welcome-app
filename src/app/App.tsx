@@ -43,7 +43,7 @@ export default class App extends React.Component<{}, { isNavOpen: boolean }> {
       <Nav onSelect={this.onNavSelect} onToggle={this.onNavToggle} aria-label="Nav">
         <NavList>
           {appConfig.definition!.capabilities.map(c => (
-            <NavItem to={`#${c.module}-capability`}>
+            <NavItem key={c.module} to={`#${c.module}-capability`}>
               {capabilitiesConfig[c.module].name}
             </NavItem>
           ))}

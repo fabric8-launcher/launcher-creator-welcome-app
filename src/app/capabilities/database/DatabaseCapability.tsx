@@ -52,7 +52,7 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
         <Capability.Title>{capabilitiesConfig.database.name}</Capability.Title>
         <Capability.Body>
           <ul>
-            {this.state.fruits.map(fruit => (<li>{fruit}</li>))}
+            {this.state.fruits.map((fruit, i) => (<li key={i}>{fruit}</li>))}
           </ul>
         </Capability.Body>
       </Capability>
