@@ -18,7 +18,7 @@ const appConfig: AppConfig = {
 };
 
 if (!isMockMode) {
-  const config = checkNotNull(process.env.WELCOME_APP_CONFIG, 'process.env.WELCOME_APP_CONFIG');
+  const config = checkNotNull(process.env.REACT_APP_WELCOME_APP_CONFIG, 'process.env.REACT_APP_WELCOME_APP_CONFIG');
   try {
     appConfig.definition = JSON.parse(config);
   } catch (e) {
