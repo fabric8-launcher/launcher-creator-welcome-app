@@ -15,7 +15,7 @@
     "build-js": "react-scripts-ts build",
     "build": "npm-run-all build-clean build-css build-js copy-nginx",
     "build-clean": "rimraf ./build",
-    "copy-nginx": "cp nginx.conf ./build",
+    "copy-nginx": "sed 's/\\$BACKEND_SERVICE_NAME/'\"$BACKEND_SERVICE_NAME\"'/' ./nginx.conf > ./build/nginx.conf",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject",
     "doc": "npx styleguidist server",
