@@ -1,6 +1,6 @@
 {
   "applicationName": "the-app",
-  "applicationUrl": "my-service/api/",
+  "applicationUrl": "http://my-service.org/api",
   "capabilities": [
     {
       "module": "database",

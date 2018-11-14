@@ -1,1 +1,1 @@
-.shell-command{font-family:monospace;font-style:normal}
+.shell-command div.shell-command-prefix{background-color:#f1f1f1;border:1px solid #bbb;width:80px;text-align:center;font-family:monospace;font-style:normal;height:44px;line-height:44px}.shell-command input.shell-command-value{background-color:#f5f5f5;opacity:1;text-align:center;width:100%;font-family:monospace;font-style:normal;height:44px;line-height:44px}.shell-command button{border-radius:0}

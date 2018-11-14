@@ -1,7 +1,8 @@
 import * as React from 'react';
 import * as CopyToClipboard from 'react-copy-to-clipboard';
-import * as ReactTooltip from 'react-tooltip'
 import './ShellCommand.css'
+import {Button, Split, SplitItem} from '@patternfly/react-core';
+import {ClipboardCheckIcon, ClipboardIcon} from '@patternfly/react-icons';
 
 interface ShellCommandProps {
   readonly command: string;
@@ -23,52 +24,42 @@ class ShellCommand extends React.Component<ShellCommandProps, any> {
 
   public render() {
     return (
-      <React.Fragment>
-        <p>
-          {this.props.children}
-        </p>
-        <div className="input-group input-group-lg">
-          <div className="input-group-addon shell-command">
+      <Split className="shell-command">
+        <SplitItem isMain={false}>
+          <div className="shell-command-prefix">
             shell$>
           </div>
+        </SplitItem>
+        <SplitItem isMain={true}>
           <input type="text"
-                 className="form-control shell-command"
+                 className="shell-command-value"
                  readOnly={true}
-                 placeholder={this.props.command} />
-          <div className="input-group-btn">
-            <CopyToClipboard
-              text={this.props.command}
-              onCopy={this.onCopy}>
-              <button
-                className={'btn ' + (this.state.copied===0 ? 'btn-success' : 'btn-danger')}
-                type="button"
-                data-effect="solid"
-                data-for="copyButton"
-                data-tip="Copy shell command"
-                onMouseLeave={this.onMouseOutOfCopy}>
-                <i className="fa fa-clipboard" />
-              </button>
-            </CopyToClipboard>
-
-            <ReactTooltip
-              id="copyButton"
-            />
-          </div>
-        </div>
-      </React.Fragment>
+                 placeholder={this.props.command}/>
+        </SplitItem>
+        <SplitItem isMain={false}>
+          <CopyToClipboard
+            text={this.props.command}
+            onCopy={this.onCopy}>
+            <Button
+              onMouseLeave={this.onMouseOutOfCopy}>
+              {this.state.copied ? <ClipboardCheckIcon/> : <ClipboardIcon/>}
+            </Button>
+          </CopyToClipboard>
+        </SplitItem>
+      </Split>
     );
   }
 
   private onCopy() {
-    this.setState({ copied: 1 });
+    this.setState({copied: 1});
   }
 
-  private onMouseOutOfCopy(){
-    this.setState({ copied: 0 });
+  private onMouseOutOfCopy() {
+    this.setState({copied: 0});
   }
 
-  private getTooltipContents(){
-    return this.state.copied===true ? 'Copied!' : 'Copy shell command';
+  private getTooltipContents() {
+    return this.state.copied === true ? 'Copied!' : 'Copy shell command';
   }
 
 }

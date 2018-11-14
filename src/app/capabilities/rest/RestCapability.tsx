@@ -9,7 +9,7 @@ import ShellCommand from '../../../shared/components/ShellCommand';
 import * as moment from 'moment';
 
 import './RestCapability.css';
-import {Button, TextInput} from '@patternfly/react-core';
+import {Button, Grid, GridItem, Split, SplitItem, TextInput} from '@patternfly/react-core';
 import {Console} from '../../../shared/components/Console';
 
 class HttpRestCapabilityApi implements RestCapabilityApi {
@@ -51,42 +51,41 @@ export default class RestCapability extends React.Component<RestCapabilityProps,
   }
 
   public render() {
-
+    const url = appConfig.definition!.applicationUrl;
     return (
       <Capability module="rest">
         <Capability.Title>{capabilitiesConfig.rest.name}</Capability.Title>
         <Capability.Body>
-          <div className="row">
-            <div className="col-sm-3">
-              <samp>
-                {(appConfig.definition != null ? appConfig.definition.applicationUrl : '')}
-              </samp>
-            </div>
-              <div className="col-sm-9">
-                <div className="input-group input-group-lg">
-                  <div className="input-group-btn">
-                    <Button
-                      className={'http'}
-                      onClick={this.execGet}
-                      title="Execute GET Request"
-                    >GET</Button>
-                  </div>
-                  <span className="input-group-addon" id={'httpEndpointGetInput-addon'}>
-                    Hello,
-                  </span>
+          <Grid>
+            <GridItem span={12}>
+              <Split>
+                <SplitItem isMain={false}>
+                  <TextInput id="http-api-path-input" isDisabled={true} value={`${url}/greetings/`}/>
+                </SplitItem>
+                <SplitItem isMain={true}>
                   <TextInput id="http-api-name-input"
                              value={this.state.params.name}
                              onChange={this.handleInputChange}
                              name="name" placeholder="World" className="http-param"/>
-                </div>
-                <Console id="rest-content" content={this.state.consoleContent} />
-                <ShellCommand
-                  command={'curl ' + (appConfig.definition != null ? appConfig.definition.applicationUrl : '')}>
-                  You may test this directly by making an <samp>HTTP GET</samp> request using this
-                  application's URL as root. For instance, try with the <samp>cURL</samp> tool:
-              </ShellCommand>
-              </div>
-          </div>
+                </SplitItem>
+                <SplitItem isMain={false}>
+                  <Button
+                    className={'http'}
+                    onClick={this.execGet}
+                    title="Execute GET Request"
+                  >GET</Button>
+                </SplitItem>
+              </Split>
+              <Console id="rest-content" content={this.state.consoleContent}/>
+            </GridItem>
+            <GridItem span={12}>
+              <p>
+                You may test this directly by making an <samp>HTTP GET</samp> request using this
+                application's URL as root. For instance, try with the <samp>cURL</samp> tool:
+              </p>
+              <ShellCommand command={`curl ${this.getGreetingsUrl()}`} />
+            </GridItem>
+          </Grid>
         </Capability.Body>
       </Capability>
     );
@@ -113,9 +112,14 @@ export default class RestCapability extends React.Component<RestCapabilityProps,
   }
 
   private logToConsole(response: string) {
+    const url = this.getGreetingsUrl();
     this.setState({
-      consoleContent: `${moment().format('LTS')}: ${response}\n${this.state.consoleContent}`
+      consoleContent: `> ${moment().format('LTS')} GET ${url}: ${response}\n${this.state.consoleContent}`
     });
   }
 
+  private getGreetingsUrl() {
+    const name = this.state.params.name.length > 0 ? this.state.params.name : 'World';
+    return `${appConfig.definition!.applicationUrl}/greetings/${name}`;
+  }
 }

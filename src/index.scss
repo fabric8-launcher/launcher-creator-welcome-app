@@ -1,20 +1,3 @@
-/**
-  Third Party / Dependency imports here
-*/
-$font-path: './assets/patternfly/fonts/';
-$img-path: '/assets/patternfly/img/';
-$icon-font-path: './assets/patternfly/fonts/';
-
-/**
-  Patternfly Sass
-*/
-@import 'patternfly';
-
-/**
-  Patternfly React Specific Sass Extensions
-*/
-@import 'patternfly-react';
-
 @import '../node_modules/@patternfly/react-core/dist/styles/base.css';
 
 body {
