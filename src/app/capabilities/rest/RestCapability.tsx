@@ -12,11 +12,16 @@ import './RestCapability.css';
 import {Button, Grid, GridItem, Split, SplitItem, TextInput} from '@patternfly/react-core';
 import {Console} from '../../../shared/components/Console';
 
+function buildGreetingPath(name: string) {
+  return name.length === 0 ? '/greeting' : `/greeting?name=${encodeURIComponent(name)}`;
+}
+
 class HttpRestCapabilityApi implements RestCapabilityApi {
   private httpApi: HttpApi = appHttpApi;
 
   public get(name: string): Promise<string> {
-    return this.httpApi.get('/greetings/' + name);
+    const greetingPath = buildGreetingPath(name);
+    return this.httpApi.get(greetingPath);
   }
 }
 
@@ -119,7 +124,6 @@ export default class RestCapability extends React.Component<RestCapabilityProps,
   }
 
   private getGreetingsUrl() {
-    const name = this.state.params.name.length > 0 ? this.state.params.name : 'World';
-    return `${appConfig.definition!.applicationUrl}/greetings/${name}`;
+    return `${appConfig.definition!.applicationUrl}${buildGreetingPath(this.state.params.name)}`;
   }
 }
