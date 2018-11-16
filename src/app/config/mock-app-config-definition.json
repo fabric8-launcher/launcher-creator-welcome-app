@@ -1,6 +1,8 @@
 {
-  "applicationName": "the-app",
-  "applicationUrl": "http://my-service.org/api",
+  "application": "the-app",
+  "shared": {
+    "runtime": "vertx"
+  },
   "capabilities": [
     {
       "module": "database",

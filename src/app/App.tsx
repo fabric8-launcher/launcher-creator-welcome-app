@@ -42,7 +42,7 @@ export default class App extends React.Component<{}, { isNavOpen: boolean }> {
     const PageNav = (
       <Nav onSelect={this.onNavSelect} onToggle={this.onNavToggle} aria-label="Nav">
         <NavList>
-          {appConfig.definition!.capabilities.map(c => (
+          {appConfig.definition!.capabilities.filter(c => !!capabilitiesConfig[c.module]).map(c => (
             <NavItem key={c.module} to={`#${c.module}-capability`}>
               {capabilitiesConfig[c.module].name}
             </NavItem>
@@ -86,7 +86,7 @@ export default class App extends React.Component<{}, { isNavOpen: boolean }> {
             </TextContent>
           </PageSection>
           <PageSection>
-            {appConfig.definition!.capabilities.map(c => {
+            {appConfig.definition!.capabilities.filter(c => !!capabilitiesConfig[c.module]).map(c => {
               const CapabilityComponent = capabilitiesComponents[c.module];
               return (
                 <CapabilityComponent {...c} key={c.module}/>

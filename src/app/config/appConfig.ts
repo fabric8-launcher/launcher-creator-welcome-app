@@ -2,19 +2,29 @@ import {checkNotNull} from '../../shared/utils/Preconditions';
 import mockAppConfig from './mock-app-config-definition.json';
 
 interface AppDefinition {
-  applicationName: string,
-  applicationUrl: string,
-  capabilities: Array<{ module: string, [propId: string]: string; }>;
+  application: string,
+  shared: {
+    runtime: string,
+    groupId?: string,
+    artifactId?: string,
+    version?: string,
+  },
+  capabilities: Array<{
+    module: string,
+    props: { [propId: string]: string; },
+    extra: { [propId: string]: string; },
+  }>;
 }
 
 interface AppConfig {
   definition?: AppDefinition;
+  applicationUrl: string;
 }
 
 export const isMockMode = checkNotNull(process.env.REACT_APP_MODE, 'process.env.REACT_APP_MODE') === 'mock';
 
 const appConfig: AppConfig = {
-
+  applicationUrl: '/api'
 };
 
 if (!isMockMode) {
@@ -27,5 +37,7 @@ if (!isMockMode) {
 } else {
   appConfig.definition = mockAppConfig;
 }
+
+checkNotNull(appConfig.definition, 'appConfig.definition');
 
 export default appConfig;

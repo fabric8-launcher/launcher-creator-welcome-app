@@ -21,7 +21,7 @@ class HttpRestCapabilityApi implements RestCapabilityApi {
 
   public get(name: string): Promise<string> {
     const greetingPath = buildGreetingPath(name);
-    return this.httpApi.get(greetingPath);
+    return this.httpApi.get<{ content: string; }>(greetingPath).then(r => r.content);
   }
 }
 
@@ -56,7 +56,7 @@ export default class RestCapability extends React.Component<RestCapabilityProps,
   }
 
   public render() {
-    const url = appConfig.definition!.applicationUrl;
+    const url = appConfig.applicationUrl;
     return (
       <Capability module="rest">
         <Capability.Title>{capabilitiesConfig.rest.name}</Capability.Title>
@@ -124,6 +124,6 @@ export default class RestCapability extends React.Component<RestCapabilityProps,
   }
 
   private getGreetingsUrl() {
-    return `${appConfig.definition!.applicationUrl}${buildGreetingPath(this.state.params.name)}`;
+    return `${appConfig.applicationUrl}${buildGreetingPath(this.state.params.name)}`;
   }
 }
