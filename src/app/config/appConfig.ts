@@ -16,7 +16,7 @@ interface AppDefinition {
   }>;
 }
 
-interface AppConfig {
+export interface AppConfig {
   definition?: AppDefinition;
   applicationUrl: string;
 }

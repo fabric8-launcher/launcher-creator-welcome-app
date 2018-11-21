@@ -1,3 +1,6 @@
+export interface CapabilityConfig {
+  readonly name: string;
+}
 
 const capabilitiesConfig = {
   rest: {

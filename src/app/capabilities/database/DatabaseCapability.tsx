@@ -1,28 +1,12 @@
 import * as React from 'react';
-import appHttpApi from '../../appHttpApi';
-import {HttpApi} from '../../../shared/utils/HttpApi';
-import {isMockMode} from '../../config/appConfig';
-import DatabaseCapabilityApi from './DatabaseCapabilityApi';
 import Capability from '../Capability';
 import capabilitiesConfig from '../../config/capabilitiesConfig';
+import {DatabaseCapabilityApi} from './DatabaseCapabilityApi';
 
-
-class HttpDatabaseCapabilityApi implements DatabaseCapabilityApi {
-  private httpApi: HttpApi = appHttpApi;
-
-  public fetchFruits(): Promise<string[]> {
-    return this.httpApi.get('/fruits');
-  }
-}
-
-class MockDatabaseCapabilityApi implements DatabaseCapabilityApi {
-  public fetchFruits(): Promise<string[]> {
-    return Promise.resolve(['apple', 'orange']);
-  }
-}
 
 interface DatabaseCapabilityProps {
   databaseType: string;
+  apiService: DatabaseCapabilityApi;
 }
 
 interface DatabaseCapabilityState {
@@ -30,8 +14,6 @@ interface DatabaseCapabilityState {
 }
 
 export default class DatabaseCapability extends React.Component<DatabaseCapabilityProps, DatabaseCapabilityState> {
-
-  private readonly databaseService = isMockMode ? new MockDatabaseCapabilityApi() : new HttpDatabaseCapabilityApi();
 
   constructor(props) {
     super(props);
@@ -42,7 +24,7 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
   }
 
   public componentDidMount() {
-    this.databaseService.fetchFruits().then(fruits => this.setState({fruits}));
+    this.props.apiService.fetchFruits().then(fruits => this.setState({fruits}));
   }
 
 

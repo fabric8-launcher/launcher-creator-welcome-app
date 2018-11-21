@@ -1,53 +1,33 @@
 import * as React from 'react';
 import Capability from '../Capability';
-import capabilitiesConfig from 'app/config/capabilitiesConfig';
-import {HttpApi} from 'shared/utils/HttpApi';
-import appConfig, {isMockMode} from '../../config/appConfig';
-import appHttpApi from '../../appHttpApi';
-import RestCapabilityApi from './RestCapabilityApi';
 import ShellCommand from '../../../shared/components/ShellCommand';
 import * as moment from 'moment';
 
 import './RestCapability.css';
 import {Button, Grid, GridItem, Split, SplitItem, TextInput} from '@patternfly/react-core';
 import {Console} from '../../../shared/components/Console';
-
-function buildGreetingPath(name: string) {
-  return name.length === 0 ? '/greeting' : `/greeting?name=${encodeURIComponent(name)}`;
-}
-
-class HttpRestCapabilityApi implements RestCapabilityApi {
-  private httpApi: HttpApi = appHttpApi;
-
-  public get(name: string): Promise<string> {
-    const greetingPath = buildGreetingPath(name);
-    return this.httpApi.get<{ content: string; }>(greetingPath).then(r => r.content);
-  }
-}
-
-class MockRestCapabilityApi implements RestCapabilityApi {
-  public get(name: string): Promise<string> {
-    return Promise.resolve('Hello ' + (name || 'World') + '!');
-  }
-}
+import {RestCapabilityApi} from './RestCapabilityApi';
+import capabilitiesConfig from '../../config/capabilitiesConfig';
 
 interface RestCapabilityProps {
+  apiService: RestCapabilityApi;
 }
 
 interface RestCapabilityState {
   consoleContent: string;
+  results: Array<{content: string, time: number}>;
   params: {
     [name: string]: string;
   }
 }
 
 export default class RestCapability extends React.Component<RestCapabilityProps, RestCapabilityState> {
-  private readonly httpService = isMockMode ? new MockRestCapabilityApi() : new HttpRestCapabilityApi();
 
   constructor(props) {
     super(props);
 
     this.state = {
+      results: [],
       consoleContent: '',
       params: {
         name: '',
@@ -56,7 +36,6 @@ export default class RestCapability extends React.Component<RestCapabilityProps,
   }
 
   public render() {
-    const url = appConfig.applicationUrl;
     return (
       <Capability module="rest">
         <Capability.Title>{capabilitiesConfig.rest.name}</Capability.Title>
@@ -65,7 +44,7 @@ export default class RestCapability extends React.Component<RestCapabilityProps,
             <GridItem span={12}>
               <Split>
                 <SplitItem isMain={false}>
-                  <TextInput id="http-api-path-input" isDisabled={true} value={`${url}/greetings/`}/>
+                  <TextInput id="http-api-path-input" isDisabled={true} value={`/greetings/`}/>
                 </SplitItem>
                 <SplitItem isMain={true}>
                   <TextInput id="http-api-name-input"
@@ -88,7 +67,7 @@ export default class RestCapability extends React.Component<RestCapabilityProps,
                 You may test this directly by making an <samp>HTTP GET</samp> request using this
                 application's URL as root. For instance, try with the <samp>cURL</samp> tool:
               </p>
-              <ShellCommand command={`curl ${this.getGreetingsUrl()}`} />
+              <ShellCommand command={`curl ${this.getGreetingsUrl()}`}/>
             </GridItem>
           </Grid>
         </Capability.Body>
@@ -97,13 +76,16 @@ export default class RestCapability extends React.Component<RestCapabilityProps,
   }
 
   private execGet = (values) => {
-    this.httpService.get(this.state.params.name).then(value => {
-      this.logToConsole(value);
+    this.props.apiService.doGetGreeting(this.state.params.name).then(result => {
+      this.setState({
+        results: [...this.state.results, result],
+      });
+      this.logToConsole(result);
     });
   }
 
 
-  private handleInputChange = (checked, event) => {
+  private handleInputChange = (_, event) => {
     const target = event.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const name = target.name;
@@ -116,14 +98,14 @@ export default class RestCapability extends React.Component<RestCapabilityProps,
     });
   }
 
-  private logToConsole(response: string) {
+  private logToConsole(result: {content: string, time: number}) {
     const url = this.getGreetingsUrl();
     this.setState({
-      consoleContent: `> ${moment().format('LTS')} GET ${url}: ${response}\n${this.state.consoleContent}`
+      consoleContent: `> ${moment(result.time).format('LTS')} GET ${url}: ${result.content}\n${this.state.consoleContent}`
     });
   }
 
   private getGreetingsUrl() {
-    return `${appConfig.applicationUrl}${buildGreetingPath(this.state.params.name)}`;
+    return this.props.apiService.getGreetingAbsoluteUrl(this.state.params.name);
   }
 }
