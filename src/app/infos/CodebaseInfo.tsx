@@ -44,7 +44,6 @@ export function CodeBaseInfo(props: CodeBaseInfoProps) {
           <InfoCard.Separator />
           <GridItem span={3}>Base Image</GridItem><GridItem span={9}>{props.baseImage}</GridItem>
         </Grid>
-
       </InfoCard.Body>
     </InfoCard>
   );

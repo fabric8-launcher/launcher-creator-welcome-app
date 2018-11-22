@@ -4,7 +4,7 @@ import ShellCommand from '../../../shared/components/ShellCommand';
 import * as moment from 'moment';
 
 import './RestCapability.css';
-import {Button, Grid, GridItem, Split, SplitItem, TextInput} from '@patternfly/react-core';
+import {Badge, Button, Grid, GridItem, TextInput} from '@patternfly/react-core';
 import {Console} from '../../../shared/components/Console';
 import {RestCapabilityApi} from './RestCapabilityApi';
 import capabilitiesConfig from '../../config/capabilitiesConfig';
@@ -16,7 +16,7 @@ interface RestCapabilityProps {
 
 interface RestCapabilityState {
   consoleContent: string;
-  results: Array<{content: string, time: number}>;
+  results: Array<{ content: string, time: number }>;
   params: {
     [name: string]: string;
   }
@@ -39,7 +39,7 @@ export default class RestCapability extends React.Component<RestCapabilityProps,
   public render() {
     return (
       <CapabilityCard module="rest">
-        <CapabilityCard.Title><PlugIcon />{capabilitiesConfig.rest.name}</CapabilityCard.Title>
+        <CapabilityCard.Title><PlugIcon/>{capabilitiesConfig.rest.name}</CapabilityCard.Title>
         <CapabilityCard.Body>
           <Grid>
             <GridItem span={12}>
@@ -50,25 +50,26 @@ export default class RestCapability extends React.Component<RestCapabilityProps,
               you may follow these patterns to construct a RESTful architecture.
             </GridItem>
             <CapabilityCard.Separator/>
+            <GridItem span={2}>
+              /greetings
+            </GridItem>
+            <GridItem span={1}>
+              <Badge>GET</Badge>
+            </GridItem>
+            <GridItem span={7}>
+              <TextInput id="http-api-name-input"
+                         value={this.state.params.name}
+                         onChange={this.handleInputChange}
+                         name="name" placeholder="World" className="http-param"/>
+            </GridItem>
+            <GridItem span={2}>
+              <Button
+                className={'http'}
+                onClick={this.execGet}
+                title="Execute GET Request"
+              >Execute</Button>
+            </GridItem>
             <GridItem span={12}>
-              <Split>
-                <SplitItem isMain={false}>
-                  <TextInput id="http-api-path-input" isDisabled={true} value={`/greetings/`}/>
-                </SplitItem>
-                <SplitItem isMain={true}>
-                  <TextInput id="http-api-name-input"
-                             value={this.state.params.name}
-                             onChange={this.handleInputChange}
-                             name="name" placeholder="World" className="http-param"/>
-                </SplitItem>
-                <SplitItem isMain={false}>
-                  <Button
-                    className={'http'}
-                    onClick={this.execGet}
-                    title="Execute GET Request"
-                  >GET</Button>
-                </SplitItem>
-              </Split>
               <Console id="rest-content" content={this.state.consoleContent}/>
             </GridItem>
             <CapabilityCard.Separator/>
@@ -108,7 +109,7 @@ export default class RestCapability extends React.Component<RestCapabilityProps,
     });
   }
 
-  private logToConsole(result: {content: string, time: number}) {
+  private logToConsole(result: { content: string, time: number }) {
     const url = this.getGreetingsUrl();
     this.setState({
       consoleContent: `> ${moment(result.time).format('LTS')} GET ${url}: ${result.content}\n${this.state.consoleContent}`
