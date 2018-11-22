@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Capability from '../Capability';
+import CapabilityCard from '../../components/CapabilityCard';
 import capabilitiesConfig from '../../config/capabilitiesConfig';
 import {DatabaseCapabilityApi} from './DatabaseCapabilityApi';
 
@@ -30,14 +30,14 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
 
   public render() {
     return (
-      <Capability module="database">
-        <Capability.Title>{capabilitiesConfig.database.name}</Capability.Title>
-        <Capability.Body>
+      <CapabilityCard module="database">
+        <CapabilityCard.Title>{capabilitiesConfig.database.name}</CapabilityCard.Title>
+        <CapabilityCard.Body>
           <ul>
             {this.state.fruits.map((fruit, i) => (<li key={i}>{fruit}</li>))}
           </ul>
-        </Capability.Body>
-      </Capability>
+        </CapabilityCard.Body>
+      </CapabilityCard>
     );
   }
 }

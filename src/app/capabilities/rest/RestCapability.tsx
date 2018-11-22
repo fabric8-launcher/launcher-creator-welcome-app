@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Capability from '../Capability';
+import CapabilityCard from '../../components/CapabilityCard';
 import ShellCommand from '../../../shared/components/ShellCommand';
 import * as moment from 'moment';
 
@@ -8,6 +8,7 @@ import {Button, Grid, GridItem, Split, SplitItem, TextInput} from '@patternfly/r
 import {Console} from '../../../shared/components/Console';
 import {RestCapabilityApi} from './RestCapabilityApi';
 import capabilitiesConfig from '../../config/capabilitiesConfig';
+import {PlugIcon} from '@patternfly/react-icons';
 
 interface RestCapabilityProps {
   apiService: RestCapabilityApi;
@@ -37,10 +38,18 @@ export default class RestCapability extends React.Component<RestCapabilityProps,
 
   public render() {
     return (
-      <Capability module="rest">
-        <Capability.Title>{capabilitiesConfig.rest.name}</Capability.Title>
-        <Capability.Body>
+      <CapabilityCard module="rest">
+        <CapabilityCard.Title><PlugIcon />{capabilitiesConfig.rest.name}</CapabilityCard.Title>
+        <CapabilityCard.Body>
           <Grid>
+            <GridItem span={12}>
+              HTTP API endpoints expose your application to outside callers.
+              Through these, programs may communicate over the network in a language-independent fashion.
+              We have created an initial set of endpoints to illustrate how you may accomplish this in your selected runtime,
+              Vert.x. By composing together HTTP endpoints and making use of hypermedia and links,
+              you may follow these patterns to construct a RESTful architecture.
+            </GridItem>
+            <CapabilityCard.Separator/>
             <GridItem span={12}>
               <Split>
                 <SplitItem isMain={false}>
@@ -62,6 +71,7 @@ export default class RestCapability extends React.Component<RestCapabilityProps,
               </Split>
               <Console id="rest-content" content={this.state.consoleContent}/>
             </GridItem>
+            <CapabilityCard.Separator/>
             <GridItem span={12}>
               <p>
                 You may test this directly by making an <samp>HTTP GET</samp> request using this
@@ -70,8 +80,8 @@ export default class RestCapability extends React.Component<RestCapabilityProps,
               <ShellCommand command={`curl ${this.getGreetingsUrl()}`}/>
             </GridItem>
           </Grid>
-        </Capability.Body>
-      </Capability>
+        </CapabilityCard.Body>
+      </CapabilityCard>
     );
   }
 

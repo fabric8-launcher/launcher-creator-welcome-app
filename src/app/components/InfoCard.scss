@@ -1,0 +1,29 @@
+.info-card {
+  margin-bottom: 10px;
+
+  img {
+    height: 60px;
+  }
+
+  .info-card-header {
+    padding-bottom: 30px;
+
+    svg {
+      margin-right: 20px;
+    }
+  }
+
+  .info-card-separator {
+    width: 100%;
+    min-height: 1px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    hr {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      border: 0;
+      border-top: 1px solid #f1f1f1;
+    }
+  }
+}

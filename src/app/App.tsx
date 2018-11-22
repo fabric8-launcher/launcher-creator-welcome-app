@@ -23,8 +23,10 @@ import {CogIcon} from '@patternfly/react-icons';
 import logo from '../assets/logo/RHD-logo.svg';
 import './App.css';
 import appConfig from './config/appConfig';
-import capabilitiesComponents from './capabilities/capabilitiesComponents';
+import capabilitiesCardsMapping from './capabilities/capabilitiesCardsMapping';
 import capabilitiesConfig from './config/capabilitiesConfig';
+import {CloudDeploymentInfo} from './infos/CloudDeploymentInfo';
+import {CodeBaseInfo} from './infos/CodebaseInfo';
 
 
 export default class App extends React.Component<{}, { isNavOpen: boolean }> {
@@ -42,7 +44,13 @@ export default class App extends React.Component<{}, { isNavOpen: boolean }> {
     const PageNav = (
       <Nav onSelect={this.onNavSelect} onToggle={this.onNavToggle} aria-label="Nav">
         <NavList>
-          {appConfig.definition!.capabilities.filter(c => !!capabilitiesConfig[c.module]).map(c => (
+          <NavItem to={`#cloud-deployment-info`}>
+            Cloud Deployment
+          </NavItem>
+          <NavItem to={`#codebase-info`}>
+            Codebase
+          </NavItem>
+          {appConfig.definition!.capabilities.filter(this.showCapability).map(c => (
             <NavItem key={c.module} to={`#${c.module}-capability`}>
               {capabilitiesConfig[c.module].name}
             </NavItem>
@@ -73,6 +81,15 @@ export default class App extends React.Component<{}, { isNavOpen: boolean }> {
 
     const Sidebar = <PageSidebar nav={PageNav} isNavOpen={this.state.isNavOpen}/>;
 
+    const runtime = {
+      name: 'Eclipse Vert.x',
+      language: 'Java',
+      description: 'Eclipse Vert.x is a tool-kit for building reactive applications on the JVM.',
+      // tslint:disable-next-line
+      icon: 'data:image/svg+xml;charset=utf8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 640 280\'%3E%3Cpath fill=\'%23022B37\' d=\'M107 170.8L67.7 72H46.9L100 204h13.9L167 72h-20.4zm64 33.2h80v-20h-61v-37h60v-19h-60V91h61V72h-80zm180.1-90.7c0-21-14.4-42.3-43.1-42.3h-48v133h19V91h29.1c16.1 0 24 11.1 24 22.4 0 11.5-7.9 22.6-24 22.6H286v9.6l48 58.4h24.7L317 154c22.6-4 34.1-22 34.1-40.7m56.4 90.7v-1c0-6 1.7-11.7 4.5-16.6V91h39V71h-99v20h41v113h14.5z\'/%3E%3Cpath fill=\'%23623C94\' d=\'M458 203c0-9.9-8.1-18-18-18s-18 8.1-18 18 8.1 18 18 18 18-8.1 18-18M577.4 72h-23.2l-27.5 37.8L499.1 72h-40.4c12.1 16 33.6 46.8 47.8 66.3l-37 50.9c2 4.2 3.1 8.9 3.1 13.8v1H499l95.2-132h-16.8zm-19.7 81.5l-20.1 27.9 16.5 22.6h40.2c-9.6-13.7-24-33.3-36.6-50.5z\'/%3E%3C/svg%3E',
+      version: 'Vert.x RHOAR 1.0.0',
+    };
+
     return (
       <React.Fragment>
         <Page header={Header} sidebar={Sidebar}>
@@ -86,8 +103,10 @@ export default class App extends React.Component<{}, { isNavOpen: boolean }> {
             </TextContent>
           </PageSection>
           <PageSection>
-            {appConfig.definition!.capabilities.filter(c => !!capabilitiesConfig[c.module]).map(c => {
-              const CapabilityComponent = capabilitiesComponents[c.module];
+            <CloudDeploymentInfo applicationUrl="https://applicationUrl" consoleUrl="https://consoleUrl"/>
+            <CodeBaseInfo runtime={runtime} baseImage={'rht/java-s2i'} repositoryUrl={'https://github.com/redhat-developer/something'}/>
+            {appConfig.definition!.capabilities.filter(this.showCapability).map(c => {
+              const CapabilityComponent = capabilitiesCardsMapping[c.module];
               return (
                 <CapabilityComponent {...c} key={c.module}/>
               );
@@ -97,6 +116,10 @@ export default class App extends React.Component<{}, { isNavOpen: boolean }> {
       </React.Fragment>
     );
   }
+
+  private showCapability = (capability: { module: string }) => {
+    return !!capabilitiesConfig[capability.module] && !!capabilitiesCardsMapping[capability.module];
+  };
 
   private onNavSelect = result => {
   };

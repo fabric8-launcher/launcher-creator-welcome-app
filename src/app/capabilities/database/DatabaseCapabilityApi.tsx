@@ -1,5 +1,5 @@
 import {HttpApi} from '../../../shared/utils/HttpApi';
-import {ApiFactoryFunction} from '../../components/connectCapability';
+import {ApiFactoryFunction} from '../connectCapability';
 
 export interface DatabaseCapabilityApi {
   fetchFruits(): Promise<string[]>;
