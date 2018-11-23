@@ -2,44 +2,85 @@
 .http-request-service {
   line-height: 44px;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 
 .http-request {
+  margin-top: 5px;
+
   .http-request-path {
     line-height: 44px;
-    font-weight: bold;
   }
 
-  .http-request-method {
+  .http-request-def {
     display: inline-block;
     line-height: 44px;
     height: 44px;
-    width: 50px;
-    text-align: center;
     color: black;
-    border: 1px dashed #00659c;
-    border-radius: 15px;
-    text-transform: uppercase;
+    border: 1px dotted #00659c;
+    border-radius: 15px 0 0 15px;
+    padding: 0 10px;
+    border-right: none;
+    width: 100%;
+    text-align: left;
   }
+
+  .http-request-method {
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 70px;
+    display: inline-block;
+  }
+
+  &.method-get .http-request-method {
+    color: #00659c;
+  }
+
+  &.method-post .http-request-method {
+    color: #3f9c35;
+  }
+
+  &.method-put .http-request-method {
+    color: #ec7a08;
+  }
+
+  &.method-delete .http-request-method {
+    color: #a30000;
+  }
+
+
 
   input.http-request-param {
-    background-color: #f1f1f1;
     color: black;
-    height: 44px;
-    border-radius: 15px;
+    height: 25px;
+    padding-left: 10px;
+    display: inline-block;
+    width: auto;
     border: none;
-    padding-left: 20px;
+    border-bottom: 1px dashed #4c4c4c;
+    text-decoration: dashed;
   }
 
-  input.http-request-param:first-child {
-    border-radius: 15px 0 0 15px;
+  input.http-request-param:hover {
   }
 
   button.http-request-button {
     border-radius: 0 15px 15px 0;
     width: 100%;
     height: 44px;
+  }
+
+  button.copy-button {
+    float: right;
+    margin-top: 6px;
+    color: white;
+    padding: 1px;
+    width: 30px;
+    background-color: #a1a6a8;
+
+    &:hover {
+      background-color: #4a4f51;
+    }
   }
 }

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import CapabilityCard from '../../components/CapabilityCard';
-import ShellCommand from '../../../shared/components/ShellCommand';
 import * as moment from 'moment';
 
 import './RestCapability.css';
@@ -64,7 +63,10 @@ export default class RestCapability extends React.Component<RestCapabilityProps,
                                  name="greetingEndpoint"
                                  fileRepositoryLocation={this.props.extra.sourceMapping.greetingEndpoint}/>
             </GridItem>
-            <HttpRequest method="GET" path="/greetings" onExecute={this.execGet}>
+            <HttpRequest method="GET"
+                         path="/greetings?name="
+                         curlCommand={`curl -X GET '${this.getGreetingsUrl()}'`}
+                         onExecute={this.execGet}>
               <TextInput id="http-api-param-name-input"
                          value={this.state.params.name}
                          onChange={this.handleInputChange}
@@ -72,14 +74,6 @@ export default class RestCapability extends React.Component<RestCapabilityProps,
             </HttpRequest>
             <GridItem span={12}>
               <Console id="rest-content" content={this.state.consoleContent}/>
-            </GridItem>
-            <CapabilityCard.Separator/>
-            <GridItem span={12}>
-              <p>
-                You may test this directly by making an <samp>HTTP GET</samp> request using this
-                application's URL as root. For instance, try with the <samp>cURL</samp> tool:
-              </p>
-              <ShellCommand command={`curl -X GET '${this.getGreetingsUrl()}'`}/>
             </GridItem>
           </Grid>
         </CapabilityCard.Body>

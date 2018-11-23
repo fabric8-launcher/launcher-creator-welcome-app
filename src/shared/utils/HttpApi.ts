@@ -9,9 +9,9 @@ export interface HttpApi {
 
   get<T>(path: string): Promise<T>;
 
-  put<T>(path: string): Promise<T>;
+  put<T>(path: string, data?: any): Promise<T>;
 
-  post<T>(path: string): Promise<T>;
+  post<T>(path: string, data?: any): Promise<T>;
 
   delete(path: string): Promise<any>;
 }
@@ -32,12 +32,12 @@ export class AxiosHttpApi implements HttpApi {
     return this.axios.get<T>(path).then(r => r.data);
   }
 
-  public put<T>(path: string): Promise<T> {
-    return this.axios.put<T>(path).then(r => r.data);
+  public put<T>(path: string, data?: any): Promise<T> {
+    return this.axios.put<T>(path, data).then(r => r.data);
   }
 
-  public post<T>(path: string): Promise<T> {
-    return this.axios.post<T>(path).then(r => r.data);
+  public post<T>(path: string, data?: any): Promise<T> {
+    return this.axios.post<T>(path, data).then(r => r.data);
   }
 
   public delete(path: string): Promise<any> {

@@ -6,6 +6,8 @@ import {ClipboardCheckIcon, ClipboardIcon} from '@patternfly/react-icons';
 
 interface ShellCommandProps {
   readonly command: string;
+  readonly onlyButton?: boolean;
+  readonly buttonText?: string;
 }
 
 class ShellCommand extends React.Component<ShellCommandProps, any> {
@@ -19,10 +21,25 @@ class ShellCommand extends React.Component<ShellCommandProps, any> {
 
     this.onCopy = this.onCopy.bind(this);
     this.onMouseOutOfCopy = this.onMouseOutOfCopy.bind(this);
-    this.getTooltipContents = this.getTooltipContents.bind(this);
   }
 
   public render() {
+    const CopyToClipboardButton = () => (<CopyToClipboard
+      text={this.props.command}
+      onCopy={this.onCopy}>
+      <Button className="copy-button"
+              title={this.props.buttonText}
+              onMouseLeave={this.onMouseOutOfCopy}>
+        {this.state.copied ? <ClipboardCheckIcon/> : <ClipboardIcon/>}
+      </Button>
+    </CopyToClipboard>
+      );
+    if (this.props.onlyButton) {
+      return (
+        <CopyToClipboardButton />
+      );
+    }
+
     return (
       <Split className="shell-command">
         <SplitItem isMain={false}>
@@ -37,14 +54,7 @@ class ShellCommand extends React.Component<ShellCommandProps, any> {
                  placeholder={this.props.command}/>
         </SplitItem>
         <SplitItem isMain={false}>
-          <CopyToClipboard
-            text={this.props.command}
-            onCopy={this.onCopy}>
-            <Button
-              onMouseLeave={this.onMouseOutOfCopy}>
-              {this.state.copied ? <ClipboardCheckIcon/> : <ClipboardIcon/>}
-            </Button>
-          </CopyToClipboard>
+          <CopyToClipboardButton />
         </SplitItem>
       </Split>
     );
@@ -56,10 +66,6 @@ class ShellCommand extends React.Component<ShellCommandProps, any> {
 
   private onMouseOutOfCopy() {
     this.setState({copied: 0});
-  }
-
-  private getTooltipContents() {
-    return this.state.copied === true ? 'Copied!' : 'Copy shell command';
   }
 
 }
