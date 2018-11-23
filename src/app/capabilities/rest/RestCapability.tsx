@@ -48,7 +48,7 @@ export default class RestCapability extends React.Component<RestCapabilityProps,
   public render() {
     return (
       <CapabilityCard module="rest">
-        <CapabilityCard.Title><PlugIcon/>{capabilitiesConfig.rest.name}</CapabilityCard.Title>
+        <CapabilityCard.Title><PlugIcon className="with-text"/> {capabilitiesConfig.rest.name}</CapabilityCard.Title>
         <CapabilityCard.Body>
           <Grid>
             <GridItem span={12}>

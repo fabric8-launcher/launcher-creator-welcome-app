@@ -14,7 +14,7 @@ interface CloudDeploymentInfoProps {
 export function CloudDeploymentInfo(props: CloudDeploymentInfoProps) {
   return (
     <InfoCard name="cloud-deployment">
-      <InfoCard.Title><CloudIcon />Cloud Deployment</InfoCard.Title>
+      <InfoCard.Title><CloudIcon className="with-text"/> Cloud Deployment</InfoCard.Title>
       <InfoCard.Body>
         <Grid>
           <GridItem span={3}>

@@ -21,7 +21,7 @@ interface CodeBaseInfoProps {
 export function CodeBaseInfo(props: CodeBaseInfoProps) {
   return (
     <InfoCard name="codebase">
-      <InfoCard.Title><CodeIcon/>{props.runtime.name} - {props.runtime.metadata.language} - Codebase</InfoCard.Title>
+      <InfoCard.Title><CodeIcon className="with-text"/> {props.runtime.name} - {props.runtime.metadata.language} - Codebase</InfoCard.Title>
       <InfoCard.Body>
         <Grid>
           <GridItem span={3}>

@@ -23,8 +23,8 @@
     "deploy-doc": "yarn build-doc && gh-pages -d styleguide"
   },
   "dependencies": {
-    "@patternfly/react-core": "^1.32.2",
-    "@patternfly/react-icons": "^2.7.1",
+    "@patternfly/react-core": "^1.36.0",
+    "@patternfly/react-icons": "^2.8.0",
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
     "lodash": "^4.17.11",

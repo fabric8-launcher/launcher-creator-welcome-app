@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {ExternalLink} from './ExternalLink';
+import {AngleDoubleRightIcon} from '@patternfly/react-icons';
 
 
 export function SourceMappingLink(props: {
@@ -9,7 +10,7 @@ export function SourceMappingLink(props: {
 }) {
   if (props.sourceRepositoryUrl) {
     const link = props.sourceRepositoryUrl + props.fileRepositoryLocation;
-    return (<div>{props.name} (<ExternalLink href={link}>view source</ExternalLink>)</div>)
+    return (<div><AngleDoubleRightIcon className="with-text" /> {props.name} (<ExternalLink href={link}>view source</ExternalLink>)</div>)
   }
-  return (<div>{props.fileRepositoryLocation}</div>);
+  return (<div title={props.fileRepositoryLocation}><AngleDoubleRightIcon className="with-text" /> {props.name}</div>);
 }
