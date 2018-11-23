@@ -107,7 +107,7 @@ export default class RestCapability extends React.Component<RestCapabilityProps,
   private logToConsole(result: { content: string, time: number }) {
     const url = this.getGreetingsUrl();
     this.setState({
-      consoleContent: `$ ${moment(result.time).format('LTS')} GET ${url}: ${result.content}\n${this.state.consoleContent}`
+      consoleContent: `${this.state.consoleContent}$ ${moment(result.time).format('LTS')} GET ${url}: ${result.content}\n`
     });
   }
 
