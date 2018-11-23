@@ -79,7 +79,7 @@ export default class RestCapability extends React.Component<RestCapabilityProps,
                 You may test this directly by making an <samp>HTTP GET</samp> request using this
                 application's URL as root. For instance, try with the <samp>cURL</samp> tool:
               </p>
-              <ShellCommand command={`curl ${this.getGreetingsUrl()}`}/>
+              <ShellCommand command={`curl -X GET '${this.getGreetingsUrl()}'`}/>
             </GridItem>
           </Grid>
         </CapabilityCard.Body>
