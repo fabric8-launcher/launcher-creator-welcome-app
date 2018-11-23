@@ -9,7 +9,7 @@ interface CapabilityProps {
 export default class CapabilityCard extends React.Component<CapabilityProps> {
 
   public static Title = (props) => (<CardHeader className="capability-card-header">{props.children}</CardHeader>);
-  public static Body = (props) => (<CardBody className="capability-card-header">{props.children}</CardBody>);
+  public static Body = (props) => (<CardBody className="capability-card-body">{props.children}</CardBody>);
   public static Separator = () => (<div className="capability-card-separator" ><hr/></div>);
 
   constructor(props) {

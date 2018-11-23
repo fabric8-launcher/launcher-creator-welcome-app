@@ -27,7 +27,7 @@ class ShellCommand extends React.Component<ShellCommandProps, any> {
       <Split className="shell-command">
         <SplitItem isMain={false}>
           <div className="shell-command-prefix">
-            shell$>
+            $
           </div>
         </SplitItem>
         <SplitItem isMain={true}>

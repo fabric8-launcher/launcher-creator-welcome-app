@@ -1,4 +1,5 @@
 import axios, {AxiosInstance} from 'axios';
+import {getLocationAbsoluteUrl} from './Locations';
 
 
 export interface HttpApi {
@@ -13,12 +14,6 @@ export interface HttpApi {
   post<T>(path: string): Promise<T>;
 
   delete(path: string): Promise<any>;
-}
-
-function getLocationAbsoluteUrl(path: string) {
-  const link = document.createElement('a');
-  link.href = path;
-  return link.href;
 }
 
 export class AxiosHttpApi implements HttpApi {
