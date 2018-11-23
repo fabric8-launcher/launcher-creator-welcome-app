@@ -78,7 +78,7 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
                          curlCommand={this.getPostFruitCurlCommand()}
                          onExecute={this.execPostFruit}
             >
-              <span style={{marginLeft: '50px'}}>
+              <span style={{marginLeft: '98px'}}>
                 Name: <TextInput id="http-api-param-post-name-input"
                                  value={this.state.params.postName}
                                  onChange={this.handleInputChange}
@@ -105,7 +105,9 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
                          onChange={this.handleInputChange}
                          name="putId"
                          placeholder="2"
-                         className="http-request-param"/>
+                         className="http-request-param"
+                         style={{width:'40px'}}
+              />
               <span style={{marginLeft: '50px'}}>
                 Name: <TextInput id="http-api-param-put-name-input"
                                  value={this.state.params.putName}
@@ -133,7 +135,9 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
                          onChange={this.handleInputChange}
                          name="deleteId"
                          placeholder="2"
-                         className="http-request-param"/>
+                         className="http-request-param"
+                         style={{width:'40px'}}
+              />
             </HttpRequest>
             <GridItem span={12}>
               <Console id="rest-content" content={this.state.consoleContent}/>
@@ -156,7 +160,7 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
 
   private getPostFruitData() {
     return {
-      name: defaultIfEmpty(this.state.params.postName, 'Kiwi'),
+      name: defaultIfEmpty(this.state.params.postName, 'Coco'),
       stock: Number(defaultIfEmpty(this.state.params.postStock, '10')),
     };
   }
@@ -182,7 +186,7 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
 
   private getPutFruitData() {
     return {
-      name: defaultIfEmpty(this.state.params.putName, 'Kiwi'),
+      name: defaultIfEmpty(this.state.params.putName, 'Pineapple'),
       stock: Number(defaultIfEmpty(this.state.params.putStock, '10')),
     };
   }

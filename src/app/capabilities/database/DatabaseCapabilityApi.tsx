@@ -19,20 +19,23 @@ export class HttpDatabaseCapabilityApi implements DatabaseCapabilityApi {
   constructor(private readonly httpApi: HttpApi) {
   };
 
-  public doFetchFruits(): Promise<{ time: number, content: Fruit[] }> {
-    return this.httpApi.get('/fruits');
-  }
-
   public getFruitsAbsoluteUrl(): string {
     return this.httpApi.getApiAbsoluteUrl('/fruits');
   }
 
+  public doFetchFruits(): Promise<{ time: number, content: Fruit[] }> {
+    return this.httpApi.get<Fruit[]>('/fruits')
+      .then(r => ({ content: r, time: Date.now() }));
+  }
+
   public doPostFruit(data: { name: string; stock: number }): Promise<{ time: number; content: Fruit }> {
-    return this.httpApi.post('/fruits', data);
+    return this.httpApi.post<Fruit>('/fruits', data)
+      .then(r => ({ content: r, time: Date.now() }));;
   }
 
   public doPutFruit(id: number, data: { name: string; stock: number }): Promise<{ time: number; content: Fruit }> {
-    return this.httpApi.put(`/fruits/${id}`, data);
+    return this.httpApi.put<Fruit>(`/fruits/${id}`, data)
+      .then(r => ({ content: r, time: Date.now() }));;
   }
 
   public doDeleteFruit(id: number): Promise<{ time: number }> {
