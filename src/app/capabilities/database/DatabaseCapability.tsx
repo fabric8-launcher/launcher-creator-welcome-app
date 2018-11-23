@@ -83,7 +83,7 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
                                  value={this.state.params.postName}
                                  onChange={this.handleInputChange}
                                  name="postName"
-                                 placeholder="Kiwi"
+                                 placeholder="Coco"
                                  className="http-request-param"/>
               </span>
               <span style={{marginLeft: '50px'}}>
@@ -113,7 +113,7 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
                                  value={this.state.params.putName}
                                  onChange={this.handleInputChange}
                                  name="putName"
-                                 placeholder="Kiwi"
+                                 placeholder="Banana"
                                  className="http-request-param"/>
               </span>
               <span style={{marginLeft: '50px'}}>
@@ -186,7 +186,7 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
 
   private getPutFruitData() {
     return {
-      name: defaultIfEmpty(this.state.params.putName, 'Pineapple'),
+      name: defaultIfEmpty(this.state.params.putName, 'Banana'),
       stock: Number(defaultIfEmpty(this.state.params.putStock, '10')),
     };
   }
