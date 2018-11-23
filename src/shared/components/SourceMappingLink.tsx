@@ -9,7 +9,7 @@ export function SourceMappingLink(props: {
 }) {
   if (props.sourceRepositoryUrl) {
     const link = props.sourceRepositoryUrl + props.fileRepositoryLocation;
-    return (<ExternalLink href={link}>{props.name}</ExternalLink>)
+    return (<div>{props.name} (<ExternalLink href={link}>view source</ExternalLink>)</div>)
   }
   return (<div>{props.fileRepositoryLocation}</div>);
 }

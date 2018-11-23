@@ -2,6 +2,7 @@
 .http-request-service {
   line-height: 44px;
   font-weight: bold;
+  margin-bottom: 20px;
 }
 
 
@@ -25,11 +26,11 @@
 
   input.http-request-param {
     background-color: #f1f1f1;
-    border: 1px solid #bbb;
     color: black;
     height: 44px;
     border-radius: 15px;
     border: none;
+    padding-left: 20px;
   }
 
   input.http-request-param:first-child {

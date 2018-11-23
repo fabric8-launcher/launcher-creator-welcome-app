@@ -21,7 +21,7 @@ export default function connectCapability<T>(Component, serviceFactory: ApiFacto
         appConfig,
       });
       return (
-        <Component {...this.props} apiService={apiService}/>
+        <Component {...{...this.props, ...appConfig}} apiService={apiService}/>
       );
     }
 
