@@ -8,6 +8,7 @@ import HttpRequest from '../../../shared/components/HttpRequest';
 import {Console} from '../../../shared/components/Console';
 import * as moment from 'moment';
 import {defaultIfEmpty} from '../../../shared/utils/Strings';
+import {DatabaseIcon} from '@patternfly/react-icons';
 
 
 interface DatabaseCapabilityProps {
@@ -54,7 +55,7 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
   public render() {
     return (
       <CapabilityCard module="database">
-        <CapabilityCard.Title>{capabilitiesConfig.database.name}</CapabilityCard.Title>
+        <CapabilityCard.Title><DatabaseIcon className="with-text"/> {capabilitiesConfig.database.name}</CapabilityCard.Title>
         <CapabilityCard.Body>
           <Grid>
             <GridItem span={12}>
