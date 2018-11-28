@@ -4,7 +4,7 @@ export interface CapabilityConfig {
 
 const capabilitiesConfig = {
   rest: {
-    name: 'Http Api'
+    name: 'HTTP APIs'
   },
   database: {
     name: 'Relational Persistence'
