@@ -243,7 +243,7 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
     const url = this.props.apiService.getFruitsAbsoluteUrl();
     this.setState({
       consoleContent: `${this.state.consoleContent}$ ${moment(result.time).format('LTS')} `
-        + `${type} ${url}: ${JSON.stringify(result.content)}\n`
+        + `${type} ${url}:\n${JSON.stringify(result.content)}\n`
     });
   }
 

@@ -1,13 +1,26 @@
-import {TextArea} from '@patternfly/react-core';
 import * as React from 'react';
+import {Component} from 'react';
 
 import './Console.css';
 
-export function Console(props: { id: string, content?: string }) {
-  const onChange = () => {};
-  const consoleContent = props.content || '';
-  return props.content ? (
-    <TextArea id={props.id} name="console" onChange={onChange}
-              className="console" rows={5} disabled={true} value={consoleContent}/>
-  ): (<div />);
+export class Console extends Component<{ id: string, content?: string }> {
+
+  private readonly ref = React.createRef<HTMLTextAreaElement>();
+
+  public componentDidUpdate() {
+   if (this.ref.current) {
+     this.ref.current.scrollTop = this.ref.current.scrollHeight;
+     this.ref.current.style.height = this.ref.current.scrollHeight <= 130 ? '130px' : '300px';
+   }
+  }
+
+  public render() {
+    const onChange = () => {
+    };
+    const consoleContent = this.props.content || '';
+    return (
+      <textarea ref={this.ref} id={this.props.id} name="console" onChange={onChange}
+                className="console" rows={5} disabled={true} value={consoleContent}/>
+    );
+  }
 }
