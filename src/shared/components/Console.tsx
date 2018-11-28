@@ -3,24 +3,29 @@ import {Component} from 'react';
 
 import './Console.css';
 
-export class Console extends Component<{ id: string, content?: string }> {
+export class Console extends Component<{ id: string, content?: Array<(string | React.ReactNode)>}> {
 
-  private readonly ref = React.createRef<HTMLTextAreaElement>();
+  private readonly ref = React.createRef<HTMLDivElement>();
 
   public componentDidUpdate() {
    if (this.ref.current) {
-     this.ref.current.scrollTop = this.ref.current.scrollHeight;
+
+     if (this.ref.current.lastChild) {
+       const offset = (this.ref.current.lastChild as HTMLDivElement).offsetTop - this.ref.current.offsetTop;
+       this.ref.current.scrollTop = offset;
+     }
      this.ref.current.style.height = this.ref.current.scrollHeight <= 130 ? '130px' : '300px';
    }
   }
 
   public render() {
-    const onChange = () => {
-    };
-    const consoleContent = this.props.content || '';
+    const consoleContent = this.props.content || [];
     return (
-      <textarea ref={this.ref} id={this.props.id} name="console" onChange={onChange}
-                className="console" rows={5} disabled={true} value={consoleContent}/>
+      <div className="console" id={this.props.id}>
+        <div className="console-content" ref={this.ref}>
+          {consoleContent.map((c, i) => (<div key={i} className="console-content-row">{c}</div>) )}
+        </div>
+      </div>
     );
   }
 }

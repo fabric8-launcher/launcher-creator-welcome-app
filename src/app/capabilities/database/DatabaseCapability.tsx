@@ -5,10 +5,9 @@ import {DatabaseCapabilityApi} from './DatabaseCapabilityApi';
 import {Grid, GridItem, TextInput} from '@patternfly/react-core';
 import {SourceMappingLink} from '../../../shared/components/SourceMappingLink';
 import HttpRequest from '../../../shared/components/HttpRequest';
-import {Console} from '../../../shared/components/Console';
-import * as moment from 'moment';
 import {defaultIfEmpty} from '../../../shared/utils/Strings';
 import {DatabaseIcon} from '@patternfly/react-icons';
+import RequestConsole, {RequestResult} from '../../../shared/components/RequestConsole';
 
 
 interface DatabaseCapabilityProps {
@@ -26,7 +25,7 @@ interface DatabaseCapabilityProps {
 }
 
 interface DatabaseCapabilityState {
-  consoleContent: string;
+  consoleContent: RequestResult[];
   results: Array<{ content: any, time: number }>;
   params: {
     [name: string]: string;
@@ -40,7 +39,7 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
 
     this.state = {
       results: [],
-      consoleContent: '',
+      consoleContent: [],
       params: {
         postName: '',
         postStock: '',
@@ -141,7 +140,7 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
               />
             </HttpRequest>
             <GridItem span={12}>
-              <Console id="rest-content" content={this.state.consoleContent}/>
+              <RequestConsole id="database-content" results={this.state.consoleContent}/>
             </GridItem>
             <CapabilityCard.Separator/>
           </Grid>
@@ -242,8 +241,12 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
   private logToConsole(type: string, result: { content: any, time: number }) {
     const url = this.props.apiService.getFruitsAbsoluteUrl();
     this.setState({
-      consoleContent: `${this.state.consoleContent}$ ${moment(result.time).format('LTS')} `
-        + `${type} ${url}:\n${JSON.stringify(result.content)}\n`
+      consoleContent: [ ...this.state.consoleContent, {
+        method: type,
+        time: result.time,
+        result: result.content,
+        url,
+      }],
     });
   }
 

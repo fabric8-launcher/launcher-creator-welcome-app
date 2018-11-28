@@ -1,15 +1,14 @@
 import * as React from 'react';
 import CapabilityCard from '../../components/CapabilityCard';
-import * as moment from 'moment';
 
 import './RestCapability.css';
 import {Grid, GridItem, TextInput} from '@patternfly/react-core';
-import {Console} from '../../../shared/components/Console';
 import {RestCapabilityApi} from './RestCapabilityApi';
 import capabilitiesConfig from '../../config/capabilitiesConfig';
 import {PlugIcon} from '@patternfly/react-icons';
 import HttpRequest from '../../../shared/components/HttpRequest';
 import {SourceMappingLink} from '../../../shared/components/SourceMappingLink';
+import RequestConsole, {RequestResult} from '../../../shared/components/RequestConsole';
 
 interface RestCapabilityProps {
   apiService: RestCapabilityApi;
@@ -23,7 +22,7 @@ interface RestCapabilityProps {
 }
 
 interface RestCapabilityState {
-  consoleContent: string;
+  consoleContent: RequestResult[];
   results: Array<{ content: string, time: number }>;
   params: {
     [name: string]: string;
@@ -37,7 +36,7 @@ export default class RestCapability extends React.Component<RestCapabilityProps,
 
     this.state = {
       results: [],
-      consoleContent: '',
+      consoleContent: [],
       params: {
         name: '',
       },
@@ -73,7 +72,7 @@ export default class RestCapability extends React.Component<RestCapabilityProps,
                          name="name" placeholder="World" className="http-request-param"/>
             </HttpRequest>
             <GridItem span={12}>
-              <Console id="rest-content" content={this.state.consoleContent}/>
+              <RequestConsole id="rest-content" results={this.state.consoleContent}/>
             </GridItem>
           </Grid>
         </CapabilityCard.Body>
@@ -107,7 +106,12 @@ export default class RestCapability extends React.Component<RestCapabilityProps,
   private logToConsole(result: { content: string, time: number }) {
     const url = this.getGreetingsUrl();
     this.setState({
-      consoleContent: `${this.state.consoleContent}$ ${moment(result.time).format('LTS')} GET ${url}: ${result.content}\n`
+      consoleContent: [ ...this.state.consoleContent, {
+        method: 'GET',
+        time: result.time,
+        result: result.content,
+        url,
+      }],
     });
   }
 
