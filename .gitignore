@@ -70,6 +70,8 @@ typings/
 .env.test.local
 .env.production.local
 
+# build from scss
+*.css
 
 # next.js build output
 .next
