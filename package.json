@@ -16,13 +16,14 @@
     "build": "npm-run-all build-clean build-css build-js copy-nginx",
     "build-clean": "rimraf ./build",
     "copy-nginx": "sed 's/\\$BACKEND_SERVICE_NAME/'\"$BACKEND_SERVICE_NAME\"'/' ./nginx.conf > ./build/nginx.conf",
-    "test": "react-scripts-ts test --env=jsdom",
+    "test": "CI=true react-scripts-ts test --env=jsdom",
+    "test:i": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject",
     "doc": "npx styleguidist server",
     "build-doc": "styleguidist build",
-    "deploy-doc": "yarn build-doc && gh-pages -d styleguide",
-    "precommit": "CI=true npm-run-all test build"
+    "deploy-doc": "yarn build-doc && gh-pages -d styleguide"
   },
+  "pre-commit": [ "test","build-clean", "build" ],
   "dependencies": {
     "@patternfly/react-core": "1.37.2",
     "@patternfly/react-icons": "2.9.1",
