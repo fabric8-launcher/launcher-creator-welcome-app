@@ -80,13 +80,12 @@ export default class RestCapability extends React.Component<RestCapabilityProps,
     );
   }
 
-  private execGet = () => {
-    this.props.apiService.doGetGreeting(this.state.params.name).then(result => {
-      this.setState({
-        results: [...this.state.results, result],
-      });
-      this.logToConsole(result);
+  private execGet = async () => {
+     const result = await this.props.apiService.doGetGreeting(this.state.params.name);
+     this.setState({
+      results: [...this.state.results, result],
     });
+    this.logToConsole(result);
   };
 
 

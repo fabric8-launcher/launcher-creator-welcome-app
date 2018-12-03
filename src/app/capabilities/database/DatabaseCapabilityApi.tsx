@@ -23,23 +23,24 @@ export class HttpDatabaseCapabilityApi implements DatabaseCapabilityApi {
     return this.httpApi.getApiAbsoluteUrl('/fruits');
   }
 
-  public doFetchFruits(): Promise<{ time: number, content: Fruit[] }> {
-    return this.httpApi.get<Fruit[]>('/fruits')
-      .then(r => ({ content: r, time: Date.now() }));
+  public async doFetchFruits(): Promise<{ time: number, content: Fruit[] }> {
+    const r = await this.httpApi.get<Fruit[]>('/fruits');
+    return ({ content: r, time: Date.now() });
   }
 
-  public doPostFruit(data: { name: string; stock: number }): Promise<{ time: number; content: Fruit }> {
-    return this.httpApi.post<Fruit>('/fruits', data)
-      .then(r => ({ content: r, time: Date.now() }));;
+  public async doPostFruit(data: { name: string; stock: number }): Promise<{ time: number; content: Fruit }> {
+    const r = await this.httpApi.post<Fruit>('/fruits', data);
+    return ({ content: r, time: Date.now() });
   }
 
-  public doPutFruit(id: number, data: { name: string; stock: number }): Promise<{ time: number; content: Fruit }> {
-    return this.httpApi.put<Fruit>(`/fruits/${id}`, data)
-      .then(r => ({ content: r, time: Date.now() }));;
+  public async doPutFruit(id: number, data: { name: string; stock: number }): Promise<{ time: number; content: Fruit }> {
+    const r = await this.httpApi.put<Fruit>(`/fruits/${id}`, data);
+    return ({ content: r, time: Date.now() });
   }
 
-  public doDeleteFruit(id: number): Promise<{ time: number }> {
-    return this.httpApi.delete(`/fruits/${id}`);
+  public async doDeleteFruit(id: number): Promise<{ time: number }> {
+    await this.httpApi.delete(`/fruits/${id}`);
+    return { time: Date.now() };
   }
 }
 
@@ -59,33 +60,33 @@ export class MockDatabaseCapabilityApi implements DatabaseCapabilityApi {
     'stock': 10
   }];
 
-  public doFetchFruits(): Promise<{ time: number, content: Fruit[] }> {
-    return Promise.resolve({
-      time: Date.now(),
-      content: this.fruits,
-    });
-  }
-
   public getFruitsAbsoluteUrl(): string {
     return `http://mocked.io/api/fruits`;
   }
 
-  public doPostFruit(data: { name: string; stock: number }): Promise<{ time: number; content: Fruit }> {
-    return Promise.resolve({
+  public async doFetchFruits(): Promise<{ time: number, content: Fruit[] }> {
+    return {
+      time: Date.now(),
+      content: this.fruits,
+    };
+  }
+
+  public async doPostFruit(data: { name: string; stock: number }): Promise<{ time: number; content: Fruit }> {
+    return {
       time: Date.now(),
       content: { ...data, id: 4 },
-    });
+    };
   }
 
-  public doDeleteFruit(id: number): Promise<{ time: number }> {
-    return Promise.resolve({ time: Date.now() });
+  public async doDeleteFruit(id: number): Promise<{ time: number }> {
+    return { time: Date.now() };
   }
 
-  public doPutFruit(id: number, data: { name: string; stock: number }): Promise<{ time: number; content: Fruit }> {
-    return Promise.resolve({
+  public async doPutFruit(id: number, data: { name: string; stock: number }): Promise<{ time: number; content: Fruit }> {
+    return {
       time: Date.now(),
       content: { ...data, id },
-    });
+    };
   }
 }
 

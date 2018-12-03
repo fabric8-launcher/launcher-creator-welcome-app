@@ -149,13 +149,12 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
     );
   }
 
-  private execFetchFruits = () => {
-    this.props.apiService.doFetchFruits().then(result => {
-      this.setState({
-        results: [...this.state.results, result],
-      });
-      this.logToConsole('GET', result);
+  private execFetchFruits = async () => {
+    const result = await this.props.apiService.doFetchFruits();
+    this.setState({
+      results: [...this.state.results, result],
     });
+    this.logToConsole('GET', result);
   };
 
   private getPostFruitData() {
@@ -171,13 +170,12 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
       + `--data '${JSON.stringify(this.getPostFruitData())}'`;
   }
 
-  private execPostFruit = () => {
-    this.props.apiService.doPostFruit(this.getPostFruitData()).then(result => {
-      this.setState({
-        results: [...this.state.results, result],
-      });
-      this.logToConsole('POST', result);
+  private execPostFruit = async () => {
+    const result = await this.props.apiService.doPostFruit(this.getPostFruitData());
+    this.setState({
+      results: [...this.state.results, result],
     });
+    this.logToConsole('POST', result);
   };
 
   private getPutFruitId() {
@@ -197,13 +195,12 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
       + `--data '${JSON.stringify(this.getPutFruitData())}'`;
   }
 
-  private execPutFruit = () => {
-    this.props.apiService.doPutFruit(this.getPutFruitId(), this.getPutFruitData()).then(result => {
-      this.setState({
-        results: [...this.state.results, result],
-      });
-      this.logToConsole('PUT', result);
+  private execPutFruit = async () => {
+    const result = await this.props.apiService.doPutFruit(this.getPutFruitId(), this.getPutFruitData());
+    this.setState({
+      results: [...this.state.results, result],
     });
+    this.logToConsole('PUT', result);
   };
 
   private getDeleteFruitId() {
@@ -215,14 +212,13 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
     return `curl -X DELETE '${this.props.apiService.getFruitsAbsoluteUrl()}/${this.getDeleteFruitId()}' `;
   }
 
-  private execDeleteFruit = () => {
-    this.props.apiService.doDeleteFruit(this.getDeleteFruitId()).then(result => {
-      const newResult = { ...result, content: 'true'};
+  private execDeleteFruit = async () => {
+    const result = await this.props.apiService.doDeleteFruit(this.getDeleteFruitId());
+    const newResult = { ...result, content: 'true'};
       this.setState({
         results: [...this.state.results, newResult ],
       });
       this.logToConsole('DELETE', newResult);
-    });
   };
 
   private handleInputChange = (_, event) => {

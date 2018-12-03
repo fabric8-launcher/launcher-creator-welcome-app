@@ -14,10 +14,10 @@ class HttpRestCapabilityApi implements RestCapabilityApi {
 
   constructor(private readonly httpApi: HttpApi){}
 
-  public doGetGreeting(name: string): Promise<{content: string, time: number}> {
+  public async doGetGreeting(name: string): Promise<{content: string, time: number}> {
     const greetingPath = buildGreetingPath(name);
-    return this.httpApi.get<{ content: string; }>(greetingPath)
-      .then(r => ({ content: r.content, time: Date.now() }));
+    const r = await this.httpApi.get<{content: string;}>(greetingPath);
+    return ({ content: r.content, time: Date.now() });
   }
 
   public getGreetingAbsoluteUrl(name: string): string {
@@ -26,8 +26,8 @@ class HttpRestCapabilityApi implements RestCapabilityApi {
 }
 
 export class MockRestCapabilityApi implements RestCapabilityApi {
-  public doGetGreeting(name: string): Promise<{content: string, time: number}> {
-    return Promise.resolve({ content: 'Hello ' + (name || 'World') + '!', time: Date.now() });
+  public async doGetGreeting(name: string): Promise<{content: string, time: number}> {
+    return { content: 'Hello ' + (name || 'World') + '!', time: Date.now() };
   }
 
   public getGreetingAbsoluteUrl(name: string): string {
