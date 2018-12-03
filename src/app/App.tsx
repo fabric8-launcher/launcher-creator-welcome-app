@@ -101,7 +101,7 @@ export default class App extends React.Component<{}, { isNavOpen: boolean }> {
             {appConfig.definition!.capabilities.filter(this.showCapability).map(c => {
               const CapabilityComponent = capabilitiesCardsMapping[c.module];
               return (
-                <CapabilityComponent {...c} key={c.module}/>
+                <CapabilityComponent {...{ ...c.props, extra: c.extra, }} key={c.module}/>
               );
             })}
           </PageSection>

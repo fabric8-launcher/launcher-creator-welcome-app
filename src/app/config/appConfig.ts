@@ -1,33 +1,6 @@
 import {checkNotNull} from '../../shared/utils/Preconditions';
-import mockAppConfig from './mock-app-config-definition.json';
-
-interface AppDefinition {
-  application: string,
-  shared: {
-    runtime: string,
-    groupId?: string,
-    artifactId?: string,
-    version?: string,
-  },
-  extra: {
-    runtimeImage: string;
-    runtimeInfo: {
-      id: string;
-      name: string;
-      description: string;
-      icon: string;
-      metadata: {
-        language: string;
-      }
-    };
-    runtimeService: string;
-  };
-  capabilities: Array<{
-    module: string,
-    props: { [propId: string]: string; },
-    extra: { [propId: string]: string; },
-  }>;
-}
+import AppDefinition from './AppDefinition';
+import mockAppDefinition from './mockAppConfig';
 
 export interface AppConfig {
   definition?: AppDefinition;
@@ -53,7 +26,7 @@ if (!isMockMode) {
   const repositoryUrl = process.env.REACT_APP_SOURCE_REPOSITORY_URL || '';
   appConfig.sourceRepositoryUrl = repositoryUrl.length > 0 ? repositoryUrl : undefined;
 } else {
-  appConfig.definition = mockAppConfig;
+  appConfig.definition = mockAppDefinition;
   appConfig.consoleUrl = 'http://consoleUrl.mock.io';
   appConfig.sourceRepositoryUrl = 'http://sourceRepositoryUrl.mock.io';
 }

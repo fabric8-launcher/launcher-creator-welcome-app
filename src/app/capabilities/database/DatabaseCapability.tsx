@@ -14,9 +14,6 @@ interface DatabaseCapabilityProps {
   databaseType: string;
   apiService: DatabaseCapabilityApi;
   sourceRepositoryUrl?: string;
-  props: {
-    databaseType: string;
-  },
   extra: {
     sourceMapping: {
       dbEndpoint: string;

@@ -20,7 +20,8 @@
     "eject": "react-scripts-ts eject",
     "doc": "npx styleguidist server",
     "build-doc": "styleguidist build",
-    "deploy-doc": "yarn build-doc && gh-pages -d styleguide"
+    "deploy-doc": "yarn build-doc && gh-pages -d styleguide",
+    "precommit": "CI=true npm-run-all test build"
   },
   "dependencies": {
     "@patternfly/react-core": "1.37.2",
@@ -39,18 +40,21 @@
   "devDependencies": {
     "@types/classnames": "2.2.6",
     "@types/enzyme": "3.1.15",
+    "@types/enzyme-adapter-react-16": "^1.0.3",
     "@types/jest": "23.3.9",
     "@types/lodash": "4.14.118",
     "@types/moment": "2.13.0",
-    "@types/node": "10.12.10",
+    "@types/node": "10.12.11",
     "@types/react": "16.7.7",
     "@types/react-dom": "16.0.11",
+    "env-cmd": "8.0.2",
     "enzyme": "3.7.0",
     "enzyme-adapter-react-16": "1.7.0",
     "enzyme-to-json": "3.3.4",
     "gh-pages": "2.0.1",
     "node-sass-chokidar": "1.3.4",
     "npm-run-all": "4.1.5",
+    "pre-commit": "1.2.2",
     "react-docgen-typescript": "1.12.2",
     "react-styleguidist": "8.0.6",
     "rimraf": "2.6.2",

@@ -13,7 +13,6 @@ import RequestConsole, {RequestResult} from '../../../shared/components/RequestC
 interface RestCapabilityProps {
   apiService: RestCapabilityApi;
   sourceRepositoryUrl?: string;
-  props: {},
   extra: {
     sourceMapping: {
       greetingEndpoint: string;
