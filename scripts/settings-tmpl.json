@@ -1,4 +1,0 @@
-{
-    "consoleUrl": "${REACT_APP_OPENSHIFT_CONSOLE_URL}",
-    "creator_url": "${LAUNCHER_CREATOR_URL}"
-}
