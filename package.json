@@ -23,7 +23,7 @@
     "build-doc": "styleguidist build",
     "deploy-doc": "yarn build-doc && gh-pages -d styleguide"
   },
-  "pre-commit": [ "test","build-clean", "build" ],
+  "pre-commit": [ "test"],
   "dependencies": {
     "@patternfly/react-core": "1.37.2",
     "@patternfly/react-icons": "2.9.1",

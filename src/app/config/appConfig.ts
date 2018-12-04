@@ -22,9 +22,10 @@ if (!isMockMode) {
   } catch (e) {
     throw new Error('Error while parsing WelcomeApp config: ' + e.toString());
   }
-  appConfig.consoleUrl = checkNotNull(process.env.REACT_APP_OPENSHIFT_CONSOLE_URL, 'process.env.REACT_APP_OPENSHIFT_CONSOLE_URL');
+  const consoleUrl = rocess.env.REACT_APP_OPENSHIFT_CONSOLE || '';
   const repositoryUrl = process.env.REACT_APP_SOURCE_REPOSITORY_URL || '';
   appConfig.sourceRepositoryUrl = repositoryUrl.length > 0 ? repositoryUrl : undefined;
+  appConfig.consoleUrl = consoleUrl.length > 0 ? consoleUrl : undefined;
 } else {
   appConfig.definition = mockAppDefinition;
   appConfig.consoleUrl = 'http://consoleUrl.mock.io';
