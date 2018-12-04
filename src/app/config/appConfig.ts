@@ -22,7 +22,7 @@ if (!isMockMode) {
   } catch (e) {
     throw new Error('Error while parsing WelcomeApp config: ' + e.toString());
   }
-  const consoleUrl = rocess.env.REACT_APP_OPENSHIFT_CONSOLE || '';
+  const consoleUrl = process.env.REACT_APP_OPENSHIFT_CONSOLE || '';
   const repositoryUrl = process.env.REACT_APP_SOURCE_REPOSITORY_URL || '';
   appConfig.sourceRepositoryUrl = repositoryUrl.length > 0 ? repositoryUrl : undefined;
   appConfig.consoleUrl = consoleUrl.length > 0 ? consoleUrl : undefined;
