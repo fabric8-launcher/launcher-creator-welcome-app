@@ -36,7 +36,7 @@ if (!isMockMode) {
     throw new Error('Error while parsing WelcomeApp config: ' + e.toString());
   }
   
-  appConfig.openshiftConsoleUrl = undefinedIfEmpty(INJECTED_CONFIG!.sourceRepositoryUrl);
+  appConfig.openshiftConsoleUrl = undefinedIfEmpty(INJECTED_CONFIG!.openshiftConsoleUrl);
   const sourceRepositoryUrl = undefinedIfEmpty(INJECTED_CONFIG!.sourceRepositoryUrl);
   if(sourceRepositoryUrl) {
     appConfig.sourceRepository = {
