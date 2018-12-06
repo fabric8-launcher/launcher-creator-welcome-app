@@ -9,7 +9,8 @@ export interface RequestResult {
   time: number;
   url: string;
   method: string;
-  result: any;
+  content?: any;
+  error?: string;
 }
 
 export default function RequestConsole(props: { id: string, results: RequestResult[]}) {
@@ -22,7 +23,12 @@ export default function RequestConsole(props: { id: string, results: RequestResu
         <span className={`method method-${r.method.toLowerCase()}` }>{r.method}</span>&nbsp;
         <span className="url">{r.url}</span>:
       </div>
-      <div>{(typeof r.result === 'string') ? r.result: <JSONPretty json={r.result} />}</div>
+      {!r.error ? (
+        <div>{(typeof r.content! === 'string') ? r.content!: <JSONPretty json={r.content!} />}</div>
+      ): (
+        <div className="error">{r.error}</div>
+      )}
+      
     </React.Fragment>
   ));
 

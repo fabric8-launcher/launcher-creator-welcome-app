@@ -112,8 +112,8 @@ exports[`<RestCapability /> check that a click on the GET button adds a Hello Wo
           results={
             Array [
               Object {
+                "content": "Hello World!",
                 "method": "GET",
-                "result": "Hello World!",
                 "time": 1542793377,
                 "url": "http://mocked.io/api/greeting",
               },
@@ -238,8 +238,8 @@ exports[`<RestCapability /> check that after typing a name, a click on the GET b
           results={
             Array [
               Object {
+                "content": "Hello John!",
                 "method": "GET",
-                "result": "Hello John!",
                 "time": 1542793377,
                 "url": "http://mocked.io/api/greeting?name=John",
               },

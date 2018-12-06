@@ -1,13 +1,13 @@
 import * as React from 'react';
 import CapabilityCard from '../../components/CapabilityCard';
 import capabilitiesConfig from '../../config/capabilitiesConfig';
-import {DatabaseCapabilityApi} from './DatabaseCapabilityApi';
-import {Grid, GridItem, TextInput} from '@patternfly/react-core';
-import {SourceMappingLink} from '../../../shared/components/SourceMappingLink';
+import { DatabaseCapabilityApi } from './DatabaseCapabilityApi';
+import { Grid, GridItem, TextInput } from '@patternfly/react-core';
+import { SourceMappingLink } from '../../../shared/components/SourceMappingLink';
 import HttpRequest from '../../../shared/components/HttpRequest';
-import {defaultIfEmpty} from '../../../shared/utils/Strings';
-import {DatabaseIcon} from '@patternfly/react-icons';
-import RequestConsole, {RequestResult} from '../../../shared/components/RequestConsole';
+import { defaultIfEmpty } from '../../../shared/utils/Strings';
+import { DatabaseIcon } from '@patternfly/react-icons';
+import RequestConsole, { RequestResult } from '../../../shared/components/RequestConsole';
 
 
 interface DatabaseCapabilityProps {
@@ -25,8 +25,7 @@ interface DatabaseCapabilityProps {
 }
 
 interface DatabaseCapabilityState {
-  consoleContent: RequestResult[];
-  results: Array<{ content: any, time: number }>;
+  results: RequestResult[];
   params: {
     [name: string]: string;
   }
@@ -39,7 +38,6 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
 
     this.state = {
       results: [],
-      consoleContent: [],
       params: {
         postName: '',
         postStock: '',
@@ -54,7 +52,7 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
   public render() {
     return (
       <CapabilityCard module="database">
-        <CapabilityCard.Title><DatabaseIcon className="with-text"/> {capabilitiesConfig.database.name}</CapabilityCard.Title>
+        <CapabilityCard.Title><DatabaseIcon className="with-text" /> {capabilitiesConfig.database.name}</CapabilityCard.Title>
         <CapabilityCard.Body>
           <Grid>
             <GridItem span={12}>
@@ -62,87 +60,87 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
               we have created a table and populated it with some data.
               We've additionally exposed CRUD operations via the following endpoints to give you a system that works end to end.
             </GridItem>
-            <CapabilityCard.Separator/>
+            <CapabilityCard.Separator />
             <GridItem span={12} className="http-request-service">
               <SourceMappingLink sourceRepository={this.props.sourceRepository}
-                                 name="dbEndpoint"
-                                 fileRepositoryLocation={this.props.extra.sourceMapping.dbEndpoint}/>
+                name="dbEndpoint"
+                fileRepositoryLocation={this.props.extra.sourceMapping.dbEndpoint} />
             </GridItem>
             <HttpRequest method="GET"
-                         path="/fruits"
-                         curlCommand={`curl -X GET '${this.props.apiService.getFruitsAbsoluteUrl()}'`}
-                         onExecute={this.execFetchFruits}
+              path="/fruits"
+              curlCommand={`curl -X GET '${this.props.apiService.getFruitsAbsoluteUrl()}'`}
+              onExecute={this.execFetchFruits}
             />
             <HttpRequest method="POST"
-                         path="/fruits"
-                         curlCommand={this.getPostFruitCurlCommand()}
-                         onExecute={this.execPostFruit}
+              path="/fruits"
+              curlCommand={this.getPostFruitCurlCommand()}
+              onExecute={this.execPostFruit}
             >
-              <span style={{marginLeft: '98px'}}>
+              <span style={{ marginLeft: '98px' }}>
                 Name: <TextInput id="http-api-param-post-name-input"
-                                 value={this.state.params.postName}
-                                 onChange={this.handleInputChange}
-                                 name="postName"
-                                 placeholder="Coco"
-                                 className="http-request-param"/>
+                  value={this.state.params.postName}
+                  onChange={this.handleInputChange}
+                  name="postName"
+                  placeholder="Coco"
+                  className="http-request-param" />
               </span>
-              <span style={{marginLeft: '50px'}}>
+              <span style={{ marginLeft: '50px' }}>
                 Stock: <TextInput id="http-api-param-post-stock-input"
-                                 value={this.state.params.postStock}
-                                 onChange={this.handleInputChange}
-                                 name="postStock"
-                                 placeholder="10"
-                                 className="http-request-param"/>
+                  value={this.state.params.postStock}
+                  onChange={this.handleInputChange}
+                  name="postStock"
+                  placeholder="10"
+                  className="http-request-param" />
               </span>
             </HttpRequest>
             <HttpRequest method="PUT"
-                         path="/fruits/"
-                         curlCommand={this.getPutFruitCurlCommand()}
-                         onExecute={this.execPutFruit}
+              path="/fruits/"
+              curlCommand={this.getPutFruitCurlCommand()}
+              onExecute={this.execPutFruit}
             >
               <TextInput id="http-api-param-put-id-input"
-                         value={this.state.params.putId}
-                         onChange={this.handleInputChange}
-                         name="putId"
-                         placeholder="2"
-                         className="http-request-param"
-                         style={{width:'40px'}}
+                value={this.state.params.putId}
+                onChange={this.handleInputChange}
+                name="putId"
+                placeholder="2"
+                className="http-request-param"
+                style={{ width: '40px' }}
               />
-              <span style={{marginLeft: '50px'}}>
+              <span style={{ marginLeft: '50px' }}>
                 Name: <TextInput id="http-api-param-put-name-input"
-                                 value={this.state.params.putName}
-                                 onChange={this.handleInputChange}
-                                 name="putName"
-                                 placeholder="Banana"
-                                 className="http-request-param"/>
+                  value={this.state.params.putName}
+                  onChange={this.handleInputChange}
+                  name="putName"
+                  placeholder="Banana"
+                  className="http-request-param" />
               </span>
-              <span style={{marginLeft: '50px'}}>
+              <span style={{ marginLeft: '50px' }}>
                 Stock: <TextInput id="http-api-param-put-stock-input"
-                                  value={this.state.params.putStock}
-                                  onChange={this.handleInputChange}
-                                  name="putStock"
-                                  placeholder="10"
-                                  className="http-request-param"/>
+                  value={this.state.params.putStock}
+                  onChange={this.handleInputChange}
+                  name="putStock"
+                  placeholder="10"
+                  className="http-request-param" />
               </span>
             </HttpRequest>
             <HttpRequest method="DELETE"
-                         path="/fruits/"
-                         curlCommand={this.getDeleteFruitCurlCommand()}
-                         onExecute={this.execDeleteFruit}
+              path="/fruits/"
+              curlCommand={this.getDeleteFruitCurlCommand()}
+              onExecute={this.execDeleteFruit}
             >
               <TextInput id="http-api-param-delete-id-input"
-                         value={this.state.params.deleteId}
-                         onChange={this.handleInputChange}
-                         name="deleteId"
-                         placeholder="2"
-                         className="http-request-param"
-                         style={{width:'40px'}}
+                value={this.state.params.deleteId}
+                onChange={this.handleInputChange}
+                name="deleteId"
+                placeholder="2"
+                className="http-request-param"
+                style={{ width: '40px' }}
               />
             </HttpRequest>
             <GridItem span={12}>
-              <RequestConsole id="database-content" results={this.state.consoleContent}/>
+              <RequestConsole id="database-content" results={this.state.results} />
             </GridItem>
-            <CapabilityCard.Separator/>
+            <CapabilityCard.Separator />
           </Grid>
         </CapabilityCard.Body>
       </CapabilityCard>
@@ -150,11 +148,15 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
   }
 
   private execFetchFruits = async () => {
-    const result = await this.props.apiService.doFetchFruits();
-    this.setState({
-      results: [...this.state.results, result],
-    });
-    this.logToConsole('GET', result);
+    try {
+      const result = await this.props.apiService.doFetchFruits();
+      this.addResult('GET', result);
+    } catch (e) {
+      this.addResult('GET', {
+        time: Date.now(),
+        error: 'An error occured while executing the request',
+      })
+    }
   };
 
   private getPostFruitData() {
@@ -171,11 +173,15 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
   }
 
   private execPostFruit = async () => {
-    const result = await this.props.apiService.doPostFruit(this.getPostFruitData());
-    this.setState({
-      results: [...this.state.results, result],
-    });
-    this.logToConsole('POST', result);
+    try {
+      const result = await this.props.apiService.doPostFruit(this.getPostFruitData());
+      this.addResult('POST', result);
+    } catch (e) {
+      this.addResult('POST', {
+        time: Date.now(),
+        error: 'An error occured while executing the request',
+      })
+    }
   };
 
   private getPutFruitId() {
@@ -196,11 +202,15 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
   }
 
   private execPutFruit = async () => {
-    const result = await this.props.apiService.doPutFruit(this.getPutFruitId(), this.getPutFruitData());
-    this.setState({
-      results: [...this.state.results, result],
-    });
-    this.logToConsole('PUT', result);
+    try {
+      const result = await this.props.apiService.doPutFruit(this.getPutFruitId(), this.getPutFruitData());
+      this.addResult('PUT', result);
+    } catch (e) {
+      this.addResult('PUT', {
+        time: Date.now(),
+        error: 'An error occured while executing the request',
+      })
+    }
   };
 
   private getDeleteFruitId() {
@@ -213,12 +223,15 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
   }
 
   private execDeleteFruit = async () => {
-    const result = await this.props.apiService.doDeleteFruit(this.getDeleteFruitId());
-    const newResult = { ...result, content: 'true'};
-      this.setState({
-        results: [...this.state.results, newResult ],
-      });
-      this.logToConsole('DELETE', newResult);
+    try {
+      const result = await this.props.apiService.doDeleteFruit(this.getDeleteFruitId());
+      this.addResult('DELETE', { ...result, content: 'true' });
+    } catch (e) {
+      this.addResult('DELETE', {
+        time: Date.now(),
+        error: 'An error occured while executing the request',
+      })
+    }
   };
 
   private handleInputChange = (_, event) => {
@@ -234,13 +247,12 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
     });
   };
 
-  private logToConsole(type: string, result: { content: any, time: number }) {
+  private addResult(type: string, payload: { content?: any, time: number, error?: string }) {
     const url = this.props.apiService.getFruitsAbsoluteUrl();
     this.setState({
-      consoleContent: [ ...this.state.consoleContent, {
+      results: [...this.state.results, {
         method: type,
-        time: result.time,
-        result: result.content,
+        ...payload,
         url,
       }],
     });

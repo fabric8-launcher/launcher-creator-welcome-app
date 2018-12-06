@@ -1,21 +1,25 @@
 import * as React from 'react';
-import {Component} from 'react';
+import { Component } from 'react';
 
 import './Console.css';
 
-export class Console extends Component<{ id: string, content?: Array<(string | React.ReactNode)>}> {
+interface ConsoleProps {
+   id: string;
+   content?: Array<(string | React.ReactNode)> };
+
+
+export class Console extends Component<ConsoleProps> {
 
   private readonly ref = React.createRef<HTMLDivElement>();
 
   public componentDidUpdate() {
-   if (this.ref.current) {
-
-     if (this.ref.current.lastChild) {
-       const offset = (this.ref.current.lastChild as HTMLDivElement).offsetTop - this.ref.current.offsetTop;
-       this.ref.current.scrollTop = offset;
-     }
-     this.ref.current.style.height = this.ref.current.scrollHeight <= 130 ? '130px' : '300px';
-   }
+    if (this.ref.current) {
+      if (this.ref.current.lastChild) {
+        const offset = (this.ref.current.lastChild as HTMLDivElement).offsetTop - this.ref.current.offsetTop;
+        this.ref.current.scrollTop = offset;
+      }
+      this.ref.current.style.height = this.ref.current.scrollHeight <= 130 ? '130px' : '300px';
+    }
   }
 
   public render() {
@@ -23,7 +27,7 @@ export class Console extends Component<{ id: string, content?: Array<(string | R
     return (
       <div className="console" id={this.props.id}>
         <div className="console-content" ref={this.ref}>
-          {consoleContent.map((c, i) => (<div key={i} className="console-content-row">{c}</div>) )}
+          {consoleContent.map((c, i) => (<div key={i} className="console-content-row">{c}</div>))}
         </div>
       </div>
     );

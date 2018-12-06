@@ -28,7 +28,7 @@ describe('<RestCapability />', () => {
     await promise;
     component.update();
     expect(component.state('results')).toHaveLength(1);
-    expect(component.state('results')[0]).toBe(result);
+    expect(component.state('results')[0].content).toBe(result.content);
     expect(component).toMatchSnapshot();
   });
 
@@ -45,7 +45,7 @@ describe('<RestCapability />', () => {
     await promise;
     component.update();
     expect(component.state('results')).toHaveLength(1);
-    expect(component.state('results')[0]).toBe(result);
+    expect(component.state('results')[0].content).toBe(result.content);
     expect(component).toMatchSnapshot();
   });
 

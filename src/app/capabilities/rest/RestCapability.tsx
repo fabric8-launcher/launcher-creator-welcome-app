@@ -24,8 +24,7 @@ interface RestCapabilityProps {
 }
 
 interface RestCapabilityState {
-  consoleContent: RequestResult[];
-  results: Array<{ content: string, time: number }>;
+  results: RequestResult[];
   params: {
     [name: string]: string;
   }
@@ -38,7 +37,6 @@ export default class RestCapability extends React.Component<RestCapabilityProps,
 
     this.state = {
       results: [],
-      consoleContent: [],
       params: {
         name: '',
       },
@@ -74,7 +72,7 @@ export default class RestCapability extends React.Component<RestCapabilityProps,
                 name="name" placeholder="World" className="http-request-param" />
             </HttpRequest>
             <GridItem span={12}>
-              <RequestConsole id="rest-content" results={this.state.consoleContent} />
+              <RequestConsole id="rest-content" results={this.state.results} />
             </GridItem>
           </Grid>
         </CapabilityCard.Body>
@@ -83,11 +81,15 @@ export default class RestCapability extends React.Component<RestCapabilityProps,
   }
 
   private execGet = async () => {
-    const result = await this.props.apiService.doGetGreeting(this.state.params.name);
-    this.setState({
-      results: [...this.state.results, result],
-    });
-    this.logToConsole(result);
+    try {
+      const result = await this.props.apiService.doGetGreeting(this.state.params.name);
+      this.addResult(result);
+    } catch(e) {
+      this.addResult({
+        time: Date.now(),
+        error: 'An error occured while executing the request',
+      })
+    }
   };
 
 
@@ -104,13 +106,12 @@ export default class RestCapability extends React.Component<RestCapabilityProps,
     });
   };
 
-  private logToConsole(result: { content: string, time: number }) {
+  private addResult(payload: { content?: string, time: number, error?: string }) {
     const url = this.getGreetingsUrl();
     this.setState({
-      consoleContent: [...this.state.consoleContent, {
+      results: [...this.state.results, {
         method: 'GET',
-        time: result.time,
-        result: result.content,
+        ...payload,
         url,
       }],
     });
