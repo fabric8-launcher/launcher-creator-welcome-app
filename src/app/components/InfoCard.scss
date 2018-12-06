@@ -1,6 +1,19 @@
 .info-card {
   margin-bottom: 10px;
 
+  h1 {
+    font-size: 1.5em;
+  }
+
+  p.description {
+    margin: 10px 0;
+  }
+
+  p.info {
+    font-style: italic;
+    margin: 10px 0;
+  }
+
   img {
     height: 60px;
   }

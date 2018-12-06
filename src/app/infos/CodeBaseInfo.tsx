@@ -32,7 +32,9 @@ export function CodeBaseInfo(props: CodeBaseInfoProps) {
           </GridItem>
           <GridItem span={9}>
             <h1>{props.runtime.name} - {props.runtime.metadata.language}</h1>
-            <p>Your codebase has been customized to hook into the services selected during generation.
+            <p className="description">{props.runtime.description}</p>
+            <InfoCard.Separator/>
+            <p className="info">Your codebase has been customized to hook into the services selected during generation.
               All capabilities are functional end-to-end for you to explore.</p>
           </GridItem>
           <InfoCard.Separator/>
