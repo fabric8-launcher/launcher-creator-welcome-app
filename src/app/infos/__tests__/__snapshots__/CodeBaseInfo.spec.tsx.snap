@@ -72,7 +72,17 @@ exports[`<CodeBaseInfo /> check that render is correct 1`] = `
            - 
           java
         </h1>
-        <p>
+        <p
+          className="description"
+        >
+          A
+            tool-kit for building reactive applications on the
+            JVM.
+        </p>
+        <Component />
+        <p
+          className="info"
+        >
           Your codebase has been customized to hook into the services selected during generation. All capabilities are functional end-to-end for you to explore.
         </p>
       </GridItem>
@@ -194,7 +204,17 @@ exports[`<CodeBaseInfo /> check that render is correct with repositoryUrl 1`] = 
            - 
           java
         </h1>
-        <p>
+        <p
+          className="description"
+        >
+          A
+            tool-kit for building reactive applications on the
+            JVM.
+        </p>
+        <Component />
+        <p
+          className="info"
+        >
           Your codebase has been customized to hook into the services selected during generation. All capabilities are functional end-to-end for you to explore.
         </p>
       </GridItem>
