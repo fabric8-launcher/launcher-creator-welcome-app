@@ -2,7 +2,7 @@
 .http-request-service {
   line-height: 44px;
   font-weight: bold;
-  margin-bottom: 15px;
+  margin-bottom: 2px;
 }
 
 
@@ -19,7 +19,7 @@
     height: 44px;
     color: black;
     border: 1px dotted #00659c;
-    border-radius: 15px 0 0 15px;
+    border-radius: 2px 0 0 2px;
     padding: 0 10px;
     border-right: none;
     width: 100%;
@@ -64,7 +64,7 @@
   }
 
   button.http-request-button {
-    border-radius: 0 15px 15px 0;
+    border-radius: 0 2px 2px 0;
     width: 100%;
     height: 44px;
   }
