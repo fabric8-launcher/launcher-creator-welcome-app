@@ -2,7 +2,7 @@
 
 exports[`<HealthChecksCapability /> check that initial render is correct 1`] = `
 <CapabilityCard
-  module="heathchecks"
+  module="healthchecks"
 >
   <Component>
     <HeartbeatIcon
@@ -136,7 +136,7 @@ exports[`<HealthChecksCapability /> check that initial render is correct 1`] = `
 
 exports[`<HealthChecksCapability /> check that readiness is working 1`] = `
 <CapabilityCard
-  module="heathchecks"
+  module="healthchecks"
 >
   <Component>
     <HeartbeatIcon

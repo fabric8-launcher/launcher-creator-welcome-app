@@ -30,7 +30,7 @@ export default class HealthChecksCapability extends React.Component<HealthChecks
 
   public render() {
     return (
-      <CapabilityCard module="heathchecks">
+      <CapabilityCard module="healthchecks">
         <CapabilityCard.Title><HeartbeatIcon className="with-text" /> {capabilitiesConfig.healthchecks.name}</CapabilityCard.Title>
         <CapabilityCard.Body>
           <Grid>
