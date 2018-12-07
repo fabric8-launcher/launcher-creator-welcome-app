@@ -12,8 +12,21 @@ div.console {
 
 div.console-content {
   width: 100%;
-  height: 130px;
+  height: 50px;
   overflow-y: auto;
+
+  &.large {
+    height: 250px;
+  }
+
+  &.no-content .placeholder {
+    display: inline;
+    color: rgb(190, 190, 190);
+  }
+
+  .placeholder {
+    display: none;
+  }
 
   .prefix {
     color: #FD971F;
