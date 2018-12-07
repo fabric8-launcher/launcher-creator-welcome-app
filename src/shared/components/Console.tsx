@@ -49,7 +49,8 @@ export class Console extends Component<ConsoleProps, ConsoleState> {
     return (
       <div className={`console`} id={this.props.id}>
         <div className={`console-content ${this.state.styleClass}`} ref={this.ref}>
-          <span className="placeholder">>> Execute some actions to get things started in this console...</span>
+          <span className="placeholder"><span className="prefix">></span>&nbsp;
+          Execute some actions to get things started in this console...</span>
           {consoleContent.map((c, i) => (<div key={i} className="console-content-row">{c}</div>))}
         </div>
       </div>
