@@ -3,11 +3,20 @@ export interface CapabilityConfig {
 }
 
 const capabilitiesConfig = {
+  healthchecks: {
+    module: 'healthchecks',
+    name: 'Health Checks',
+    requireDefinition: false,
+  },
   rest: {
-    name: 'HTTP APIs'
+    module: 'rest',
+    name: 'HTTP APIs',
+    requireDefinition: true,
   },
   database: {
-    name: 'Relational Persistence'
+    module: 'database',
+    name: 'Relational Persistence',
+    requireDefinition: true,
   },
 };
 

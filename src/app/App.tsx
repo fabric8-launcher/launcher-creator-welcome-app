@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as _ from 'lodash';
 import {
   Brand,
   Button,
@@ -28,7 +29,12 @@ import capabilitiesConfig from './config/capabilitiesConfig';
 import {CloudDeploymentInfo} from './infos/CloudDeploymentInfo';
 import {CodeBaseInfo} from './infos/CodeBaseInfo';
 import {getLocationAbsoluteUrl} from '../shared/utils/Locations';
+import { checkNotNull } from '../shared/utils/Preconditions';
 
+
+checkNotNull(appConfig.definition, 'appConfig.definition');
+
+const capabilityDefinitionByModule = _.keyBy(appConfig.definition!.capabilities, 'module');
 
 export default class App extends React.Component<{}, { isNavOpen: boolean }> {
 
@@ -51,9 +57,9 @@ export default class App extends React.Component<{}, { isNavOpen: boolean }> {
           <NavItem to={`#codebase-info`}>
             Codebase
           </NavItem>
-          {appConfig.definition!.capabilities.filter(this.showCapability).map(c => (
+          {_.values(capabilitiesConfig).filter(this.showCapability).map(c => (
             <NavItem key={c.module} to={`#${c.module}-capability`}>
-              {capabilitiesConfig[c.module].name}
+              {c.name}
             </NavItem>
           ))}
         </NavList>
@@ -98,10 +104,12 @@ export default class App extends React.Component<{}, { isNavOpen: boolean }> {
             <CloudDeploymentInfo applicationUrl={getLocationAbsoluteUrl('')} openshiftConsoleUrl={appConfig.openshiftConsoleUrl!}/>
             <CodeBaseInfo runtime={appConfig.definition!.extra.runtimeInfo} baseImage={appConfig.definition!.extra.runtimeImage}
                           sourceRepository={appConfig.sourceRepository}/>
-            {appConfig.definition!.capabilities.filter(this.showCapability).map(c => {
+            {_.values(capabilitiesConfig).filter(this.showCapability).map(c => {
               const CapabilityComponent = capabilitiesCardsMapping[c.module];
+              const capabilityDefinition = capabilityDefinitionByModule[c.module];
+              const props = capabilityDefinition ? { ...capabilityDefinition.props, extra: capabilityDefinition.extra } : {};
               return (
-                <CapabilityComponent {...{ ...c.props, extra: c.extra, }} key={c.module}/>
+                <CapabilityComponent {...props} key={c.module}/>
               );
             })}
           </PageSection>
@@ -110,8 +118,8 @@ export default class App extends React.Component<{}, { isNavOpen: boolean }> {
     );
   }
 
-  private showCapability = (capability: { module: string }) => {
-    return !!capabilitiesConfig[capability.module] && !!capabilitiesCardsMapping[capability.module];
+  private showCapability = (capability: { module: string, requireDefinition: boolean }) => {
+    return !capability.requireDefinition || !!capabilityDefinitionByModule[capability.module];
   };
 
   private onNavSelect = result => {

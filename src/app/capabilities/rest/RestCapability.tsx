@@ -3,12 +3,13 @@ import CapabilityCard from '../../components/CapabilityCard';
 
 import './RestCapability.css';
 import { Grid, GridItem, TextInput } from '@patternfly/react-core';
-import { RestCapabilityApi } from './RestCapabilityApi';
+import { RestCapabilityApi, REST_GREETING_PATH } from './RestCapabilityApi';
 import capabilitiesConfig from '../../config/capabilitiesConfig';
 import { PlugIcon } from '@patternfly/react-icons';
 import HttpRequest from '../../../shared/components/HttpRequest';
 import { SourceMappingLink } from '../../../shared/components/SourceMappingLink';
 import RequestConsole, { RequestResult } from '../../../shared/components/RequestConsole';
+import { RequestTitle } from '../../../shared/components/RequestTitle';
 
 interface RestCapabilityProps {
   apiService: RestCapabilityApi;
@@ -58,12 +59,14 @@ export default class RestCapability extends React.Component<RestCapabilityProps,
             </GridItem>
             <CapabilityCard.Separator />
             <GridItem span={12} className="http-request-service">
-              <SourceMappingLink sourceRepository={this.props.sourceRepository}
-                name="greetingEndpoint"
-                fileRepositoryLocation={this.props.extra.sourceMapping.greetingEndpoint} />
+              <RequestTitle>
+                <SourceMappingLink sourceRepository={this.props.sourceRepository}
+                  name="greetingEndpoint"
+                  fileRepositoryLocation={this.props.extra.sourceMapping.greetingEndpoint} />
+              </RequestTitle>
             </GridItem>
             <HttpRequest method="GET"
-              path="/greetings?name="
+              path={`${REST_GREETING_PATH}?name=`}
               curlCommand={`curl -X GET '${this.getGreetingsUrl()}'`}
               onExecute={this.execGet}>
               <TextInput id="http-api-param-name-input"
@@ -84,7 +87,7 @@ export default class RestCapability extends React.Component<RestCapabilityProps,
     try {
       const result = await this.props.apiService.doGetGreeting(this.state.params.name);
       this.addResult(result);
-    } catch(e) {
+    } catch (e) {
       this.addResult({
         time: Date.now(),
         error: 'An error occured while executing the request',

@@ -1,0 +1,278 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HealthChecksCapability /> check that initial render is correct 1`] = `
+<CapabilityCard
+  module="heathcheck"
+>
+  <Component>
+    <HeartbeatIcon
+      className="with-text"
+      color="currentColor"
+      size="sm"
+      title={null}
+    />
+     
+    Health Checks
+  </Component>
+  <Component>
+    <Grid
+      className=""
+      gutter={null}
+      lg={null}
+      md={null}
+      sm={null}
+      span={null}
+      xl={null}
+    >
+      <GridItem
+        className=""
+        lg={null}
+        lgOffset={null}
+        lgRowSpan={null}
+        md={null}
+        mdOffset={null}
+        mdRowSpan={null}
+        offset={null}
+        rowSpan={null}
+        sm={null}
+        smOffset={null}
+        smRowSpan={null}
+        span={12}
+        xl={null}
+        xlOffset={null}
+        xlRowSpan={null}
+      >
+        <p>
+          Health checks are HTTP endpoints that the codebase exposes for the purpose of monitoring. OpenShift will periodically hit these to determine that the container is functioning properly. If not, it may kill and/or restart the pod to maintain the targeted number of instances configured to be running.
+        </p>
+        <p>
+          Your application has been set up with the following Health Checks.
+        </p>
+      </GridItem>
+      <Component />
+      <GridItem
+        className="http-request-service"
+        lg={null}
+        lgOffset={null}
+        lgRowSpan={null}
+        md={null}
+        mdOffset={null}
+        mdRowSpan={null}
+        offset={null}
+        rowSpan={null}
+        sm={null}
+        smOffset={null}
+        smRowSpan={null}
+        span={12}
+        xl={null}
+        xlOffset={null}
+        xlRowSpan={null}
+      >
+        <RequestTitle>
+          Liveness
+        </RequestTitle>
+      </GridItem>
+      <HttpRequest
+        curlCommand="curl -X GET 'http://mocked.io/liveness'"
+        method="GET"
+        onExecute={[Function]}
+        path="/health"
+      />
+      <GridItem
+        className="http-request-service"
+        lg={null}
+        lgOffset={null}
+        lgRowSpan={null}
+        md={null}
+        mdOffset={null}
+        mdRowSpan={null}
+        offset={null}
+        rowSpan={null}
+        sm={null}
+        smOffset={null}
+        smRowSpan={null}
+        span={12}
+        xl={null}
+        xlOffset={null}
+        xlRowSpan={null}
+      >
+        <RequestTitle>
+          Readiness
+        </RequestTitle>
+      </GridItem>
+      <HttpRequest
+        curlCommand="curl -X GET 'http://mocked.io/readiness'"
+        method="GET"
+        onExecute={[Function]}
+        path="/health"
+      />
+      <GridItem
+        className=""
+        lg={null}
+        lgOffset={null}
+        lgRowSpan={null}
+        md={null}
+        mdOffset={null}
+        mdRowSpan={null}
+        offset={null}
+        rowSpan={null}
+        sm={null}
+        smOffset={null}
+        smRowSpan={null}
+        span={12}
+        xl={null}
+        xlOffset={null}
+        xlRowSpan={null}
+      >
+        <RequestConsole
+          id="rest-content"
+          results={Array []}
+        />
+      </GridItem>
+    </Grid>
+  </Component>
+</CapabilityCard>
+`;
+
+exports[`<HealthChecksCapability /> check that readiness is working 1`] = `
+<CapabilityCard
+  module="heathcheck"
+>
+  <Component>
+    <HeartbeatIcon
+      className="with-text"
+      color="currentColor"
+      size="sm"
+      title={null}
+    />
+     
+    Health Checks
+  </Component>
+  <Component>
+    <Grid
+      className=""
+      gutter={null}
+      lg={null}
+      md={null}
+      sm={null}
+      span={null}
+      xl={null}
+    >
+      <GridItem
+        className=""
+        lg={null}
+        lgOffset={null}
+        lgRowSpan={null}
+        md={null}
+        mdOffset={null}
+        mdRowSpan={null}
+        offset={null}
+        rowSpan={null}
+        sm={null}
+        smOffset={null}
+        smRowSpan={null}
+        span={12}
+        xl={null}
+        xlOffset={null}
+        xlRowSpan={null}
+      >
+        <p>
+          Health checks are HTTP endpoints that the codebase exposes for the purpose of monitoring. OpenShift will periodically hit these to determine that the container is functioning properly. If not, it may kill and/or restart the pod to maintain the targeted number of instances configured to be running.
+        </p>
+        <p>
+          Your application has been set up with the following Health Checks.
+        </p>
+      </GridItem>
+      <Component />
+      <GridItem
+        className="http-request-service"
+        lg={null}
+        lgOffset={null}
+        lgRowSpan={null}
+        md={null}
+        mdOffset={null}
+        mdRowSpan={null}
+        offset={null}
+        rowSpan={null}
+        sm={null}
+        smOffset={null}
+        smRowSpan={null}
+        span={12}
+        xl={null}
+        xlOffset={null}
+        xlRowSpan={null}
+      >
+        <RequestTitle>
+          Liveness
+        </RequestTitle>
+      </GridItem>
+      <HttpRequest
+        curlCommand="curl -X GET 'http://mocked.io/liveness'"
+        method="GET"
+        onExecute={[Function]}
+        path="/health"
+      />
+      <GridItem
+        className="http-request-service"
+        lg={null}
+        lgOffset={null}
+        lgRowSpan={null}
+        md={null}
+        mdOffset={null}
+        mdRowSpan={null}
+        offset={null}
+        rowSpan={null}
+        sm={null}
+        smOffset={null}
+        smRowSpan={null}
+        span={12}
+        xl={null}
+        xlOffset={null}
+        xlRowSpan={null}
+      >
+        <RequestTitle>
+          Readiness
+        </RequestTitle>
+      </GridItem>
+      <HttpRequest
+        curlCommand="curl -X GET 'http://mocked.io/readiness'"
+        method="GET"
+        onExecute={[Function]}
+        path="/health"
+      />
+      <GridItem
+        className=""
+        lg={null}
+        lgOffset={null}
+        lgRowSpan={null}
+        md={null}
+        mdOffset={null}
+        mdRowSpan={null}
+        offset={null}
+        rowSpan={null}
+        sm={null}
+        smOffset={null}
+        smRowSpan={null}
+        span={12}
+        xl={null}
+        xlOffset={null}
+        xlRowSpan={null}
+      >
+        <RequestConsole
+          id="rest-content"
+          results={
+            Array [
+              Object {
+                "content": "OK",
+                "method": "GET",
+                "time": 1542793377,
+                "url": "http://mocked.io/readiness",
+              },
+            ]
+          }
+        />
+      </GridItem>
+    </Grid>
+  </Component>
+</CapabilityCard>
+`;

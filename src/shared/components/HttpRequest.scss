@@ -7,6 +7,8 @@
 
 
 .http-request {
+  display: flex;
+  flex-direction: row;
   margin-top: 5px;
 
   .http-request-path {
@@ -49,18 +51,24 @@
     color: #c95b5b;
   }
 
+  .definition {
+    flex-grow: 1;
+    min-width: 600px;
+  }
+
+  .action {
+    width: 100px;
+  }
+
   input.http-request-param {
     color: black;
     height: 25px;
     padding-left: 10px;
     display: inline-block;
-    width: auto;
+    width: 80px;
     border: none;
     border-bottom: 1px dashed #4c4c4c;
     text-decoration: dashed;
-  }
-
-  input.http-request-param:hover {
   }
 
   button.http-request-button {

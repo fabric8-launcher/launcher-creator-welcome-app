@@ -6,22 +6,24 @@ export interface RestCapabilityApi {
   doGetGreeting(name: string): Promise<{content: string, time: number}>;
 }
 
-function buildGreetingPath(name: string) {
-  return name.length === 0 ? '/greeting' : `/greeting?name=${encodeURIComponent(name)}`;
+function buildGreetingPath(path: string, name: string) {
+  return name.length === 0 ? path : `/${path}?name=${encodeURIComponent(name)}`;
 }
+
+export const REST_GREETING_PATH = '/api/greeting';
 
 class HttpRestCapabilityApi implements RestCapabilityApi {
 
   constructor(private readonly httpApi: HttpApi){}
 
   public async doGetGreeting(name: string): Promise<{content: string, time: number}> {
-    const greetingPath = buildGreetingPath(name);
+    const greetingPath = buildGreetingPath(REST_GREETING_PATH, name);
     const r = await this.httpApi.get<{content: string;}>(greetingPath);
     return ({ content: r.content, time: Date.now() });
   }
 
   public getGreetingAbsoluteUrl(name: string): string {
-    return this.httpApi.getApiAbsoluteUrl(buildGreetingPath(name));
+    return this.httpApi.getAbsoluteUrl(buildGreetingPath(REST_GREETING_PATH, name));
   }
 }
 
@@ -31,7 +33,7 @@ export class MockRestCapabilityApi implements RestCapabilityApi {
   }
 
   public getGreetingAbsoluteUrl(name: string): string {
-    return `http://mocked.io/api${buildGreetingPath(name)}`;
+    return `http://mocked.io${buildGreetingPath(REST_GREETING_PATH, name)}`;
   }
 }
 

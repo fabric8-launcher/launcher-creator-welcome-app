@@ -63,16 +63,18 @@ exports[`<RestCapability /> check that a click on the GET button adds a Hello Wo
         xlOffset={null}
         xlRowSpan={null}
       >
-        <SourceMappingLink
-          fileRepositoryLocation="src/main/java/org/your/GreetingApi.java"
-          name="greetingEndpoint"
-        />
+        <RequestTitle>
+          <SourceMappingLink
+            fileRepositoryLocation="src/main/java/org/your/GreetingApi.java"
+            name="greetingEndpoint"
+          />
+        </RequestTitle>
       </GridItem>
       <HttpRequest
         curlCommand="curl -X GET 'http://mocked.io/api/greeting'"
         method="GET"
         onExecute={[Function]}
-        path="/greetings?name="
+        path="/api/greeting?name="
       >
         <TextInput
           aria-label={null}
@@ -189,16 +191,18 @@ exports[`<RestCapability /> check that after typing a name, a click on the GET b
         xlOffset={null}
         xlRowSpan={null}
       >
-        <SourceMappingLink
-          fileRepositoryLocation="src/main/java/org/your/GreetingApi.java"
-          name="greetingEndpoint"
-        />
+        <RequestTitle>
+          <SourceMappingLink
+            fileRepositoryLocation="src/main/java/org/your/GreetingApi.java"
+            name="greetingEndpoint"
+          />
+        </RequestTitle>
       </GridItem>
       <HttpRequest
-        curlCommand="curl -X GET 'http://mocked.io/api/greeting?name=John'"
+        curlCommand="curl -X GET 'http://mocked.io//api/greeting?name=John'"
         method="GET"
         onExecute={[Function]}
-        path="/greetings?name="
+        path="/api/greeting?name="
       >
         <TextInput
           aria-label={null}
@@ -241,7 +245,7 @@ exports[`<RestCapability /> check that after typing a name, a click on the GET b
                 "content": "Hello John!",
                 "method": "GET",
                 "time": 1542793377,
-                "url": "http://mocked.io/api/greeting?name=John",
+                "url": "http://mocked.io//api/greeting?name=John",
               },
             ]
           }
@@ -315,16 +319,18 @@ exports[`<RestCapability /> check that initial render is correct 1`] = `
         xlOffset={null}
         xlRowSpan={null}
       >
-        <SourceMappingLink
-          fileRepositoryLocation="src/main/java/org/your/GreetingApi.java"
-          name="greetingEndpoint"
-        />
+        <RequestTitle>
+          <SourceMappingLink
+            fileRepositoryLocation="src/main/java/org/your/GreetingApi.java"
+            name="greetingEndpoint"
+          />
+        </RequestTitle>
       </GridItem>
       <HttpRequest
         curlCommand="curl -X GET 'http://mocked.io/api/greeting'"
         method="GET"
         onExecute={[Function]}
-        path="/greetings?name="
+        path="/api/greeting?name="
       >
         <TextInput
           aria-label={null}

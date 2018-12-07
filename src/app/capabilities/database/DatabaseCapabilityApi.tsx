@@ -15,31 +15,36 @@ export interface DatabaseCapabilityApi {
   doDeleteFruit(id: number):Promise<{ time: number }>
 }
 
+export const DATABASE_FRUIT_PATH = '/api/fruits';
+
 export class HttpDatabaseCapabilityApi implements DatabaseCapabilityApi {
+
+  
+
   constructor(private readonly httpApi: HttpApi) {
   };
 
   public getFruitsAbsoluteUrl(): string {
-    return this.httpApi.getApiAbsoluteUrl('/fruits');
+    return this.httpApi.getAbsoluteUrl(DATABASE_FRUIT_PATH);
   }
 
   public async doFetchFruits(): Promise<{ time: number, content: Fruit[] }> {
-    const r = await this.httpApi.get<Fruit[]>('/fruits');
+    const r = await this.httpApi.get<Fruit[]>(DATABASE_FRUIT_PATH);
     return ({ content: r, time: Date.now() });
   }
 
   public async doPostFruit(data: { name: string; stock: number }): Promise<{ time: number; content: Fruit }> {
-    const r = await this.httpApi.post<Fruit>('/fruits', data);
+    const r = await this.httpApi.post<Fruit>(DATABASE_FRUIT_PATH, data);
     return ({ content: r, time: Date.now() });
   }
 
   public async doPutFruit(id: number, data: { name: string; stock: number }): Promise<{ time: number; content: Fruit }> {
-    const r = await this.httpApi.put<Fruit>(`/fruits/${id}`, data);
+    const r = await this.httpApi.put<Fruit>(`${DATABASE_FRUIT_PATH}/${id}`, data);
     return ({ content: r, time: Date.now() });
   }
 
   public async doDeleteFruit(id: number): Promise<{ time: number }> {
-    await this.httpApi.delete(`/fruits/${id}`);
+    await this.httpApi.delete(`${DATABASE_FRUIT_PATH}/${id}`);
     return { time: Date.now() };
   }
 }

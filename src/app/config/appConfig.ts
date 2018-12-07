@@ -5,7 +5,7 @@ import { undefinedIfEmpty } from '../../shared/utils/Strings';
 
 export interface AppConfig {
   definition?: AppDefinition;
-  applicationUrl: string;
+  backendUrl: string;
   openshiftConsoleUrl?: string;
   sourceRepository?: {
     url: string;
@@ -16,7 +16,7 @@ export interface AppConfig {
 export const isMockMode = checkNotNull(process.env.REACT_APP_MODE, 'process.env.REACT_APP_MODE') === 'mock';
 
 const appConfig: AppConfig = {
-  applicationUrl: '/api'
+  backendUrl: '/backend'
 };
 
 interface InjectedConfig {

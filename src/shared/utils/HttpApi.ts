@@ -5,7 +5,7 @@ import {getLocationAbsoluteUrl} from './Locations';
 export interface HttpApi {
   readonly baseUrl: string;
 
-  getApiAbsoluteUrl(path: string);
+  getAbsoluteUrl(path: string);
 
   get<T>(path: string): Promise<T>;
 
@@ -44,7 +44,7 @@ export class AxiosHttpApi implements HttpApi {
     return this.axios.delete(path).then(r => r.data);
   }
 
-  public getApiAbsoluteUrl(path: string) {
+  public getAbsoluteUrl(path: string) {
     return getLocationAbsoluteUrl(this.baseUrl + path);
   }
 

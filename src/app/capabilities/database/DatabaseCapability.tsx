@@ -1,13 +1,14 @@
+import { Grid, GridItem, TextInput } from '@patternfly/react-core';
+import { DatabaseIcon } from '@patternfly/react-icons';
 import * as React from 'react';
+import { RequestTitle } from '../../../shared/components/RequestTitle';
+import HttpRequest from '../../../shared/components/HttpRequest';
+import RequestConsole, { RequestResult } from '../../../shared/components/RequestConsole';
+import { SourceMappingLink } from '../../../shared/components/SourceMappingLink';
+import { defaultIfEmpty } from '../../../shared/utils/Strings';
 import CapabilityCard from '../../components/CapabilityCard';
 import capabilitiesConfig from '../../config/capabilitiesConfig';
-import { DatabaseCapabilityApi } from './DatabaseCapabilityApi';
-import { Grid, GridItem, TextInput } from '@patternfly/react-core';
-import { SourceMappingLink } from '../../../shared/components/SourceMappingLink';
-import HttpRequest from '../../../shared/components/HttpRequest';
-import { defaultIfEmpty } from '../../../shared/utils/Strings';
-import { DatabaseIcon } from '@patternfly/react-icons';
-import RequestConsole, { RequestResult } from '../../../shared/components/RequestConsole';
+import { DatabaseCapabilityApi, DATABASE_FRUIT_PATH } from './DatabaseCapabilityApi';
 
 
 interface DatabaseCapabilityProps {
@@ -62,17 +63,19 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
             </GridItem>
             <CapabilityCard.Separator />
             <GridItem span={12} className="http-request-service">
-              <SourceMappingLink sourceRepository={this.props.sourceRepository}
-                name="dbEndpoint"
-                fileRepositoryLocation={this.props.extra.sourceMapping.dbEndpoint} />
+              <RequestTitle>
+                <SourceMappingLink sourceRepository={this.props.sourceRepository}
+                  name="dbEndpoint"
+                  fileRepositoryLocation={this.props.extra.sourceMapping.dbEndpoint} />
+              </RequestTitle>
             </GridItem>
             <HttpRequest method="GET"
-              path="/fruits"
+              path={DATABASE_FRUIT_PATH}
               curlCommand={`curl -X GET '${this.props.apiService.getFruitsAbsoluteUrl()}'`}
               onExecute={this.execFetchFruits}
             />
             <HttpRequest method="POST"
-              path="/fruits"
+              path={DATABASE_FRUIT_PATH}
               curlCommand={this.getPostFruitCurlCommand()}
               onExecute={this.execPostFruit}
             >
@@ -94,7 +97,7 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
               </span>
             </HttpRequest>
             <HttpRequest method="PUT"
-              path="/fruits/"
+              path={`${DATABASE_FRUIT_PATH}/`}
               curlCommand={this.getPutFruitCurlCommand()}
               onExecute={this.execPutFruit}
             >
@@ -124,7 +127,7 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
               </span>
             </HttpRequest>
             <HttpRequest method="DELETE"
-              path="/fruits/"
+              path={`${DATABASE_FRUIT_PATH}/`}
               curlCommand={this.getDeleteFruitCurlCommand()}
               onExecute={this.execDeleteFruit}
             >
