@@ -11,11 +11,10 @@ exports[`<CodeBaseInfo /> check that render is correct 1`] = `
       size="sm"
       title={null}
     />
-     
+     Codebase - 
     Vert.x
      - 
     java
-     - Codebase
   </Component>
   <Component>
     <Grid
@@ -143,11 +142,10 @@ exports[`<CodeBaseInfo /> check that render is correct with repositoryUrl 1`] = 
       size="sm"
       title={null}
     />
-     
+     Codebase - 
     Vert.x
      - 
     java
-     - Codebase
   </Component>
   <Component>
     <Grid
