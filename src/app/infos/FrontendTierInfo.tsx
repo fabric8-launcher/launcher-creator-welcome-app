@@ -20,8 +20,6 @@ interface FrontendTierInfoProps {
   frameworkRoute: string;
 }
 
-
-
 export function FrontendTierInfo(props: FrontendTierInfoProps) {
   const link = getRouteLink(props.frameworkRoute);
   return (
