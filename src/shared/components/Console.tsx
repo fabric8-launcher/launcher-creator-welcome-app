@@ -35,11 +35,8 @@ export class Console extends Component<ConsoleProps, ConsoleState> {
       if(contentSize === 0 && this.state.styleClass !== 'no-content') {
         this.setState({ styleClass: 'no-content' });
       }
-      if(contentSize === 1 && this.state.styleClass !== 'initial') {
-        this.setState({ styleClass: 'initial' });
-      }
-      if(contentSize > 1 && this.state.styleClass !== 'large') {
-        this.setState({ styleClass: 'large' });
+      if(contentSize === 1 && this.state.styleClass !== 'expanded') {
+        this.setState({ styleClass: 'expanded' });
       }
     }
   }
