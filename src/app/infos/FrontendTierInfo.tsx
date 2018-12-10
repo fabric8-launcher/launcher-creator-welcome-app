@@ -25,7 +25,7 @@ export function FrontendTierInfo(props: FrontendTierInfoProps) {
   return (
     <InfoCard name="frontend-tier">
       <InfoCard.Title><ScreenIcon className="with-text" />
-        Front-end - {props.frameworkInfo.name} - {props.frameworkInfo.metadata.language}</InfoCard.Title>
+        Frontend - {props.frameworkInfo.name} - {props.frameworkInfo.metadata.language}</InfoCard.Title>
       <InfoCard.Body>
         <Grid>
           <GridItem span={3}>

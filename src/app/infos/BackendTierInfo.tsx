@@ -25,7 +25,7 @@ export function BackendTierInfo(props: BackendTierInfoProps) {
   return (
     <InfoCard name="backend-tier">
       <InfoCard.Title><ServicesIcon className="with-text" />
-        Back-end - {props.runtimeInfo.name} - {props.runtimeInfo.metadata.language}</InfoCard.Title>
+        Backend - {props.runtimeInfo.name} - {props.runtimeInfo.metadata.language}</InfoCard.Title>
       <InfoCard.Body>
         <Grid>
           <GridItem span={3}>

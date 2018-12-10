@@ -52,12 +52,12 @@ export default class App extends React.Component<{}, { isNavOpen: boolean }> {
           )}
           {backendTier && (
             <NavItem to={`#backend-tier-info`}>
-              <ServicesIcon className="with-text" /> Back-end
+              <ServicesIcon className="with-text" /> Backend
             </NavItem>
           )}
           {frontendTier && (
             <NavItem to={`#frontend-tier-info`}>
-              <ScreenIcon className="with-text" /> Front-end
+              <ScreenIcon className="with-text" /> Frontend
             </NavItem>
           )}
           {_.values(capabilitiesConfig).filter(this.showCapability).map(c => (
