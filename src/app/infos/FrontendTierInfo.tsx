@@ -4,6 +4,7 @@ import * as React from 'react';
 import InfoCard from '../components/InfoCard';
 import { ExternalLink } from '../../shared/components/ExternalLink';
 import { getRouteLink } from '../config/appConfig';
+import DockerImageLink from '../components/DockerImageLink';
 
 interface FrontendTierInfoProps {
   frameworkInfo: {
@@ -37,7 +38,7 @@ export function FrontendTierInfo(props: FrontendTierInfoProps) {
             <p className="description">{props.frameworkInfo.description}</p>
           </GridItem>
           <InfoCard.Separator />
-          <GridItem span={3}>Framework Image</GridItem><GridItem span={9}>{props.frameworkImage}</GridItem>
+          <GridItem span={3}>Framework Image</GridItem><GridItem span={9}><DockerImageLink image={props.frameworkImage} /></GridItem>
           <InfoCard.Separator />
           <GridItem span={3}>Service name</GridItem><GridItem span={9}>{props.frameworkService}</GridItem>
           <InfoCard.Separator />

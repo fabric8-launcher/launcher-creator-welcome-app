@@ -4,6 +4,7 @@ import * as React from 'react';
 import InfoCard from '../components/InfoCard';
 import { ExternalLink } from '../../shared/components/ExternalLink';
 import { getRouteLink } from '../config/appConfig';
+import DockerImageLink from '../components/DockerImageLink';
 
 interface BackendTierInfoProps {
   runtimeInfo: {
@@ -35,7 +36,7 @@ export function BackendTierInfo(props: BackendTierInfoProps) {
             <p className="description">{props.runtimeInfo.description}</p>
           </GridItem>
           <InfoCard.Separator />
-          <GridItem span={3}>Runtime Image</GridItem><GridItem span={9}>{props.runtimeImage}</GridItem>
+          <GridItem span={3}>Runtime Image</GridItem><GridItem span={9}><DockerImageLink image={props.runtimeImage} /></GridItem>
           <InfoCard.Separator />
           <GridItem span={3}>Service name</GridItem><GridItem span={9}>{props.runtimeService}</GridItem>
           <InfoCard.Separator />
