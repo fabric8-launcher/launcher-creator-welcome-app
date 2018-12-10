@@ -12,6 +12,7 @@
   margin-top: 5px;
 
   .http-request-path {
+    font-family: monospace;
     line-height: 44px;
   }
 
@@ -31,6 +32,7 @@
   .http-request-method {
     font-weight: bold;
     text-transform: uppercase;
+    font-family: monospace;
     width: 70px;
     display: inline-block;
   }
