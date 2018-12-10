@@ -199,7 +199,7 @@ exports[`<RestCapability /> check that after typing a name, a click on the GET b
         </RequestTitle>
       </GridItem>
       <HttpRequest
-        curlCommand="curl -X GET 'http://mocked.io//api/greeting?name=John'"
+        curlCommand="curl -X GET 'http://mocked.io/api/greeting?name=John'"
         method="GET"
         onExecute={[Function]}
         path="/api/greeting?name="
@@ -245,7 +245,7 @@ exports[`<RestCapability /> check that after typing a name, a click on the GET b
                 "content": "Hello John!",
                 "method": "GET",
                 "time": 1542793377,
-                "url": "http://mocked.io//api/greeting?name=John",
+                "url": "http://mocked.io/api/greeting?name=John",
               },
             ]
           }
