@@ -153,9 +153,9 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
   private execFetchFruits = async () => {
     try {
       const result = await this.props.apiService.doFetchFruits();
-      this.addResult('GET', result);
+      this.addResult('GET', this.props.apiService.getFruitsAbsoluteUrl(), result);
     } catch (e) {
-      this.addResult('GET', {
+      this.addResult('GET', this.props.apiService.getFruitsAbsoluteUrl(), {
         time: Date.now(),
         error: 'An error occured while executing the request',
       })
@@ -178,9 +178,9 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
   private execPostFruit = async () => {
     try {
       const result = await this.props.apiService.doPostFruit(this.getPostFruitData());
-      this.addResult('POST', result);
+      this.addResult('POST', this.props.apiService.getFruitsAbsoluteUrl(), result);
     } catch (e) {
-      this.addResult('POST', {
+      this.addResult('POST', this.props.apiService.getFruitsAbsoluteUrl(), {
         time: Date.now(),
         error: 'An error occured while executing the request',
       })
@@ -199,7 +199,7 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
   }
 
   private getPutFruitCurlCommand() {
-    return `curl -X PUT '${this.props.apiService.getFruitsAbsoluteUrl()}/${this.getPutFruitId()}' `
+    return `curl -X PUT '${this.getFruitUrlForId(this.getPutFruitId())}' `
       + `--header 'Content-Type: application/json' `
       + `--data '${JSON.stringify(this.getPutFruitData())}'`;
   }
@@ -207,9 +207,9 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
   private execPutFruit = async () => {
     try {
       const result = await this.props.apiService.doPutFruit(this.getPutFruitId(), this.getPutFruitData());
-      this.addResult('PUT', result);
+      this.addResult('PUT', this.getFruitUrlForId(this.getPutFruitId()), result);
     } catch (e) {
-      this.addResult('PUT', {
+      this.addResult('PUT', this.getFruitUrlForId(this.getPutFruitId()), {
         time: Date.now(),
         error: 'An error occured while executing the request',
       })
@@ -220,22 +220,25 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
     return Number(defaultIfEmpty(this.state.params.deleteId, '2'));
   }
 
-
   private getDeleteFruitCurlCommand() {
-    return `curl -X DELETE '${this.props.apiService.getFruitsAbsoluteUrl()}/${this.getDeleteFruitId()}' `;
+    return `curl -X DELETE '${this.getFruitUrlForId(this.getDeleteFruitId())}' `;
   }
 
   private execDeleteFruit = async () => {
     try {
       const result = await this.props.apiService.doDeleteFruit(this.getDeleteFruitId());
-      this.addResult('DELETE', { ...result, content: 'true' });
+      this.addResult('DELETE', this.getFruitUrlForId(this.getDeleteFruitId()), { ...result, content: 'true' });
     } catch (e) {
-      this.addResult('DELETE', {
+      this.addResult('DELETE', this.getFruitUrlForId(this.getDeleteFruitId()), {
         time: Date.now(),
         error: 'An error occured while executing the request',
       })
     }
   };
+
+  private getFruitUrlForId(id: number) {
+    return `${this.props.apiService.getFruitsAbsoluteUrl()}/${id}`;
+  }
 
   private handleInputChange = (_, event) => {
     const target = event.target;
@@ -250,8 +253,7 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
     });
   };
 
-  private addResult(type: string, payload: { content?: any, time: number, error?: string }) {
-    const url = this.props.apiService.getFruitsAbsoluteUrl();
+  private addResult(type: string, url: string, payload: { content?: any, time: number, error?: string }) {
     this.setState({
       results: [...this.state.results, {
         method: type,
