@@ -48,6 +48,13 @@ exports[`<HealthChecksCapability /> check that initial render is correct 1`] = `
         <p>
           Your application has been set up with the following Health Checks.
         </p>
+        <p>
+          <ExternalLink
+            href="https://docs.openshift.com/container-platform/latest/dev_guide/application_health.html"
+          >
+            Learn more
+          </ExternalLink>
+        </p>
       </GridItem>
       <Component />
       <GridItem
@@ -181,6 +188,13 @@ exports[`<HealthChecksCapability /> check that readiness is working 1`] = `
         </p>
         <p>
           Your application has been set up with the following Health Checks.
+        </p>
+        <p>
+          <ExternalLink
+            href="https://docs.openshift.com/container-platform/latest/dev_guide/application_health.html"
+          >
+            Learn more
+          </ExternalLink>
         </p>
       </GridItem>
       <Component />

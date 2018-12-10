@@ -7,6 +7,7 @@ import RequestConsole, { RequestResult } from '../../../shared/components/Reques
 import CapabilityCard from '../../components/CapabilityCard';
 import capabilitiesConfig from '../../config/capabilitiesConfig';
 import { HealthChecksCapabilityApi, HEALTHCHECKS_LIVENESS_PATH, HEALTHCHECKS_READINESS_PATH } from './HealthChecksCapabilityApi';
+import { ExternalLink } from '../../../shared/components/ExternalLink';
 
 
 interface HealthChecksCapabilityProps {
@@ -40,6 +41,8 @@ export default class HealthChecksCapability extends React.Component<HealthChecks
                 If not, it may kill and/or restart the pod to maintain the targeted number of instances configured to be running.
             </p>
               <p>Your application has been set up with the following Health Checks.</p>
+              <p><ExternalLink
+                href="https://docs.openshift.com/container-platform/latest/dev_guide/application_health.html">Learn more</ExternalLink></p>
             </GridItem>
             <CapabilityCard.Separator />
             <GridItem span={12} className="http-request-service">
