@@ -30,11 +30,16 @@ import { CloudDeploymentInfo } from './infos/CloudDeploymentInfo';
 import { CodeBaseInfo } from './infos/CodeBaseInfo';
 import { getLocationAbsoluteUrl } from '../shared/utils/Locations';
 import { checkNotNull } from '../shared/utils/Preconditions';
+import { FrontendTier, BackendTier } from './config/AppDefinition';
+import { BackendTierInfo } from './infos/BackendTierInfo';
+import { FrontendTierInfo } from './infos/FrontendTierInfo';
 
 
 const appDefinition = checkNotNull(appConfig.definition, 'appConfig.definition');
-const backendTier = appDefinition.tiers.find(t => t.tier === 'backend');
-const backendCapabilityDefinitionByModule = _.keyBy(backendTier ? backendTier.capabilities : [], 'module');
+const backendTier = appDefinition.tiers.find(t => t.tier === 'backend') as BackendTier;
+const frontendTier = appDefinition.tiers.find(t => t.tier === 'frontend') as FrontendTier;
+const capabilities = [...(backendTier ? backendTier.capabilities : [])];
+const capabilityDefinitionByModule = _.keyBy(capabilities, 'module');
 
 export default class App extends React.Component<{}, { isNavOpen: boolean }> {
 
@@ -54,9 +59,21 @@ export default class App extends React.Component<{}, { isNavOpen: boolean }> {
           <NavItem to={`#cloud-deployment-info`}>
             Cloud Deployment
           </NavItem>
-          <NavItem to={`#codebase-info`}>
-            Codebase
-          </NavItem>
+          {appConfig.sourceRepository && (
+            <NavItem to={`#codebase-info`}>
+              Codebase
+            </NavItem>
+          )}
+          {backendTier && (
+            <NavItem to={`#backend-tier-info`}>
+              Back-end
+            </NavItem>
+          )}
+          {frontendTier && (
+            <NavItem to={`#frontend-tier-info`}>
+              Front-end
+            </NavItem>
+          )}
           {_.values(capabilitiesConfig).filter(this.showCapability).map(c => (
             <NavItem key={c.module} to={`#${c.module}-capability`}>
               {c.name}
@@ -102,13 +119,18 @@ export default class App extends React.Component<{}, { isNavOpen: boolean }> {
           </PageSection>
           <PageSection>
             <CloudDeploymentInfo applicationUrl={getLocationAbsoluteUrl('')} openshiftConsoleUrl={appConfig.openshiftConsoleUrl!} />
+            {appConfig.sourceRepository && (
+              <CodeBaseInfo sourceRepository={appConfig.sourceRepository} />
+            )}
             {backendTier && (
-              <CodeBaseInfo runtime={backendTier.extra.runtimeInfo} baseImage={backendTier.extra.runtimeImage}
-                sourceRepository={appConfig.sourceRepository} />
+              <BackendTierInfo {...backendTier.extra} />
+            )}
+            {frontendTier && (
+              <FrontendTierInfo {...frontendTier.extra} />
             )}
             {_.values(capabilitiesConfig).filter(this.showCapability).map(c => {
               const CapabilityComponent = capabilitiesCardsMapping[c.module];
-              const capabilityDefinition = backendCapabilityDefinitionByModule[c.module];
+              const capabilityDefinition = capabilityDefinitionByModule[c.module];
               const props = capabilityDefinition ? { ...capabilityDefinition.props, extra: capabilityDefinition.extra } : {};
               return (
                 <CapabilityComponent {...props} key={c.module} />
@@ -121,7 +143,7 @@ export default class App extends React.Component<{}, { isNavOpen: boolean }> {
   }
 
   private showCapability = (capability: { module: string, requireDefinition: boolean }) => {
-    return !capability.requireDefinition || !!backendCapabilityDefinitionByModule[capability.module];
+    return !capability.requireDefinition || !!capabilityDefinitionByModule[capability.module];
   };
 
   private onNavSelect = result => {

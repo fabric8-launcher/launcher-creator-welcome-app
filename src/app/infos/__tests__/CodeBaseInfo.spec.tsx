@@ -20,12 +20,7 @@ const sourceRepository = {
 
 describe('<CodeBaseInfo />', () => {
   it('check that render is correct', () => {
-    const component = shallow(<CodeBaseInfo baseImage="group/imagename" runtime={runtime} />);
-    expect(component).toMatchSnapshot();
-  });
-
-  it('check that render is correct with repositoryUrl', () => {
-    const component = shallow(<CodeBaseInfo baseImage="group/imagename" runtime={runtime} sourceRepository={sourceRepository} />);
+    const component = shallow(<CodeBaseInfo sourceRepository={sourceRepository} />);
     expect(component).toMatchSnapshot();
   });
 

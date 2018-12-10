@@ -6,7 +6,6 @@ import HttpRequest from '../../../shared/components/HttpRequest';
 import RequestConsole, { RequestResult } from '../../../shared/components/RequestConsole';
 import CapabilityCard from '../../components/CapabilityCard';
 import capabilitiesConfig from '../../config/capabilitiesConfig';
-import './HealthChecksCapability.css';
 import { HealthChecksCapabilityApi, HEALTHCHECKS_LIVENESS_PATH, HEALTHCHECKS_READINESS_PATH } from './HealthChecksCapabilityApi';
 
 

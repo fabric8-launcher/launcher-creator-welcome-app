@@ -6,7 +6,7 @@ import HttpRequest from '../../../../shared/components/HttpRequest';
 
 const extra = {
   sourceMapping: {
-    greetingEndpoint: 'src/main/java/org/your/GreetingApi.java';
+    greetingEndpoint: 'src/main/java/org/your/GreetingApi.java',
   },
 }
 

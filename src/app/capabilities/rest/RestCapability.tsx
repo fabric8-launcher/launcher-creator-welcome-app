@@ -1,7 +1,6 @@
 import * as React from 'react';
 import CapabilityCard from '../../components/CapabilityCard';
 
-import './RestCapability.css';
 import { Grid, GridItem, TextInput } from '@patternfly/react-core';
 import { RestCapabilityApi, REST_GREETING_PATH } from './RestCapabilityApi';
 import capabilitiesConfig from '../../config/capabilitiesConfig';

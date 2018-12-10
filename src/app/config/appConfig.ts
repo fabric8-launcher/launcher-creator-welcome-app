@@ -1,7 +1,8 @@
 import {checkNotNull} from '../../shared/utils/Preconditions';
-import AppDefinition from './AppDefinition';
 import mockAppDefinition from './mockAppConfig';
 import { undefinedIfEmpty } from '../../shared/utils/Strings';
+import { AppDefinition } from './AppDefinition';
+import { getLocationAbsoluteUrl } from '../../shared/utils/Locations';
 
 export interface AppConfig {
   definition?: AppDefinition;
@@ -14,6 +15,10 @@ export interface AppConfig {
 }
 
 export const isMockMode = checkNotNull(process.env.REACT_APP_MODE, 'process.env.REACT_APP_MODE') === 'mock';
+
+export function getRouteLink(routeName) {
+  return getLocationAbsoluteUrl().replace('welcome-', routeName + '-');
+}
 
 const appConfig: AppConfig = {
   backendUrl: '/backend'
