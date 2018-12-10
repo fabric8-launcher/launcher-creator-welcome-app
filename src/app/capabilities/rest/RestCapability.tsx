@@ -1,14 +1,13 @@
-import * as React from 'react';
-import CapabilityCard from '../../components/CapabilityCard';
-
 import { Grid, GridItem, TextInput } from '@patternfly/react-core';
-import { RestCapabilityApi, REST_GREETING_PATH } from './RestCapabilityApi';
-import capabilitiesConfig from '../../config/capabilitiesConfig';
-import { PlugIcon } from '@patternfly/react-icons';
+import * as React from 'react';
 import HttpRequest from '../../../shared/components/HttpRequest';
-import { SourceMappingLink } from '../../../shared/components/SourceMappingLink';
 import RequestConsole, { RequestResult } from '../../../shared/components/RequestConsole';
 import { RequestTitle } from '../../../shared/components/RequestTitle';
+import { SourceMappingLink } from '../../../shared/components/SourceMappingLink';
+import CapabilityCard from '../../components/CapabilityCard';
+import capabilitiesConfig from '../../config/capabilitiesConfig';
+import { RestCapabilityApi, REST_GREETING_PATH } from './RestCapabilityApi';
+
 
 interface RestCapabilityProps {
   apiService: RestCapabilityApi;
@@ -46,7 +45,7 @@ export default class RestCapability extends React.Component<RestCapabilityProps,
   public render() {
     return (
       <CapabilityCard module="rest">
-        <CapabilityCard.Title><PlugIcon className="with-text" /> {capabilitiesConfig.rest.name}</CapabilityCard.Title>
+        <CapabilityCard.Title>{capabilitiesConfig.rest.icon} {capabilitiesConfig.rest.name}</CapabilityCard.Title>
         <CapabilityCard.Body>
           <Grid>
             <GridItem span={12}>

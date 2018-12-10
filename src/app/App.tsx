@@ -1,38 +1,24 @@
-import * as React from 'react';
-import * as _ from 'lodash';
 import {
-  Brand,
-  Button,
-  ButtonVariant,
-  Nav,
-  NavItem,
-  NavList,
-  Page,
-  PageHeader,
-  PageSection,
-  PageSectionVariants,
-  PageSidebar,
-  Text,
-  TextContent,
-  Toolbar,
-  ToolbarGroup,
-  ToolbarItem
+  Brand, Button, ButtonVariant, Nav, NavItem, NavList, Page,
+  PageHeader, PageSection, PageSectionVariants, PageSidebar, Text, TextContent, Toolbar, ToolbarGroup, ToolbarItem
 } from '@patternfly/react-core';
+import { CogIcon, CloudIcon, CodeIcon, ServicesIcon, ScreenIcon } from '@patternfly/react-icons';
 import { global_breakpoint_md as breakpointMd } from '@patternfly/react-tokens';
-import { CogIcon } from '@patternfly/react-icons';
-
+import * as _ from 'lodash';
+import * as React from 'react';
 import logo from '../assets/logo/RHD-logo.svg';
-import './App.css';
-import appConfig from './config/appConfig';
-import capabilitiesCardsMapping from './capabilities/capabilitiesCardsMapping';
-import capabilitiesConfig from './config/capabilitiesConfig';
-import { CloudDeploymentInfo } from './infos/CloudDeploymentInfo';
-import { CodeBaseInfo } from './infos/CodeBaseInfo';
 import { getLocationAbsoluteUrl } from '../shared/utils/Locations';
 import { checkNotNull } from '../shared/utils/Preconditions';
-import { FrontendTier, BackendTier } from './config/AppDefinition';
+import './App.css';
+import capabilitiesCardsMapping from './capabilities/capabilitiesCardsMapping';
+import appConfig from './config/appConfig';
+import { BackendTier, FrontendTier } from './config/AppDefinition';
+import capabilitiesConfig from './config/capabilitiesConfig';
 import { BackendTierInfo } from './infos/BackendTierInfo';
+import { CloudDeploymentInfo } from './infos/CloudDeploymentInfo';
+import { CodeBaseInfo } from './infos/CodeBaseInfo';
 import { FrontendTierInfo } from './infos/FrontendTierInfo';
+
 
 
 const appDefinition = checkNotNull(appConfig.definition, 'appConfig.definition');
@@ -57,26 +43,26 @@ export default class App extends React.Component<{}, { isNavOpen: boolean }> {
       <Nav onSelect={this.onNavSelect} onToggle={this.onNavToggle} aria-label="Nav">
         <NavList>
           <NavItem to={`#cloud-deployment-info`}>
-            Cloud Deployment
+            <CloudIcon className="with-text" /> Cloud Deployment
           </NavItem>
           {appConfig.sourceRepository && (
             <NavItem to={`#codebase-info`}>
-              Codebase
+              <CodeIcon className="with-text" /> Codebase
             </NavItem>
           )}
           {backendTier && (
             <NavItem to={`#backend-tier-info`}>
-              Back-end
+              <ServicesIcon className="with-text" /> Back-end
             </NavItem>
           )}
           {frontendTier && (
             <NavItem to={`#frontend-tier-info`}>
-              Front-end
+              <ScreenIcon className="with-text" /> Front-end
             </NavItem>
           )}
           {_.values(capabilitiesConfig).filter(this.showCapability).map(c => (
             <NavItem key={c.module} to={`#${c.module}-capability`}>
-              {c.name}
+              {c.icon} {c.name}
             </NavItem>
           ))}
         </NavList>

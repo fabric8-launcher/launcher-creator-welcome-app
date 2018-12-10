@@ -1,9 +1,8 @@
 import { Grid, GridItem, TextInput } from '@patternfly/react-core';
-import { DatabaseIcon } from '@patternfly/react-icons';
 import * as React from 'react';
-import { RequestTitle } from '../../../shared/components/RequestTitle';
 import HttpRequest from '../../../shared/components/HttpRequest';
 import RequestConsole, { RequestResult } from '../../../shared/components/RequestConsole';
+import { RequestTitle } from '../../../shared/components/RequestTitle';
 import { SourceMappingLink } from '../../../shared/components/SourceMappingLink';
 import { defaultIfEmpty } from '../../../shared/utils/Strings';
 import CapabilityCard from '../../components/CapabilityCard';
@@ -53,7 +52,7 @@ export default class DatabaseCapability extends React.Component<DatabaseCapabili
   public render() {
     return (
       <CapabilityCard module="database">
-        <CapabilityCard.Title><DatabaseIcon className="with-text" /> {capabilitiesConfig.database.name}</CapabilityCard.Title>
+        <CapabilityCard.Title>{capabilitiesConfig.database.icon} {capabilitiesConfig.database.name}</CapabilityCard.Title>
         <CapabilityCard.Body>
           <Grid>
             <GridItem span={12}>

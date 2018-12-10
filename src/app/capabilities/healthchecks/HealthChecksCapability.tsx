@@ -1,13 +1,12 @@
 import { Grid, GridItem } from '@patternfly/react-core';
-import { HeartbeatIcon } from '@patternfly/react-icons';
 import * as React from 'react';
-import { RequestTitle } from '../../../shared/components/RequestTitle';
+import { ExternalLink } from '../../../shared/components/ExternalLink';
 import HttpRequest from '../../../shared/components/HttpRequest';
 import RequestConsole, { RequestResult } from '../../../shared/components/RequestConsole';
+import { RequestTitle } from '../../../shared/components/RequestTitle';
 import CapabilityCard from '../../components/CapabilityCard';
 import capabilitiesConfig from '../../config/capabilitiesConfig';
 import { HealthChecksCapabilityApi, HEALTHCHECKS_LIVENESS_PATH, HEALTHCHECKS_READINESS_PATH } from './HealthChecksCapabilityApi';
-import { ExternalLink } from '../../../shared/components/ExternalLink';
 
 
 interface HealthChecksCapabilityProps {
@@ -31,7 +30,7 @@ export default class HealthChecksCapability extends React.Component<HealthChecks
   public render() {
     return (
       <CapabilityCard module="healthchecks">
-        <CapabilityCard.Title><HeartbeatIcon className="with-text" /> {capabilitiesConfig.healthchecks.name}</CapabilityCard.Title>
+        <CapabilityCard.Title>{capabilitiesConfig.healthchecks.icon} {capabilitiesConfig.healthchecks.name}</CapabilityCard.Title>
         <CapabilityCard.Body>
           <Grid>
             <GridItem span={12}>

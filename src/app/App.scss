@@ -18,4 +18,8 @@ svg.with-text {
 
 aside nav li a {
   font-weight: 400 !important;
+
+  svg.with-text {
+    margin-right: 7px;
+  }
 }
