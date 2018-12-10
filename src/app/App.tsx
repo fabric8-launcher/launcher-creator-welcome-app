@@ -50,14 +50,14 @@ export default class App extends React.Component<{}, { isNavOpen: boolean }> {
               <CodeIcon className="with-text" /> Codebase
             </NavItem>
           )}
-          {backendTier && (
-            <NavItem to={`#backend-tier-info`}>
-              <ServicesIcon className="with-text" /> Backend
-            </NavItem>
-          )}
           {frontendTier && (
             <NavItem to={`#frontend-tier-info`}>
               <ScreenIcon className="with-text" /> Frontend
+            </NavItem>
+          )}
+          {backendTier && (
+            <NavItem to={`#backend-tier-info`}>
+              <ServicesIcon className="with-text" /> Backend
             </NavItem>
           )}
           {_.values(capabilitiesConfig).filter(this.showCapability).map(c => (
@@ -104,15 +104,18 @@ export default class App extends React.Component<{}, { isNavOpen: boolean }> {
             </TextContent>
           </PageSection>
           <PageSection>
-            <CloudDeploymentInfo applicationUrl={getLocationAbsoluteUrl('')} openshiftConsoleUrl={appConfig.openshiftConsoleUrl!} />
+            <CloudDeploymentInfo
+              application={appDefinition.application}
+              applicationUrl={getLocationAbsoluteUrl('')}
+              openshiftConsoleUrl={appConfig.openshiftConsoleUrl!} />
             {appConfig.sourceRepository && (
               <CodeBaseInfo sourceRepository={appConfig.sourceRepository} />
             )}
-            {backendTier && (
-              <BackendTierInfo {...backendTier.extra} />
-            )}
             {frontendTier && (
               <FrontendTierInfo {...frontendTier.extra} />
+            )}
+            {backendTier && (
+              <BackendTierInfo {...backendTier.extra} />
             )}
             {_.values(capabilitiesConfig).filter(this.showCapability).map(c => {
               const CapabilityComponent = capabilitiesCardsMapping[c.module];

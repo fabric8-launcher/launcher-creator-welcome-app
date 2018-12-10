@@ -3,7 +3,7 @@ import { ExternalLink } from '../../shared/components/ExternalLink';
 
 
 interface DockerImageLinkProps {
-  readonly image: string;
+    readonly image: string;
 }
 
 const REDHAT_REGISTRY = 'registry.access.redhat.com/';
@@ -17,7 +17,8 @@ const DockerImageLink: React.SFC<DockerImageLinkProps> = ({ image }: DockerImage
     }
     return (
         <span>
-        {imageName} {imageUrl && (<span>- <ExternalLink href={imageUrl}> Learn more</ExternalLink></span>)}
+            <span className="monospace">{imageName}</span>&nbsp;
+            {imageUrl && (<span>-&nbsp;<ExternalLink href={imageUrl}> Learn more</ExternalLink></span>)}
         </span>
     );
 }

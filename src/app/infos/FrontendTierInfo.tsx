@@ -38,7 +38,10 @@ export function FrontendTierInfo(props: FrontendTierInfoProps) {
           <InfoCard.Separator />
           <GridItem span={3}>Framework Image</GridItem><GridItem span={9}><DockerImageLink image={props.frameworkImage} /></GridItem>
           <InfoCard.Separator />
-          <GridItem span={3}>Service name</GridItem><GridItem span={9}>{props.frameworkService}</GridItem>
+          <GridItem span={3}>Service name</GridItem>
+          <GridItem span={9}>
+            <span className="monospace">{props.frameworkService}</span>
+          </GridItem>
           <InfoCard.Separator />
           <GridItem span={3}>Route</GridItem><GridItem span={9}><ExternalLink href={link} >{link}</ExternalLink></GridItem>
         </Grid>

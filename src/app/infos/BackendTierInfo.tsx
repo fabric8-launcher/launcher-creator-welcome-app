@@ -38,7 +38,9 @@ export function BackendTierInfo(props: BackendTierInfoProps) {
           <InfoCard.Separator />
           <GridItem span={3}>Runtime Image</GridItem><GridItem span={9}><DockerImageLink image={props.runtimeImage} /></GridItem>
           <InfoCard.Separator />
-          <GridItem span={3}>Service name</GridItem><GridItem span={9}>{props.runtimeService}</GridItem>
+          <GridItem span={3}>Service name</GridItem><GridItem span={9}>
+            <span className="monospace">{props.runtimeService}</span>
+          </GridItem>
           <InfoCard.Separator />
           <GridItem span={3}>Route</GridItem><GridItem span={9}><ExternalLink href={link} >{link}</ExternalLink></GridItem>
         </Grid>

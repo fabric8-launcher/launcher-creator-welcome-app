@@ -84,6 +84,49 @@ exports[`<CloudDeploymentInfo /> check that render is correct 1`] = `
         xlOffset={null}
         xlRowSpan={null}
       >
+        Application Name
+      </GridItem>
+      <GridItem
+        className=""
+        lg={null}
+        lgOffset={null}
+        lgRowSpan={null}
+        md={null}
+        mdOffset={null}
+        mdRowSpan={null}
+        offset={null}
+        rowSpan={null}
+        sm={null}
+        smOffset={null}
+        smRowSpan={null}
+        span={9}
+        xl={null}
+        xlOffset={null}
+        xlRowSpan={null}
+      >
+        <span
+          className="monospace"
+        />
+      </GridItem>
+      <Component />
+      <GridItem
+        className=""
+        lg={null}
+        lgOffset={null}
+        lgRowSpan={null}
+        md={null}
+        mdOffset={null}
+        mdRowSpan={null}
+        offset={null}
+        rowSpan={null}
+        sm={null}
+        smOffset={null}
+        smRowSpan={null}
+        span={3}
+        xl={null}
+        xlOffset={null}
+        xlRowSpan={null}
+      >
         Application URL
       </GridItem>
       <GridItem
@@ -201,6 +244,49 @@ exports[`<CloudDeploymentInfo /> check that render is correct with repositoryUrl
         xlOffset={null}
         xlRowSpan={null}
       >
+        Application Name
+      </GridItem>
+      <GridItem
+        className=""
+        lg={null}
+        lgOffset={null}
+        lgRowSpan={null}
+        md={null}
+        mdOffset={null}
+        mdRowSpan={null}
+        offset={null}
+        rowSpan={null}
+        sm={null}
+        smOffset={null}
+        smRowSpan={null}
+        span={9}
+        xl={null}
+        xlOffset={null}
+        xlRowSpan={null}
+      >
+        <span
+          className="monospace"
+        />
+      </GridItem>
+      <Component />
+      <GridItem
+        className=""
+        lg={null}
+        lgOffset={null}
+        lgRowSpan={null}
+        md={null}
+        mdOffset={null}
+        mdRowSpan={null}
+        offset={null}
+        rowSpan={null}
+        sm={null}
+        smOffset={null}
+        smRowSpan={null}
+        span={3}
+        xl={null}
+        xlOffset={null}
+        xlRowSpan={null}
+      >
         Application URL
       </GridItem>
       <GridItem
@@ -269,9 +355,9 @@ exports[`<CloudDeploymentInfo /> check that render is correct with repositoryUrl
         xlRowSpan={null}
       >
         <ExternalLink
-          href="http://www.console-url.com"
+          href="http://www.console-url.com/console/project/undefined"
         >
-          http://www.console-url.com
+          http://www.console-url.com/console/project/undefined
         </ExternalLink>
         <br />
         Link to manage the OpenShift instance where this application is deployed.
