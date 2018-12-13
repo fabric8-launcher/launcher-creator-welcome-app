@@ -12,7 +12,7 @@ import { checkNotNull } from '../shared/utils/Preconditions';
 import './App.css';
 import capabilitiesCardsMapping from './capabilities/capabilitiesCardsMapping';
 import appConfig from './config/appConfig';
-import { BackendTier, FrontendTier } from './config/AppDefinition';
+import { BackendPart, FrontendPart } from './config/AppDefinition';
 import capabilitiesConfig from './config/capabilitiesConfig';
 import { BackendTierInfo } from './infos/BackendTierInfo';
 import { CloudDeploymentInfo } from './infos/CloudDeploymentInfo';
@@ -22,10 +22,8 @@ import { FrontendTierInfo } from './infos/FrontendTierInfo';
 
 
 const appDefinition = checkNotNull(appConfig.definition, 'appConfig.definition');
-const backendTier = (appDefinition.tiers.length === 1 ?
-    appDefinition.tiers[0] :
-    appDefinition.tiers.find(t => t.tier === 'backend')) as BackendTier;
-const frontendTier = appDefinition.tiers.find(t => t.tier === 'frontend') as FrontendTier;
+const backendTier = appDefinition.parts.find(t => t.category === 'backend') as BackendPart;
+const frontendTier = appDefinition.parts.find(t => t.category === 'frontend') as FrontendPart;
 const capabilities = [...(backendTier ? backendTier.capabilities : [])];
 const capabilityDefinitionByModule = _.keyBy(capabilities, 'module');
 

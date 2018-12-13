@@ -1,7 +1,7 @@
 import {checkNotNull} from '../../shared/utils/Preconditions';
 import mockAppDefinition from './mockAppConfig';
 import { undefinedIfEmpty } from '../../shared/utils/Strings';
-import { AppDefinition } from './AppDefinition';
+import { AppDefinition, adaptAppDefinition } from './AppDefinition';
 import { getLocationAbsoluteUrl } from '../../shared/utils/Locations';
 
 export interface AppConfig {
@@ -36,7 +36,7 @@ declare var INJECTED_CONFIG: InjectedConfig | undefined;
 if (!isMockMode) {
   checkNotNull(INJECTED_CONFIG, 'INJECTED_CONFIG');
   try {
-    appConfig.definition = JSON.parse(INJECTED_CONFIG!.encodedDefinition);
+    appConfig.definition = adaptAppDefinition(JSON.parse(INJECTED_CONFIG!.encodedDefinition));
   } catch(e) {
     throw new Error('Error while parsing WelcomeApp config: ' + e.toString());
   }
@@ -50,7 +50,7 @@ if (!isMockMode) {
     };
   }
 } else {
-  appConfig.definition = mockAppDefinition;
+  appConfig.definition = adaptAppDefinition(mockAppDefinition);
   appConfig.openshiftConsoleUrl = 'http://consoleUrl.mock.io';
   appConfig.sourceRepository = {
     url: 'https://github.com/fabric8-launcher/launcher-creator-welcome-app.git',

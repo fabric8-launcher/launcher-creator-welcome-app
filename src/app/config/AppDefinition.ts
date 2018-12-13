@@ -4,8 +4,9 @@ export interface CapabilityDefinition {
   extra: { [propId: string]: string; };
 }
 
-export interface FrontendTier {
-  tier: string;
+export interface FrontendPart {
+  subFolderName?: string;
+  category: string;
   shared: {
     framework: {
       name: string;
@@ -28,8 +29,9 @@ export interface FrontendTier {
   capabilities: CapabilityDefinition[];
 }
 
-export interface BackendTier {
-  tier: string;
+export interface BackendPart {
+  subFolderName?: string;
+  category: string;
   shared: {
     runtime: {
       name: string;
@@ -59,5 +61,23 @@ export interface BackendTier {
 
 export interface AppDefinition {
   application: string;
-  tiers: Array<(BackendTier | FrontendTier)>;
+  parts: Array<(BackendPart | FrontendPart)>;
+}
+
+function guessCategory(part: any): string {
+  if(part.subFolderName) {
+    return part.subFolderName;
+  }
+  if(part.extra.frameworkInfo) {
+    return 'frontend';
+  }
+  return 'backend'
+}
+
+export function adaptAppDefinition(data: any): AppDefinition {
+  const adapted = { 
+    ...data, 
+    parts: data.parts.map(p => ({ ...p, category: guessCategory(p)})).filter(p => p.category !== 'support' )
+  };
+  return adapted as AppDefinition;
 }

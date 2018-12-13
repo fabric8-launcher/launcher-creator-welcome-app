@@ -2,9 +2,9 @@ import { AppDefinition } from './AppDefinition';
 
 const mockAppDefinition = {
   application: 'wish-list',
-  tiers: [
+  parts: [
     {
-      tier: 'backend',
+      subFolderName: 'backend',
       shared: {
         runtime: {
           name: 'vertx',
@@ -87,7 +87,7 @@ const mockAppDefinition = {
           extra: {}
         }
       ],
-      tier: 'frontend'
+      subFolderName: 'frontend'
     },
   ]
 } as AppDefinition;
