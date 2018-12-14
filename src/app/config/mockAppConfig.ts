@@ -16,7 +16,7 @@ const mockAppDefinition = {
         }
       },
       extra: {
-        runtimeImage: 'registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift',
+        category: 'backend',
         runtimeInfo: {
           image: 'registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift',
           enumInfo: {
@@ -65,12 +65,13 @@ const mockAppDefinition = {
     },
     {
       shared: {
-        framework: {
+        runtime: {
           name: 'react'
         }
       },
       extra: {
-        frameworkInfo: {
+        category: 'frontend',
+        runtimeInfo: {
           image: 'nodeshift/centos7-s2i-web-app',
           enumInfo: {
             id: 'react',

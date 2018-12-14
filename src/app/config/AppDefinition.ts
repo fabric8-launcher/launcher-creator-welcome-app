@@ -27,9 +27,6 @@ export interface Part {
     runtime?: {
       name: string;
     },
-    framework?: {
-      name: string;
-    },
     maven?: {
       groupId?: string;
       artifactId?: string;
@@ -38,7 +35,6 @@ export interface Part {
   },
   extra: {
     category: 'backend' | 'frontend' | 'support';
-    frameworkInfo?: ExtraInfo;
     runtimeInfo?: ExtraInfo;
   };
   capabilities: CapabilityDefinition[];
@@ -49,22 +45,12 @@ export interface AppDefinition {
   parts: Part[];
 }
 
-function guessCategory(part: any): string {
-  if(part.subFolderName) {
-    return part.subFolderName;
-  }
-  if(part.extra.frameworkInfo) {
-    return 'frontend';
-  }
-  return 'backend'
-}
-
 export function adaptAppDefinition(data: any): AppDefinition {
   const adapted = { 
     ...data, 
     parts: data.parts.map(p => ({
        ...p, 
-       extra: { ...p.extra, category: guessCategory(p) }
+       extra: { ...p.extra }
       }))
       .filter(p => p.extra.category !== 'support' )
   };

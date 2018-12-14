@@ -87,18 +87,6 @@ export default class App extends React.Component<{}, { isNavOpen: boolean }> {
     );
 
     const Sidebar = <PageSidebar nav={PageNav} isNavOpen={this.state.isNavOpen} />;
-    
-    const backendPartProps = {
-      subfolderName: backendPart.subFolderName,
-      category: backendPart.extra.category,
-      runtimeInfo: { ...backendPart.extra.runtimeInfo! },
-    }
-
-    const frontendPartProps = {
-      subfolderName: frontendPart.subFolderName,
-      category: frontendPart.extra.category,
-      runtimeInfo: { ...frontendPart.extra.frameworkInfo! },
-    }
 
     return (
       <React.Fragment>
@@ -121,10 +109,10 @@ export default class App extends React.Component<{}, { isNavOpen: boolean }> {
               <CodeBaseInfo sourceRepository={appConfig.sourceRepository} />
             )}
             {frontendPart && (
-              <PartInfo {...frontendPartProps} />
+              <PartInfo {...this.createPartInfoProps(frontendPart)} />
             )}
             {backendPart && (
-              <PartInfo {...backendPartProps} />
+              <PartInfo {...this.createPartInfoProps(backendPart)} />
             )}
             {_.values(capabilitiesConfig).filter(this.showCapability).map(c => {
               const CapabilityComponent = capabilitiesCardsMapping[c.module];
@@ -138,6 +126,14 @@ export default class App extends React.Component<{}, { isNavOpen: boolean }> {
         </Page>
       </React.Fragment>
     );
+  }
+
+  private createPartInfoProps = (part: Part) => {
+    return {
+      subfolderName: part.subFolderName,
+        category: part.extra.category,
+          runtimeInfo: { ...part.extra.runtimeInfo! },
+    }
   }
 
   private showCapability = (capability: { module: string, requireDefinition: boolean }) => {
