@@ -35,11 +35,12 @@ const categoryDefinition = {
 
 export function PartInfo(props: PartInfoProps) {
   const link = getRouteLink(props.runtimeInfo.route);
+  const language = capitalizeFirstLetter(props.runtimeInfo.enumInfo.metadata.language);
+  const category = capitalizeFirstLetter(props.category);
   return (
     <InfoCard name={ props.subfolderName + '-tier'}>
       <InfoCard.Title>{categoryDefinition[props.category].icon}
-        {capitalizeFirstLetter(props.category)}&nbsp;
-        -&nbsp;{props.runtimeInfo.enumInfo.name} - {props.runtimeInfo.enumInfo.metadata.language}
+        {category} - {props.runtimeInfo.enumInfo.name} - {language}
       </InfoCard.Title>
       <InfoCard.Body>
         <Grid>
@@ -47,7 +48,7 @@ export function PartInfo(props: PartInfoProps) {
             <img src={props.runtimeInfo.enumInfo.icon} />
           </GridItem>
           <GridItem span={9}>
-            <h1>{props.runtimeInfo.enumInfo.name} - {props.runtimeInfo.enumInfo.metadata.language}</h1>
+            <h1>{props.runtimeInfo.enumInfo.name} - {language}</h1>
             <p className="description">{props.runtimeInfo.enumInfo.description}</p>
           </GridItem>
           <InfoCard.Separator />
