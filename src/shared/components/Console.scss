@@ -4,13 +4,14 @@ div.console {
   font-style: normal;
   color: white;
   margin-top: 20px;
-  padding: 20px;
+  padding: 0;
   border-radius: 2px;
   width: 100%;
   font-size: 1.2em;
 }
 
 div.console-content {
+  padding: 20px;
   width: 100%;
   height: 50px;
   overflow-y: auto;

@@ -4,36 +4,30 @@ export interface CapabilityDefinition {
   extra: { [propId: string]: string; };
 }
 
-export interface FrontendPart {
-  subFolderName?: string;
-  category: string;
-  shared: {
-    framework: {
-      name: string;
-    },
-  },
-  extra: {
-    frameworkImage: string;
-    frameworkInfo: {
-      id: string;
-      name: string;
-      description: string;
-      icon: string;
-      metadata: {
-        language: string;
-      }
-    };
-    frameworkService: string;
-    frameworkRoute: string;
-  };
-  capabilities: CapabilityDefinition[];
+export interface EnumInfo {
+  id: string;
+  name: string;
+  description: string;
+  icon: string;
+  metadata: {
+    language: string;
+  }
 }
 
-export interface BackendPart {
+export interface ExtraInfo {
+  image: string;
+  route: string;
+  service: string;
+  enumInfo: EnumInfo;
+}
+
+export interface Part {
   subFolderName?: string;
-  category: string;
   shared: {
-    runtime: {
+    runtime?: {
+      name: string;
+    },
+    framework?: {
       name: string;
     },
     maven?: {
@@ -43,25 +37,16 @@ export interface BackendPart {
     },
   },
   extra: {
-    runtimeImage: string;
-    runtimeInfo: {
-      id: string;
-      name: string;
-      description: string;
-      icon: string;
-      metadata: {
-        language: string;
-      }
-    };
-    runtimeService: string;
-    runtimeRoute: string;
+    category: 'backend' | 'frontend' | 'support';
+    frameworkInfo?: ExtraInfo;
+    runtimeInfo?: ExtraInfo;
   };
   capabilities: CapabilityDefinition[];
 }
 
 export interface AppDefinition {
   application: string;
-  parts: Array<(BackendPart | FrontendPart)>;
+  parts: Part[];
 }
 
 function guessCategory(part: any): string {
@@ -77,7 +62,11 @@ function guessCategory(part: any): string {
 export function adaptAppDefinition(data: any): AppDefinition {
   const adapted = { 
     ...data, 
-    parts: data.parts.map(p => ({ ...p, category: guessCategory(p)})).filter(p => p.category !== 'support' )
+    parts: data.parts.map(p => ({
+       ...p, 
+       extra: { ...p.extra, category: guessCategory(p) }
+      }))
+      .filter(p => p.extra.category !== 'support' )
   };
   return adapted as AppDefinition;
 }
