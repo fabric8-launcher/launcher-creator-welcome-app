@@ -48,11 +48,7 @@ export interface AppDefinition {
 export function adaptAppDefinition(data: any): AppDefinition {
   const adapted = { 
     ...data, 
-    parts: data.parts.map(p => ({
-       ...p, 
-       extra: { ...p.extra }
-      }))
-      .filter(p => p.extra.category !== 'support' )
+    parts: data.parts.filter((p:any) => p.extra.category !== 'support' )
   };
   return adapted as AppDefinition;
 }
