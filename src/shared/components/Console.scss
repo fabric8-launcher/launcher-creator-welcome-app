@@ -13,11 +13,11 @@ div.console {
 div.console-content {
   padding: 20px;
   width: 100%;
-  height: 50px;
+  height: 80px;
   overflow-y: auto;
 
   &.expanded {
-    height: 250px;
+    height: 290px;
   }
 
   &.no-content .placeholder {
