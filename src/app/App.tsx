@@ -12,19 +12,16 @@ import { checkNotNull } from '../shared/utils/Preconditions';
 import './App.css';
 import capabilitiesCardsMapping from './capabilities/capabilitiesCardsMapping';
 import appConfig from './config/appConfig';
-import { BackendPart, FrontendPart } from './config/AppDefinition';
 import capabilitiesConfig from './config/capabilitiesConfig';
-import { BackendTierInfo } from './infos/BackendTierInfo';
+import { PartInfo } from './infos/PartInfo';
 import { CloudDeploymentInfo } from './infos/CloudDeploymentInfo';
 import { CodeBaseInfo } from './infos/CodeBaseInfo';
-import { FrontendTierInfo } from './infos/FrontendTierInfo';
-
-
+import { Part } from './config/AppDefinition';
 
 const appDefinition = checkNotNull(appConfig.definition, 'appConfig.definition');
-const backendTier = appDefinition.parts.find(t => t.category === 'backend') as BackendPart;
-const frontendTier = appDefinition.parts.find(t => t.category === 'frontend') as FrontendPart;
-const capabilities = [...(backendTier ? backendTier.capabilities : [])];
+const backendPart = appDefinition.parts.find(t => t.extra.category === 'backend') as Part;
+const frontendPart = appDefinition.parts.find(t => t.extra.category === 'frontend') as Part;
+const capabilities = [...(backendPart ? backendPart.capabilities : [])];
 const capabilityDefinitionByModule = _.keyBy(capabilities, 'module');
 
 export default class App extends React.Component<{}, { isNavOpen: boolean }> {
@@ -50,12 +47,12 @@ export default class App extends React.Component<{}, { isNavOpen: boolean }> {
               <CodeIcon className="with-text" /> Codebase
             </NavItem>
           )}
-          {frontendTier && (
+          {frontendPart && (
             <NavItem to={`#frontend-tier-info`}>
               <ScreenIcon className="with-text" /> Frontend
             </NavItem>
           )}
-          {backendTier && (
+          {backendPart && (
             <NavItem to={`#backend-tier-info`}>
               <ServicesIcon className="with-text" /> Backend
             </NavItem>
@@ -90,6 +87,18 @@ export default class App extends React.Component<{}, { isNavOpen: boolean }> {
     );
 
     const Sidebar = <PageSidebar nav={PageNav} isNavOpen={this.state.isNavOpen} />;
+    
+    const backendPartProps = {
+      subfolderName: backendPart.subFolderName,
+      category: backendPart.extra.category,
+      runtimeInfo: { ...backendPart.extra.runtimeInfo! },
+    }
+
+    const frontendPartProps = {
+      subfolderName: frontendPart.subFolderName,
+      category: frontendPart.extra.category,
+      runtimeInfo: { ...frontendPart.extra.frameworkInfo! },
+    }
 
     return (
       <React.Fragment>
@@ -111,11 +120,11 @@ export default class App extends React.Component<{}, { isNavOpen: boolean }> {
             {appConfig.sourceRepository && (
               <CodeBaseInfo sourceRepository={appConfig.sourceRepository} />
             )}
-            {frontendTier && (
-              <FrontendTierInfo {...frontendTier.extra} />
+            {frontendPart && (
+              <PartInfo {...frontendPartProps} />
             )}
-            {backendTier && (
-              <BackendTierInfo {...backendTier.extra} />
+            {backendPart && (
+              <PartInfo {...backendPartProps} />
             )}
             {_.values(capabilitiesConfig).filter(this.showCapability).map(c => {
               const CapabilityComponent = capabilitiesCardsMapping[c.module];
