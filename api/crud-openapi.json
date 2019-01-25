@@ -27,7 +27,7 @@
                 "examples" : {
                   "List of Fruits" : {
                     "description" : "Performs a SELECT in the Database and return the content as a JSON response",
-                    "value" : "[{\"name\":\"apple\", \"id\": 1}]"
+                    "value" : "[{\"name\":\"apple\", \"stock\": 10, id\": 1}]"
                   }
                 }
               }
@@ -43,7 +43,7 @@
             "application/json" : {
               "examples" : {
                 "A Fruit resource without the ID" : {
-                  "value" : "[{\"name\": \"banana\"}]"
+                  "value" : "{\"name\": \"banana\", \"stock\": 1}"
                 }
               }
             }
@@ -57,7 +57,7 @@
               "application/json" : {
                 "examples" : {
                   "Fruit created" : {
-                    "value" : "{\"name\": \"banana\", \"id\": 2}"
+                    "value" : "{\"name\": \"banana\", \"stock\": 1, \"id\": 2}"
                   }
                 }
               }
@@ -88,7 +88,7 @@
               "application/json" : {
                 "examples" : {
                   "A Single Fruit resource" : {
-                    "value" : "{\"name\" : \"apple\", \"id\": 1}"
+                    "value" : "{\"name\" : \"apple\", \"stock\": 10, \"id\": 1}"
                   }
                 }
               }
@@ -115,7 +115,7 @@
               "application/json" : {
                 "examples" : {
                   "The changed fruit representation" : {
-                    "value" : "{\"name\": \"pear\", \"id\": 1}"
+                    "value" : "{\"name\": \"pear\", \"stock\": 10, \"id\": 1}"
                   }
                 }
               }
