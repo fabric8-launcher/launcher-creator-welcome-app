@@ -1,0 +1,17 @@
+language: node_js
+cache:
+  yarn: true
+services:
+- docker
+after_success:
+- if [[ "$TRAVIS_BRANCH" == "master" ]]; then 
+    docker build -t fabric8/launcher-creator-welcome-app:latest . 
+    docker tag fabric8/launcher-creator-welcome-app:latest fabric8/launcher-creator-welcome-app:$(echo $REVISION | cut -c1-7) 
+    echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin 
+    docker push fabric8/launcher-creator-welcome-app:latest 
+    docker push fabric8/launcher-creator-welcome-app:$(echo $REVISION | cut -c1-7) 
+fi
+env:
+  matrix:
+  - secure: iqJIMc15YDl8fcrxICAC3EbvG9jPa3xO6V0b8gbD2G3yMuPCDQWNYhdLcS2fdR54l8q7e2Aefqh3UItgO0HCv8DF7KUJSNsh95yIh5oYl5SJy2jdMdyNXXFZNGWOw/k8FfTbbtuy76aoS3jMjsKRLf39bcpGc9T38mfr5mCKHlS66MZgIFMooSiZ9FFWUkh4VKoOD3PRR00XhNZKwl+i0d/yZCsVnc67IzTV8a2UZky3+t+IzUzK2/+rucEHnFng4TZeZMVA+cYiDUH19XR1ZzdksotlDQTSPopvN3zZ2U7XyqAIh/e/T2nj8OS3+zvopfbCtGV91GE7T/jTrp1RXqRWYAHzUPH1pRAvX53XgmJKYvGZQI8j8ndguON49RQZhnrxPTRyms9hdIs8slgYYiNVKVo4MynsZ40jJ9yA44ql3L5XaAHyRQ5VB1qON9XM09XHjRKb7m8lN4GqOewN/s6cu3xBU6Mtfx6qkEBy6WBB1iT9In9q+d4OKnEdtS+0VUzSwQzzgM2Y6zA8rDnVvjNnvOPWps+KGq7Kdtv5zCDGdKo0sgRexzWhcwRCwtdskqQhX/eiVQYHQETBKYH1pApHhdGRHYruLdsoJX7b+I64cZCN6CHMdBCnsnRma02pGm4fm9MPIng0NkGo8587t2bVP4JnevkcmnT5wXQL/Wk=
+  - secure: lJB4DpRS6D87P77OE6JrLaYfsdaahqlAjZxmE5qssoCTA8d8+4KZ0bNT26/PrqSH39Po4f0ZoB3drugxlDPgKtwY0lCbsupgF6xBQnX+QdiEla9UpycBVS7J3jkhN5c+SsFeID4MKFIPe/MygReUQPMKc1gBcI9gIT+O+Pqb12hYPiFm1u1v8Xj8P2BMRYM98/qtbZmUE04G4P16qfszUI//2oZuu3Cy098ckLviCHBfr5iMANwmd4h9uzIGuSdXZg1jirVgWL3hRRJ51UBoBf3U2BMBkqr1Ha31LUolEchURjJLCnL36e6umpyya63w0tDti47CSlxuGZashYt1I2jEy1sXr7TSNA/kvs4q6VRb6jtngec4K00AB8zPGm9z9xuIDT3hKvz9FsRpdCJj1/Asiz3ehQeWNqA2h34l8oSnwd6vtCTEyDmltI+NdYYzBy8vYFD3CFKjC7FcEFi5XxjlxgE5osKWWMo2i/aamjE//6D8BNV3NfUVFCdafuXZdFvzAATZYnMt1IXFtL2bCgBVXN0TvXIeedjNZ7r6qPTi2hYq5Dmaj2M0zxke8uqhTgGxl9I0ZDmlDU8tEp6myN9MMmr6HKijGl03xGDYJGZPkTaUfkTU31C/6fNF+tXarBtqhgT8Jfh/ntbp3E0ct6zPVexgdY9n8bW39mEgHp0=
