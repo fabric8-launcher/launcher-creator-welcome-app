@@ -2,9 +2,12 @@ language: node_js
 cache:
   yarn: true
 services:
-- docker
-after_success:
-- if [[ "$TRAVIS_BRANCH" == "master" ]]; then ./docker_push.sh fi
+  - docker
+deploy:
+  provider: script
+  script: bash docker_push.sh
+  on:
+    branch: master
 env:
   matrix:
   - secure: iqJIMc15YDl8fcrxICAC3EbvG9jPa3xO6V0b8gbD2G3yMuPCDQWNYhdLcS2fdR54l8q7e2Aefqh3UItgO0HCv8DF7KUJSNsh95yIh5oYl5SJy2jdMdyNXXFZNGWOw/k8FfTbbtuy76aoS3jMjsKRLf39bcpGc9T38mfr5mCKHlS66MZgIFMooSiZ9FFWUkh4VKoOD3PRR00XhNZKwl+i0d/yZCsVnc67IzTV8a2UZky3+t+IzUzK2/+rucEHnFng4TZeZMVA+cYiDUH19XR1ZzdksotlDQTSPopvN3zZ2U7XyqAIh/e/T2nj8OS3+zvopfbCtGV91GE7T/jTrp1RXqRWYAHzUPH1pRAvX53XgmJKYvGZQI8j8ndguON49RQZhnrxPTRyms9hdIs8slgYYiNVKVo4MynsZ40jJ9yA44ql3L5XaAHyRQ5VB1qON9XM09XHjRKb7m8lN4GqOewN/s6cu3xBU6Mtfx6qkEBy6WBB1iT9In9q+d4OKnEdtS+0VUzSwQzzgM2Y6zA8rDnVvjNnvOPWps+KGq7Kdtv5zCDGdKo0sgRexzWhcwRCwtdskqQhX/eiVQYHQETBKYH1pApHhdGRHYruLdsoJX7b+I64cZCN6CHMdBCnsnRma02pGm4fm9MPIng0NkGo8587t2bVP4JnevkcmnT5wXQL/Wk=
