@@ -28,7 +28,10 @@ jobs:
 
       # Run tests
       - run: yarn test
-      
+
+      - store_test_results:
+          path: test-results
+
       # Push to Dockerhub if master branch
       - run:
           name: Deploy to DockerHub
