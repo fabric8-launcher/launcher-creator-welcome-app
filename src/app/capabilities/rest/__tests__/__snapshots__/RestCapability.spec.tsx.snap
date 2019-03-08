@@ -42,7 +42,7 @@ exports[`<RestCapability /> check that a click on the GET button adds a Hello Wo
         xlOffset={null}
         xlRowSpan={null}
       >
-        HTTP API endpoints expose your application to outside callers. Through these, programs may communicate over the network in a language-independent fashion. We have created an initial set of endpoints to illustrate how you may accomplish this in your selected runtime, Vert.x. By composing together HTTP endpoints and making use of hypermedia and links, you may follow these patterns to construct a RESTful architecture.
+        HTTP API endpoints expose your application to outside callers. Through these, programs may communicate over the network in a language-independent fashion. We have created an initial set of endpoints to illustrate how you may accomplish this in your selected runtime. By composing together HTTP endpoints and making use of hypermedia and links, you may follow these patterns to construct a RESTful architecture.
       </GridItem>
       <Component />
       <GridItem
@@ -170,7 +170,7 @@ exports[`<RestCapability /> check that after typing a name, a click on the GET b
         xlOffset={null}
         xlRowSpan={null}
       >
-        HTTP API endpoints expose your application to outside callers. Through these, programs may communicate over the network in a language-independent fashion. We have created an initial set of endpoints to illustrate how you may accomplish this in your selected runtime, Vert.x. By composing together HTTP endpoints and making use of hypermedia and links, you may follow these patterns to construct a RESTful architecture.
+        HTTP API endpoints expose your application to outside callers. Through these, programs may communicate over the network in a language-independent fashion. We have created an initial set of endpoints to illustrate how you may accomplish this in your selected runtime. By composing together HTTP endpoints and making use of hypermedia and links, you may follow these patterns to construct a RESTful architecture.
       </GridItem>
       <Component />
       <GridItem
@@ -298,7 +298,7 @@ exports[`<RestCapability /> check that initial render is correct 1`] = `
         xlOffset={null}
         xlRowSpan={null}
       >
-        HTTP API endpoints expose your application to outside callers. Through these, programs may communicate over the network in a language-independent fashion. We have created an initial set of endpoints to illustrate how you may accomplish this in your selected runtime, Vert.x. By composing together HTTP endpoints and making use of hypermedia and links, you may follow these patterns to construct a RESTful architecture.
+        HTTP API endpoints expose your application to outside callers. Through these, programs may communicate over the network in a language-independent fashion. We have created an initial set of endpoints to illustrate how you may accomplish this in your selected runtime. By composing together HTTP endpoints and making use of hypermedia and links, you may follow these patterns to construct a RESTful architecture.
       </GridItem>
       <Component />
       <GridItem
