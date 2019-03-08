@@ -26,7 +26,15 @@ jobs:
 
       # Run tests
       - run: yarn test
+      
+
+      - setup_remote_docker
+      
+      # Push to Dockerhub if master branch
       - run:
           name: Deploy to DockerHub
           command: bash docker_push.sh
+          filters:
+            branches:
+              only: master
 
