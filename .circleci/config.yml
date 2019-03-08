@@ -26,4 +26,7 @@ jobs:
 
       # Run tests
       - run: yarn test
+      - run:
+          name: Deploy to DockerHub
+          command: bash docker_push.sh
 
