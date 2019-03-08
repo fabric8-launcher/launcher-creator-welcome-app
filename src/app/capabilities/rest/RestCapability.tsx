@@ -51,8 +51,8 @@ export default class RestCapability extends React.Component<RestCapabilityProps,
             <GridItem span={12}>
               HTTP API endpoints expose your application to outside callers.
               Through these, programs may communicate over the network in a language-independent fashion.
-              We have created an initial set of endpoints to illustrate how you may accomplish this in your selected runtime,
-              Vert.x. By composing together HTTP endpoints and making use of hypermedia and links,
+              We have created an initial set of endpoints to illustrate how you may accomplish this in your selected runtime.
+              By composing together HTTP endpoints and making use of hypermedia and links,
               you may follow these patterns to construct a RESTful architecture.
             </GridItem>
             <CapabilityCard.Separator />
